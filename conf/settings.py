@@ -51,6 +51,7 @@ INSTALLED_APPS = [
 
     'accounts.apps.AccountsConfig',  # app
     'api.apps.ApiConfig',  # app
+    'charities.apps.CharitiesConfig',
 ]
 
 MIDDLEWARE = [
@@ -155,3 +156,4 @@ SITE_ID = 1
 # http://whitenoise.evans.io/en/stable/
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
