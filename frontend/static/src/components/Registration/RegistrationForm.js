@@ -47,7 +47,7 @@ export default function RegistrationForm(props) {
       } else {
         const data = await response.json();
         Cookies.set("Authorization", `Token${data.key}`);
-        history.push("/");
+        props.history.push("/");
       }
     }
   }
