@@ -12,3 +12,12 @@ class ContributionListAPIView(generics.ListCreateAPIView):
 
     def perform_create(self, serializer):
         serializer.save(user=self.request.user)
+
+
+class ContributionDetailAPIView(generics.RetrieveUpdateDestroyAPIView):
+    serializer_class = ContributionSerializer
+    queryset = Contribution.objects.all()
+    # permission_classes = (IsOwnerOrReadOnly, IsAdminUser)
+
+    def perform_create(self, serializer):
+        serializer.save(user=self.request.user)

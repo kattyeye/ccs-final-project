@@ -7,5 +7,7 @@ urlpatterns = [
 
     path('', views.ContributionListAPIView.as_view(),
          name="contribution_list"),
+    path('<int:pk>/', views.ContributionDetailAPIView.as_view(),
+         name="contribution_list"),
 
 ]
