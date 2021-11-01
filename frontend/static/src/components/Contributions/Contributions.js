@@ -12,10 +12,12 @@ function Contributions() {
     fetchContribs();
   }, []);
   return (
-    <div>
+    <div className="container">
       {contribs?.map((contribution) => (
         <div>{contribution.text}</div>
       ))}
     </div>
   );
 }
+
+export default Contributions;

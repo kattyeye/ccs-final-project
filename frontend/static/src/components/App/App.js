@@ -4,6 +4,8 @@ import { Route, Switch, useHistory } from "react-router-dom";
 import RegistrationForm from "../Registration/RegistrationForm";
 import LoginForm from "../Login/LoginForm";
 import LandingPage from "../LandingPage/LandingPage";
+import Contributions from "../Contributions/Contributions";
+import Header from "../Header/Header";
 function App() {
   const [user, setUser] = useState(null);
   const history = useHistory();
@@ -23,12 +25,16 @@ function App() {
   const isAuth = user?.isAuth;
   return (
     <>
+      <Header />
       <Switch>
         <Route path="/registration">
           <RegistrationForm />
         </Route>
         <Route path="/login">
           <LoginForm isAuth={isAuth} setUser={setUser} />
+        </Route>
+        <Route path="/my-contributions">
+          <Contributions isAuth={isAuth} setUser={setUser} user={user} />
         </Route>
         <Route path="/">
           <LandingPage />
