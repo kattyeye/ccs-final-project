@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import { Modal, Button } from "react-bootstrap";
 import Cookies from "js-cookie";
 function Contributions() {
-  const [contribs, setContribs] = useState([]);
   const [contrib, setContrib] = useState({
     ein: "",
     charity: "",
@@ -15,31 +14,12 @@ function Contributions() {
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
-  useEffect(() => {
-    async function fetchContribs() {
-      const response = await fetch(`/api_v1/contributions/`);
-      const data = await response.json();
-      console.log("contribs", data);
-      setContribs(data);
-    }
-    fetchContribs();
-  }, []);
-
-  async function fetchCharities() {
-    const response =
-      await fetch(`https://api.data.charitynavigator.org/v2/Organizations?app_id=0523b096&app_key=ed9cb1c120b866a6232e01a7affb00c5&pageSize=1000&rated=true&state=SC&city=Greenville
-      `);
-    const data = await response.json();
-    console.log("charities", data);
-    setCharities(data);
-  }
 
   async function saveContribution(e) {
     e.preventDefault();
     const options = {
       method: "POST",
       headers: {
-        "Content-Type": "application/json",
         "X-CSRFToken": Cookies.get("csrftoken"),
       },
       body: JSON.stringify(contrib),
@@ -60,9 +40,7 @@ function Contributions() {
       .filter((val) => {
         if (contrib.charity == "") {
           return val;
-        } else if (
-          val.charity.toLowerCase().includes(contrib.charity.toLowerCase())
-        ) {
+        } else if (val.charity.toLowerCase().includes(contrib.charity)) {
           return val;
         }
       })
@@ -81,9 +59,6 @@ function Contributions() {
 
   return (
     <div className="container">
-      {contribs?.map((contrib) => (
-        <div>{contrib.text}</div>
-      ))}
       <div>
         <Button variant="primary" onClick={handleShow}>
           Add Contribution

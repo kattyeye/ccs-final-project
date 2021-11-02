@@ -1,5 +1,11 @@
+import LoginForm from "../Login/LoginForm";
+
 function LandingPage() {
-  return <div>Hello World!</div>;
+  return (
+    <div>
+      <LoginForm />
+    </div>
+  );
 }
 
 export default LandingPage;

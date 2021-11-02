@@ -23,11 +23,25 @@ export default function Header(props) {
 
             <Nav.Link>
               <li className="nav-item p-3">
+                <NavLink to="/">Blog</NavLink>
+              </li>
+            </Nav.Link>
+            <Nav.Link>
+              <li className="nav-item p-3">
+                <NavLink to="/organizations">Organizations</NavLink>
+              </li>
+            </Nav.Link>
+            <Nav.Link>
+              <li className="nav-item p-3">
+                <NavLink to="/">About Us</NavLink>
+              </li>
+            </Nav.Link>
+            <Nav.Link>
+              <li className="nav-item p-3">
                 <NavLink to="/my-contributions">My Contributions</NavLink>
               </li>
             </Nav.Link>
-
-            {!props.isAuth && (
+            {/* {!!!props.isAuth && (
               <Nav.Link>
                 <li className="nav-item p-3 ">
                   <NavLink className="login-btn" to="/login">
@@ -35,8 +49,9 @@ export default function Header(props) {
                   </NavLink>
                 </li>
               </Nav.Link>
-            )}
-            {props.user && (
+            )} */}
+
+            {props.isAuth && (
               <Nav.Link>
                 <li className="btn-logout">
                   <button
