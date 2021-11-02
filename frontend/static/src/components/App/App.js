@@ -6,7 +6,8 @@ import LoginForm from "../Login/LoginForm";
 import LandingPage from "../LandingPage/LandingPage";
 import Contributions from "../Contributions/Contributions";
 import Header from "../Header/Header";
-function App() {
+import Cookies from "js-cookie";
+function App(props) {
   const [user, setUser] = useState(null);
   const history = useHistory();
   useEffect(() => {
@@ -22,10 +23,32 @@ function App() {
     checkAuth();
   }, [history]);
 
+  async function handleLogoutSubmit(event) {
+    // event.preventDefault();
+    const options = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "X-CSRFToken": Cookies.get("csrftoken"),
+      },
+      body: JSON.stringify(props.user),
+    };
+    const response = await fetch("/rest-auth/logout/", options);
+    if (!response) {
+      console.log(response);
+    } else {
+      console.log(response);
+      const data = await response.json();
+      Cookies.remove("Authorization");
+      setUser({ isAuth: false });
+      history.push("/");
+    }
+  }
+
   const isAuth = user?.isAuth;
   return (
     <>
-      <Header />
+      <Header handleLogoutSubmit={handleLogoutSubmit} />
       <Switch>
         <Route path="/registration">
           <RegistrationForm />

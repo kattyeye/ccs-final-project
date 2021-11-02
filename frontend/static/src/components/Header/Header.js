@@ -36,7 +36,7 @@ export default function Header(props) {
                 </li>
               </Nav.Link>
             )}
-            {props.isAuth && (
+            {props.user && (
               <Nav.Link>
                 <li className="btn-logout">
                   <button
