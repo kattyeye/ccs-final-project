@@ -62,8 +62,8 @@ function App(props) {
           <OrganizationList />
         </Route>
         <Route path="/my-contributions">
+          <ContributionList isAuth={isAuth} user={user} />
           <ContributionForm isAuth={isAuth} user={user} />
-          <ContributionList isAuth={isAuth} />
         </Route>
         <Route path="/">
           <LandingPage />
