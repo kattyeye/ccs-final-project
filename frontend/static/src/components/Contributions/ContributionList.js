@@ -15,7 +15,11 @@ function ContributionList() {
   return (
     <div className="container">
       {contribs?.map((contrib) => (
-        <div>{contrib.text}</div>
+        <div>
+          <h6>
+            {contrib.charity}: {contrib.text}
+          </h6>
+        </div>
       ))}
     </div>
   );

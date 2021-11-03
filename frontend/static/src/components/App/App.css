@@ -5,6 +5,14 @@
 img {
   width: 100%;
 }
+button.btn {
+  background-color: white;
+  border: 3px solid black;
+  border-radius: 25px;
+  color: black;
+  padding: 10px 20px;
+}
+
 nav img {
   width: 80px;
 }
@@ -18,4 +26,23 @@ nav img {
 }
 .stars-img {
   width: 65px;
+}
+.form-data {
+  display: flex;
+  flex-direction: column;
+}
+.horiz-container {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 100px;
+}
+.half-text {
+  width: 50%;
+}
+.header-login-form {
+  width: 40%;
+}
+
+.img-container {
+  width: 40%;
 }

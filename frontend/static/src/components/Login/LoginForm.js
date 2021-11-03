@@ -48,7 +48,7 @@ function LoginForm(props) {
   }
 
   return (
-    <form className="mt-3 col-6 container" onSubmit={handleSubmit}>
+    <form className="container" onSubmit={handleSubmit}>
       <div className="form-group text-left mb-3">
         {/* <label htmlFor="username">username</label> */}
         <input

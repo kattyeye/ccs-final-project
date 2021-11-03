@@ -8,7 +8,7 @@ const APP_KEY = "ed9cb1c120b866a6232e01a7affb00c5";
 
 function Contributions() {
   const [contrib, setContrib] = useState({
-    ein: "",
+    // ein: "",
     charity: "",
     in_dollars: "",
     in_hours: "",
@@ -77,40 +77,52 @@ function Contributions() {
           </Modal.Header>
           <Modal.Body>
             <form>
-              <input
-                type="search"
-                placeholder="Search for a charity"
-                name="charity"
-                value={contrib.charity}
-                onChange={handleChange}
-              />
+              <div className="form-search">
+                <input
+                  type="text"
+                  placeholder="Search for a charity"
+                  name="charity"
+                  value={contrib.charity}
+                  onChange={handleChange}
+                />
+              </div>
               <ul>
-                {" "}
                 {charities?.map((charity) => {
-                  <li>{console.log({ charity: charity.charityName })}</li>;
+                  <li>
+                    <p>{charity.charityName}</p>
+                  </li>;
                 })}
               </ul>
-              <input
-                type="number"
-                placeholder="Dollar Amount"
-                name="in_dollars"
-                value={contrib.in_dollars}
-                onChange={handleChange}
-              />
-              <input
-                type="number"
-                placeholder="Volunteer hours"
-                name="in_hours"
-                value={contrib.in_hours}
-                onChange={handleChange}
-              />
-              <input
-                type="text"
-                placeholder="Description"
-                name="text"
-                value={contrib.text}
-                onChange={handleChange}
-              />
+              <div className="form-data">
+                <input
+                  type="text"
+                  placeholder="Search for a charity"
+                  name="charity"
+                  value={contrib.charity}
+                  onChange={handleChange}
+                />
+                <input
+                  type="number"
+                  placeholder="Dollar Amount"
+                  name="in_dollars"
+                  value={contrib.in_dollars}
+                  onChange={handleChange}
+                />
+                <input
+                  type="number"
+                  placeholder="Volunteer hours"
+                  name="in_hours"
+                  value={contrib.in_hours}
+                  onChange={handleChange}
+                />
+                <input
+                  type="text"
+                  placeholder="Description"
+                  name="text"
+                  value={contrib.text}
+                  onChange={handleChange}
+                />
+              </div>
             </form>
           </Modal.Body>
           <Modal.Footer>
