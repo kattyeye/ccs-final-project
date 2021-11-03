@@ -27,7 +27,7 @@ function OrganizationList() {
     <ul>
       {charities?.map((charity) => (
         <li>
-          {charity.charityName}{" "}
+          {charity.charityName}
           <img
             className="stars-img"
             src={charity.currentRating.ratingImage.large}

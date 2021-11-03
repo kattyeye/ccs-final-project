@@ -62,7 +62,7 @@ function Contributions() {
     }));
   }
 
-  console.log("loading");
+  // console.log("loading");
 
   return (
     <div className="container">
@@ -83,22 +83,27 @@ function Contributions() {
                 name="charity"
                 value={contrib.charity}
                 onChange={handleChange}
-              ></input>
-
+              />
+              <ul>
+                {" "}
+                {charities?.map((charity) => {
+                  <li>{console.log({ charity: charity.charityName })}</li>;
+                })}
+              </ul>
               <input
                 type="number"
                 placeholder="Dollar Amount"
                 name="in_dollars"
                 value={contrib.in_dollars}
                 onChange={handleChange}
-              ></input>
+              />
               <input
                 type="number"
                 placeholder="Volunteer hours"
                 name="in_hours"
                 value={contrib.in_hours}
                 onChange={handleChange}
-              ></input>
+              />
               <input
                 type="text"
                 placeholder="Description"
@@ -107,9 +112,6 @@ function Contributions() {
                 onChange={handleChange}
               />
             </form>
-            {charities?.map((charity) => {
-              <h6>{charity.organization.charityName}</h6>;
-            })}
           </Modal.Body>
           <Modal.Footer>
             <Button variant="secondary" onClick={handleClose}>
