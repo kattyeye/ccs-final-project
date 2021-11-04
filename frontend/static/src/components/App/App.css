@@ -58,3 +58,6 @@ nav img {
   font-size: 12px;
   text-transform: uppercase;
 }
+.options-card-holder {
+  display: flex;
+}

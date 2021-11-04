@@ -62,14 +62,14 @@ function Contributions() {
     }));
   }
 
-  function selectCharity(charity) {
-    // console.log("firing");
+  // function selectCharity(charity) {
+  //   // console.log("firing");
 
-    setContrib({
-      ein: charities.ein,
-      charity: charities.charity,
-    });
-  }
+  //   setContrib({
+  //     ein: charities.ein,
+  //     charity: charities.charity,
+  //   });
+  // }
 
   // console.log("loading");
 
@@ -102,7 +102,7 @@ function Contributions() {
                     <button
                       type="button"
                       className="select-button"
-                      onClick={selectCharity()}
+                      // onClick={selectCharity()}
                       value={contrib.charity}
                     >
                       Select
