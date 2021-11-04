@@ -8,7 +8,7 @@ const APP_KEY = "ed9cb1c120b866a6232e01a7affb00c5";
 
 function Contributions() {
   const [contrib, setContrib] = useState({
-    // ein: "",
+    ein: "",
     charity: "",
     in_dollars: "",
     in_hours: "",
@@ -27,7 +27,7 @@ function Contributions() {
       );
       const data = await response.json();
       console.log("data", data);
-      setCharities(data);
+      setCharities(data.slice(0, 5));
     };
     searchCharities();
   }, [contrib.charity]);
@@ -62,6 +62,15 @@ function Contributions() {
     }));
   }
 
+  function selectCharity(charity) {
+    // console.log("firing");
+
+    setContrib({
+      ein: charities.ein,
+      charity: charities.charity,
+    });
+  }
+
   // console.log("loading");
 
   return (
@@ -87,11 +96,19 @@ function Contributions() {
                 />
               </div>
               <ul>
-                {charities?.map((charity) => {
-                  <li>
-                    <p>{charity.charityName}</p>
-                  </li>;
-                })}
+                {charities?.map((charity) => (
+                  <li className="charitysearchlist" key={charity.id}>
+                    {charity.charityName}
+                    <button
+                      type="button"
+                      className="select-button"
+                      onClick={selectCharity()}
+                      value={contrib.charity}
+                    >
+                      Select
+                    </button>
+                  </li>
+                ))}
               </ul>
               <div className="form-data">
                 <input

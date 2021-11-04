@@ -13,6 +13,10 @@ button.btn {
   padding: 10px 20px;
 }
 
+li {
+  list-style: none;
+}
+
 nav img {
   width: 80px;
 }
@@ -45,4 +49,12 @@ nav img {
 
 .img-container {
   width: 40%;
+}
+
+.select-button {
+  border: none;
+  background: none;
+  color: red;
+  font-size: 12px;
+  text-transform: uppercase;
 }
