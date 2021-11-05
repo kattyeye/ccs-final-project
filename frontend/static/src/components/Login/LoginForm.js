@@ -39,7 +39,7 @@ function LoginForm(props) {
     } else {
       const data = await response.json();
       Cookies.set("Authorization", `Token${data.key}`);
-      props.setUser((prevState) => ({
+      setUser((prevState) => ({
         ...prevState,
         isAuth: true,
       }));
@@ -87,7 +87,7 @@ function LoginForm(props) {
           props.history.push("/registration");
         }}
       >
-        Click to register.
+        register
       </button>
     </form>
   );

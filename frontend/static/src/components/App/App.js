@@ -9,6 +9,7 @@ import Header from "../Header/Header";
 import Cookies from "js-cookie";
 import ContributionList from "../Contributions/ContributionList";
 import OrganizationList from "../Orgs/OrganizationList";
+import ContributionPageTitle from "../Contributions/ContributionPageTitle";
 function App(props) {
   const [user, setUser] = useState(null);
   const history = useHistory();
@@ -48,6 +49,7 @@ function App(props) {
   }
 
   const isAuth = user?.isAuth;
+  // const isAdmin = user?.isAdmin;
   return (
     <>
       <Header handleLogoutSubmit={handleLogoutSubmit} />
@@ -56,12 +58,13 @@ function App(props) {
           <RegistrationForm />
         </Route>
         <Route path="/login">
-          <LoginForm isAuth={isAuth} setUser={setUser} />
+          <LoginForm isAuth={isAuth} user={user} setUser={setUser} />
         </Route>
         <Route path="/organizations">
           <OrganizationList />
         </Route>
         <Route path="/my-contributions">
+          <ContributionPageTitle />
           <ContributionList isAuth={isAuth} user={user} />
           <ContributionForm isAuth={isAuth} user={user} />
         </Route>

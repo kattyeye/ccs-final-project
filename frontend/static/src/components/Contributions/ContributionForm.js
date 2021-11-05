@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 import { Modal, Button } from "react-bootstrap";
 import Cookies from "js-cookie";
+import { withRouter } from "react-router";
+import { FaSearch } from "react-icons/fa";
 
 const BASE_URL = "https://api.data.charitynavigator.org/v2";
 const APP_ID = "0523b096";
@@ -74,11 +76,11 @@ function Contributions() {
   // console.log("loading");
 
   return (
-    <div className="container">
+    <div className="container-fluid">
       <div>
-        <Button variant="primary" onClick={handleShow}>
+        <button className="btn" onClick={handleShow}>
           Add Contribution
-        </Button>
+        </button>
 
         <Modal show={show} onHide={handleClose}>
           <Modal.Header closeButton>
@@ -94,26 +96,28 @@ function Contributions() {
                   value={contrib.charity}
                   onChange={handleChange}
                 />
+                <FaSearch className="fa-search" />
+
+                <ul>
+                  {charities?.map((charity) => (
+                    <li className="charitysearchlist" key={charity.id}>
+                      {charity.charityName}
+                      <button
+                        type="button"
+                        className="select-button"
+                        // onClick={selectCharity()}
+                        value={contrib.charity}
+                      >
+                        Select
+                      </button>
+                    </li>
+                  ))}
+                </ul>
               </div>
-              <ul>
-                {charities?.map((charity) => (
-                  <li className="charitysearchlist" key={charity.id}>
-                    {charity.charityName}
-                    <button
-                      type="button"
-                      className="select-button"
-                      // onClick={selectCharity()}
-                      value={contrib.charity}
-                    >
-                      Select
-                    </button>
-                  </li>
-                ))}
-              </ul>
               <div className="form-data">
                 <input
                   type="text"
-                  placeholder="Search for a charity"
+                  placeholder="Charity Name"
                   name="charity"
                   value={contrib.charity}
                   onChange={handleChange}
@@ -156,4 +160,4 @@ function Contributions() {
   );
 }
 
-export default Contributions;
+export default withRouter(Contributions);

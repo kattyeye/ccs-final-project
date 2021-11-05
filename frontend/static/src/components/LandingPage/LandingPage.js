@@ -4,10 +4,11 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHandHoldingHeart } from "@fortawesome/free-solid-svg-icons";
 import { FaHandHoldingHeart, FaHandsHelping } from "react-icons/fa";
 import { Card } from "react-bootstrap";
+import { withRouter } from "react-router";
 function LandingPage() {
   return (
-    <div className="container">
-      <section className="horiz-container">
+    <div className="container-fluid col-lg col-12">
+      <section className="horiz-container container-fluid">
         <div className="half-text">
           <h1>Don't be a hater.</h1>
           <h4>
@@ -21,7 +22,7 @@ function LandingPage() {
         </div>
       </section>
 
-      <section className="container horiz-container">
+      <section className="container-fluid horiz-container-mid">
         <div className="half-text">
           <h3>What does 86 mean?</h3>
           <p>
@@ -35,7 +36,7 @@ function LandingPage() {
           <img src={logo}></img>
         </div>
       </section>
-      <section className="container horiz-container">
+      <section className="container-fluid horiz-container-three">
         <div className="img-container">
           <img src={logo}></img>
         </div>
@@ -80,4 +81,4 @@ function LandingPage() {
   );
 }
 
-export default LandingPage;
+export default withRouter(LandingPage);
