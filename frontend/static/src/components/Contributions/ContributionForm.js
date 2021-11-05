@@ -125,6 +125,7 @@ function Contributions(props) {
                 />
                 <input
                   type="number"
+                  min="0"
                   placeholder="Dollar Amount"
                   name="in_dollars"
                   value={contrib.in_dollars}
@@ -132,6 +133,7 @@ function Contributions(props) {
                 />
                 <input
                   type="number"
+                  min="0"
                   placeholder="Volunteer hours"
                   name="in_hours"
                   value={contrib.in_hours}

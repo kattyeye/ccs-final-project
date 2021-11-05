@@ -4,7 +4,8 @@ import { AiFillDelete, AiFillEdit } from "react-icons/ai";
 import { withRouter } from "react-router";
 import ContributionForm from "./ContributionForm";
 import Cookies from "js-cookie";
-function ContributionList() {
+import { propTypes } from "react-bootstrap/esm/Image";
+function ContributionList(props) {
   const [contribList, setContribList] = useState([]);
   useEffect(() => {
     async function fetchContribs() {
@@ -36,31 +37,50 @@ function ContributionList() {
       setContribList(updatedContribs);
     });
   }
+
+  let dollarUS = Intl.NumberFormat("en-US", {
+    style: "currency",
+    currency: "USD",
+  });
+
+  function subtotal() {
+    let total = 0;
+    props.contrib.forEach((item) => {
+      // console.log("type", item.title, typeof item.price);
+      total = total + item.in_dollars;
+    });
+    console.log({ total });
+
+    return total;
+  }
+
   return (
     <div className="container-fluid contrib-list-holder">
       {contribList?.map((contrib) => (
-        <div key={contrib.id}>
-          <h6>
-            {contrib.charity}: {contrib.text}
-            <button
-              type="button"
-              className="xbutton"
-              value={contrib.id}
-              onClick={handleDelete}
-            >
-              <AiFillDelete />
-            </button>
-            <button
-              type="button"
-              className="xbutton"
-              value={contrib.id}
-              onClick={handleDelete}
-            >
-              <AiFillEdit />
-            </button>
-          </h6>
+        <div key={contrib.ein} className="contribution-container">
+          <h6>{contrib.charity}</h6>
+          <p>Volunteer hours: {contrib.in_hours}</p>
+          <p>Donations: ${contrib.in_dollars}</p>
+          <p>Notes: {contrib.text}</p>
+          <button
+            type="button"
+            className="xbutton"
+            value={contrib.id}
+            onClick={handleDelete}
+          >
+            <AiFillDelete />
+          </button>
+          <button
+            type="button"
+            className="xbutton"
+            value={contrib.id}
+            // onClick={handleUpdate}
+          >
+            <AiFillEdit />
+          </button>
         </div>
       ))}
+      <p>Total Amount Given: {dollarUS.format(subtotal())}</p>
       <ContributionForm setContribList={setContribList} />
     </div>
   );

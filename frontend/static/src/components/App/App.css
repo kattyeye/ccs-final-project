@@ -136,6 +136,10 @@ nav {
   text-align: center;
 }
 
+.contribution-container {
+  margin-bottom: 20px;
+}
+
 @media (max-width: 501px) {
   .horiz-container,
   .header-login-form {
