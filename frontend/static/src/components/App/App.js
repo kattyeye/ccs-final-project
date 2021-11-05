@@ -52,7 +52,7 @@ function App(props) {
   // const isAdmin = user?.isAdmin;
   return (
     <>
-      <Header handleLogoutSubmit={handleLogoutSubmit} />
+      <Header handleLogoutSubmit={handleLogoutSubmit} isAuth={isAuth} />
       <Switch>
         <Route path="/registration">
           <RegistrationForm />
@@ -66,7 +66,6 @@ function App(props) {
         <Route path="/my-contributions">
           <ContributionPageTitle />
           <ContributionList isAuth={isAuth} user={user} />
-          <ContributionForm isAuth={isAuth} user={user} />
         </Route>
         <Route path="/">
           <LandingPage />

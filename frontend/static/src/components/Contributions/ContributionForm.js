@@ -8,7 +8,7 @@ const BASE_URL = "https://api.data.charitynavigator.org/v2";
 const APP_ID = "0523b096";
 const APP_KEY = "ed9cb1c120b866a6232e01a7affb00c5";
 
-function Contributions() {
+function Contributions(props) {
   const [contrib, setContrib] = useState({
     ein: "",
     charity: "",
@@ -52,6 +52,7 @@ function Contributions() {
       const data = await response.json();
       setContrib(data);
       setShow(false);
+      props.setContribList((prevState) => [...prevState, data]);
     }
   }
 
@@ -64,14 +65,14 @@ function Contributions() {
     }));
   }
 
-  // function selectCharity(charity) {
-  //   // console.log("firing");
+  function selectCharity(charity) {
+    // console.log("firing");
 
-  //   setContrib({
-  //     ein: charities.ein,
-  //     charity: charities.charity,
-  //   });
-  // }
+    setContrib({
+      ein: charity.ein,
+      charity: charity.charityName,
+    });
+  }
 
   // console.log("loading");
 
@@ -100,13 +101,13 @@ function Contributions() {
 
                 <ul>
                   {charities?.map((charity) => (
-                    <li className="charitysearchlist" key={charity.id}>
+                    <li className="charitysearchlist" key={charity.ein}>
                       {charity.charityName}
                       <button
                         type="button"
                         className="select-button"
-                        // onClick={selectCharity()}
                         value={contrib.charity}
+                        onClick={() => selectCharity(charity)}
                       >
                         Select
                       </button>
