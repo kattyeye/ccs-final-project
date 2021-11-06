@@ -8,7 +8,7 @@ const BASE_URL = "https://api.data.charitynavigator.org/v2";
 const APP_ID = "0523b096";
 const APP_KEY = "ed9cb1c120b866a6232e01a7affb00c5";
 
-function Contributions(props) {
+function ContributionForm(props) {
   const [contrib, setContrib] = useState({
     ein: "",
     charity: "",
@@ -163,4 +163,4 @@ function Contributions(props) {
   );
 }
 
-export default withRouter(Contributions);
+export default withRouter(ContributionForm);

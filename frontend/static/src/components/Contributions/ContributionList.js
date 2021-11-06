@@ -43,16 +43,16 @@ function ContributionList(props) {
     currency: "USD",
   });
 
-  function subtotal() {
-    let total = 0;
-    props.contrib.forEach((item) => {
-      // console.log("type", item.title, typeof item.price);
-      total = total + item.in_dollars;
-    });
-    console.log({ total });
+  // function subtotal() {
+  //   let total = 0;
+  //   props.contribList.map((item) => {
+  //     // console.log("type", item.title, typeof item.price);
+  //     total = total + item.in_dollars;
+  //   });
+  //   console.log({ total });
 
-    return total;
-  }
+  //   return total;
+  // }
 
   return (
     <div className="container-fluid contrib-list-holder">
@@ -80,7 +80,7 @@ function ContributionList(props) {
           </button>
         </div>
       ))}
-      <p>Total Amount Given: {dollarUS.format(subtotal())}</p>
+      {/* <p>Total Amount Given: {dollarUS.format(subtotal())}</p> */}
       <ContributionForm setContribList={setContribList} />
     </div>
   );
