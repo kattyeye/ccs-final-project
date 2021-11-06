@@ -21,3 +21,16 @@ class Review(models.Model):
     review_text = models.TextField()
     user = models.ForeignKey(settings.AUTH_USER_MODEL,
                              on_delete=models.CASCADE, blank=True,)
+
+    SUBMITTED = 'SUB'
+    PUBLISHED = "PUB"
+
+    PHASE_OPTIONS = [
+        (SUBMITTED, "Submitted"),
+        (PUBLISHED, "Published"),
+    ]
+    phase = models.CharField(
+        default='SUB',
+        choices=PHASE_OPTIONS,
+        max_length=3
+    )

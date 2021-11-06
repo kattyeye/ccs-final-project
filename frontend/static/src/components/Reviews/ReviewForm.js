@@ -30,13 +30,19 @@ function ReviewForm(props) {
 
   async function saveReview(e) {
     e.preventDefault();
+
+    const formData = new FormData();
+    formData.append("charity", review.charity);
+    formData.append("ein", review.ein); // constructing key value pairs
+    formData.append("review_text", review.review_text); // constructing key value pairs
+    formData.append("phase", e.target.value);
     const options = {
       method: "POST",
       headers: {
-        "Content-type": "application/json",
+        // "Content-type": "application/json",
         "X-CSRFToken": Cookies.get("csrftoken"),
       },
-      body: JSON.stringify(review),
+      body: formData,
     };
     const response = await fetch("/api_v1/reviews/", options);
     if (!response) {
@@ -60,8 +66,7 @@ function ReviewForm(props) {
   }
 
   function selectCharity(charity) {
-    // console.log("firing");
-
+    console.log({ name: charity.charityName, ein: charity.ein });
     setReview({
       ein: charity.ein,
       charity: charity.charityName,
@@ -110,12 +115,17 @@ function ReviewForm(props) {
           <input
             type="text"
             placeholder="Description"
-            name="text"
+            name="review_text"
             value={review.review_text}
             onChange={handleChange}
           />
         </div>
-        <button variant="primary" type="submit" onClick={saveReview}>
+        <button
+          variant="primary"
+          type="submit"
+          onClick={saveReview}
+          value="SUB"
+        >
           Save Changes
         </button>
       </form>

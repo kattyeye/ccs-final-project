@@ -2,9 +2,9 @@ import { useState, useEffect } from "react";
 import { useLocation } from "react-router";
 import ReviewForm from "../Reviews/ReviewForm";
 import ReviewList from "../Reviews/ReviewList";
-const BASE_URL = "https://api.data.charitynavigator.org/v2";
-const APP_ID = "0523b096";
-const APP_KEY = "ed9cb1c120b866a6232e01a7affb00c5";
+// const BASE_URL = "https://api.data.charitynavigator.org/v2";
+// const APP_ID = "0523b096";
+// const APP_KEY = "ed9cb1c120b866a6232e01a7affb00c5";
 
 // &pageSize=1000&rated=true&state=SC&city=Greenville
 
@@ -37,8 +37,8 @@ function OrganizationList(props) {
           </li>
         ))}
       </ul>
-      <ReviewForm isAuth={props.isAuth} />
-      <ReviewList isAuth={props.isAuth} />
+      {/* <ReviewForm isAuth={props.isAuth} />
+      <ReviewList isAuth={props.isAuth} /> */}
     </>
   );
 }

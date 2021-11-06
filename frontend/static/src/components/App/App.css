@@ -45,6 +45,10 @@ button.register-here-button {
   color: var(--dark-green);
   font-size: 12px;
   text-transform: uppercase;
+  font-weight: 900;
+}
+.select-button:hover {
+  color: #fff;
 }
 .xbutton {
   background: none;

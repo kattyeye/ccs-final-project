@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { AiFillDelete, AiFillEdit } from "react-icons/ai";
 import { withRouter } from "react-router";
 import Cookies from "js-cookie";
+import ReviewForm from "./ReviewForm";
 function ReviewList(props) {
   const [reviewList, setReviewList] = useState([]);
   useEffect(() => {
@@ -65,6 +66,7 @@ function ReviewList(props) {
           </button>
         </div>
       ))}
+      <ReviewForm />
     </div>
   );
 }

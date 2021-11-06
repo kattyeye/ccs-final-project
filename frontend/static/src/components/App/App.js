@@ -11,6 +11,7 @@ import ContributionList from "../Contributions/ContributionList";
 import OrganizationList from "../Orgs/OrganizationList";
 import ContributionPageTitle from "../Contributions/ContributionPageTitle";
 import ReviewForm from "../Reviews/ReviewList";
+import ReviewList from "../Reviews/ReviewList";
 function App(props) {
   const [user, setUser] = useState(null);
   const history = useHistory();
@@ -61,8 +62,9 @@ function App(props) {
         <Route path="/login">
           <LoginForm isAuth={isAuth} user={user} setUser={setUser} />
         </Route>
-        <Route path="/organizations">
-          <OrganizationList />
+        <Route path="/organizations-with-reviews">
+          {/* <OrganizationList /> */}
+          <ReviewList isAuth={isAuth} />
         </Route>
         <Route path="/my-contributions">
           <ContributionPageTitle />

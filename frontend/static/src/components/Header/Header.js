@@ -24,7 +24,7 @@ function Header(props) {
             </li>
 
             <li className="nav-item p-3">
-              <NavLink to="/organizations">Organizations</NavLink>
+              <NavLink to="/organizations-with-reviews">Organizations</NavLink>
             </li>
 
             <li className="nav-item p-3">
