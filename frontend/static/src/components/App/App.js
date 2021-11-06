@@ -9,9 +9,12 @@ import Header from "../Header/Header";
 import Cookies from "js-cookie";
 import ContributionList from "../Contributions/ContributionList";
 import OrganizationList from "../Orgs/OrganizationList";
-import ContributionPageTitle from "../Contributions/ContributionPageTitle";
+import PageTitle from "../Contributions/PageTitle";
 import ReviewForm from "../Reviews/ReviewList";
 import ReviewList from "../Reviews/ReviewList";
+import ReviewListAuth from "../Reviews/ReviewListAuth";
+import SecondaryHeader from "../Header/SecondaryHeader";
+import MyReviews from "../Contributions/MyReviews";
 function App(props) {
   const [user, setUser] = useState(null);
   const history = useHistory();
@@ -54,7 +57,8 @@ function App(props) {
   // const isAdmin = user?.isAdmin;
   return (
     <>
-      <Header handleLogoutSubmit={handleLogoutSubmit} isAuth={isAuth} />
+      <SecondaryHeader isAuth={isAuth} />
+      <Header handleLogoutSubmit={handleLogoutSubmit} />
       <Switch>
         <Route path="/registration">
           <RegistrationForm />
@@ -62,14 +66,17 @@ function App(props) {
         <Route path="/login">
           <LoginForm isAuth={isAuth} user={user} setUser={setUser} />
         </Route>
+        <Route path="/my-contributions:phase?">
+          <PageTitle />
+          <ContributionList isAuth={isAuth} user={user} />
+          <MyReviews isAuth={isAuth} />
+        </Route>
         <Route path="/organizations-with-reviews">
           {/* <OrganizationList /> */}
-          <ReviewList isAuth={isAuth} />
+          {!isAuth && <ReviewList />}
+          <ReviewListAuth isAuth={isAuth} />
         </Route>
-        <Route path="/my-contributions">
-          <ContributionPageTitle />
-          <ContributionList isAuth={isAuth} user={user} />
-        </Route>
+
         <Route path="/">
           <LandingPage />
         </Route>

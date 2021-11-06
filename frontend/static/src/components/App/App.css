@@ -61,8 +61,21 @@ li a:hover {
   color: #60993d;
 }
 
-nav img {
+.navbar-brand img {
   width: 80px;
+  display: flex;
+}
+@media (min-width: 992px) {
+  .navbar-expand-lg .navbar-collapse {
+    display: flex !important;
+    flex-basis: auto;
+    justify-content: flex-end;
+  }
+}
+
+.nav-both {
+  display: flex;
+  flex-direction: column;
 }
 
 input {

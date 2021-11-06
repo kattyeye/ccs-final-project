@@ -5,33 +5,35 @@ import logo from "../App/logo/logo.png";
 
 function Header(props) {
   return (
-    <Navbar collapseOnSelect expand="lg" className="container-fluid">
-      <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-      <Navbar.Collapse id="responsive-navbar-nav">
-        <Nav>
-          <ul className="brand-nav">
-            <Navbar.Brand>
-              <li>
-                <NavLink className="navbar-brand" to="/">
-                  <img src={logo} />
+    <nav className="container-fluid">
+      <Navbar.Brand>
+        <li>
+          <NavLink className="navbar-brand " to="/">
+            <img src={logo} />
+          </NavLink>
+        </li>
+      </Navbar.Brand>
+
+      <Navbar collapseOnSelect expand="lg" className="container-fluid">
+        <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+        <Navbar.Collapse id="responsive-navbar-nav">
+          <Nav>
+            <ul className="links-nav">
+              <li className="nav-item p-3">
+                <NavLink to="/">Blog</NavLink>
+              </li>
+
+              <li className="nav-item p-3">
+                <NavLink to="/organizations-with-reviews">
+                  Organizations
                 </NavLink>
               </li>
-            </Navbar.Brand>
-          </ul>
-          <ul className="links-nav">
-            <li className="nav-item p-3">
-              <NavLink to="/">Blog</NavLink>
-            </li>
 
-            <li className="nav-item p-3">
-              <NavLink to="/organizations-with-reviews">Organizations</NavLink>
-            </li>
+              <li className="nav-item p-3">
+                <NavLink to="/">About Us</NavLink>
+              </li>
 
-            <li className="nav-item p-3">
-              <NavLink to="/">About Us</NavLink>
-            </li>
-
-            {/* {!!!props.isAuth && (
+              {/* {!!!props.isAuth && (
 
                 <li className="nav-item p-3 ">
                   <NavLink className="login-btn" to="/login">
@@ -40,33 +42,36 @@ function Header(props) {
                 </li>
 
             )} */}
-            {!props.isAuth && (
-              <>
-                <li className="nav-item p-3">
-                  <NavLink to="/my-contributions">My Contributions</NavLink>
-                </li>
+              {/* {props.isAuth && (
+                <>
+                  <li className="nav-item p-3">
+                    <NavLink to="/my-contributions">My Contributions</NavLink>
+                  </li>
 
-                <li className="btn-logout">
-                  <button
-                    className="btn btn-link logout"
-                    type="button"
-                    onClick={() => props.handleLogoutSubmit()}
-                  >
-                    Logout
+                  <li className="">
+                    <button
+                      className="btn"
+                      type="button"
+                      onClick={() => props.handleLogoutSubmit()}
+                    >
+                      Logout
+                    </button>
+                  </li>
+                </>
+              )} */}
+
+              <li className="nav-item ">
+                <NavLink to="/donate">
+                  <button className="btn" type="button">
+                    Donate
                   </button>
-                </li>
-              </>
-            )}
-
-            <li className="nav-item ">
-              <button type="button" className="btn donate">
-                <NavLink to="/donate">Donate</NavLink>
-              </button>
-            </li>
-          </ul>
-        </Nav>
-      </Navbar.Collapse>
-    </Navbar>
+                </NavLink>
+              </li>
+            </ul>
+          </Nav>
+        </Navbar.Collapse>
+      </Navbar>
+    </nav>
   );
 }
 export default withRouter(Header);

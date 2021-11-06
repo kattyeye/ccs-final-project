@@ -2,12 +2,22 @@ import { useState, useEffect } from "react";
 import { AiFillDelete, AiFillEdit } from "react-icons/ai";
 import { withRouter } from "react-router";
 import Cookies from "js-cookie";
-import ReviewForm from "./ReviewForm";
-function ReviewList(props) {
+import ReviewForm from "../Reviews/ReviewForm";
+
+const phases = {
+  submitted: "SUB",
+  published: "PUB",
+};
+function MyReviews(props) {
   const [reviewList, setReviewList] = useState([]);
   useEffect(() => {
+    const key = props.match.params.phase;
+    let url = `/api_v1/reviews/`;
+    if (key) {
+      url = `/api_v1/reviews/?phase=${phases[key]}`;
+    }
     async function fetchReviews() {
-      const response = await fetch(`/api_v1/reviews/`);
+      const response = await fetch(url);
       const data = await response.json();
       console.log("reviews", data);
       setReviewList(data);
@@ -45,7 +55,7 @@ function ReviewList(props) {
           <p>
             Review: {review.review_text}
             <br></br>
-            by {props.user}
+            {review.phase}
           </p>
 
           <button
@@ -66,8 +76,7 @@ function ReviewList(props) {
           </button>
         </div>
       ))}
-      <ReviewForm />
     </div>
   );
 }
-export default withRouter(ReviewList);
+export default withRouter(MyReviews);

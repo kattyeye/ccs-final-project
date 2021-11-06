@@ -23,7 +23,7 @@ function ReviewForm(props) {
       );
       const data = await response.json();
       console.log("data", data);
-      setCharities(data);
+      setCharities(data.slice(0, 20));
     };
     searchCharities();
   }, [review.charity]);

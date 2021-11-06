@@ -8,6 +8,10 @@ urlpatterns = [
          name="review_deet_list"),
     path('reviews/', views.ReviewListAPIView.as_view(),
          name="review_list"),
+    path('admin/reviews/', views.ReviewListAdminAPIView.as_view(),
+         name="review_list_admin"),
+    path('admin/reviews/<int:pk>/', views.ReviewDetailAdminAPIView.as_view(),
+         name="detail_admin"),
 
     path('<int:pk>/', views.ContributionDetailAPIView.as_view(),
          name="contribution_deet_list"),
