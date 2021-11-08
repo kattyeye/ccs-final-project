@@ -10,7 +10,7 @@ import Cookies from "js-cookie";
 import ContributionList from "../Contributions/ContributionList";
 import OrganizationList from "../Orgs/OrganizationList";
 import ContributionsPageTitle from "../Contributions/PageTitle";
-import ReviewForm from "../Reviews/ReviewList";
+import ReviewForm from "../Reviews/ReviewForm";
 import ReviewList from "../Reviews/ReviewList";
 import ReviewListAuth from "../Reviews/ReviewListAuth";
 import SecondaryHeader from "../Header/SecondaryHeader";
@@ -85,6 +85,7 @@ function App(props) {
           <OrgPageTitle />
           <OrganizationList />
           <ReviewList />
+          <ReviewForm isAuth={isAuth} />
         </Route>
 
         <Route path="/my-reviews">

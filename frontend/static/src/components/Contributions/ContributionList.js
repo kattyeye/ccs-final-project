@@ -1,9 +1,13 @@
 import { useState, useEffect } from "react";
-import { FaBackspace } from "react-icons/fa";
+
+import { FaSearch } from "react-icons/fa";
+import Fab from "@mui/material/Fab";
+import AddIcon from "@mui/icons-material/Add";
 import { AiFillDelete, AiFillEdit } from "react-icons/ai";
 import { withRouter } from "react-router";
 import ContributionForm from "./ContributionForm";
-import Cookies from "js-cookie";
+import Cookies, { set } from "js-cookie";
+
 const defaultContrib = {
   ein: "",
   charity: "",
@@ -11,12 +15,11 @@ const defaultContrib = {
   in_hours: "",
   text: "",
 };
+
 function ContributionList(props) {
-  const [contribList, setContribList] = useState([]);
   const [show, setShow] = useState(false);
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
-  const [editContribution, setEditContribution] = useState();
+  const [selectedContrib, setSelectedContrib] = useState(defaultContrib);
+  const [contribList, setContribList] = useState([]);
 
   useEffect(() => {
     async function fetchContribs() {
@@ -27,6 +30,28 @@ function ContributionList(props) {
     }
     fetchContribs();
   }, []);
+
+  async function addContribution(contrib) {
+    console.log("firing");
+    // e.preventDefault();
+    const options = {
+      method: "POST",
+      headers: {
+        "Content-type": "application/json",
+        "X-CSRFToken": Cookies.get("csrftoken"),
+      },
+      body: JSON.stringify(contrib),
+    };
+    const response = await fetch("/api_v1/contributions/", options);
+    if (!response) {
+      console.log(response);
+    } else {
+      const data = await response.json();
+      setContribList((prevState) => [...prevState, data]);
+      setShow(false);
+      setSelectedContrib(props.defaultContrib);
+    }
+  }
 
   async function handleDelete(event) {
     event.preventDefault();
@@ -50,60 +75,42 @@ function ContributionList(props) {
       setContribList(updatedContribs);
     });
   }
-  async function handleUpdate(event) {
-    event.preventDefault();
-    const id = event.currentTarget.value;
-    // console.log({ id });
-    fetch(`api_v1/contributions/${id}/`, {
+  async function handleUpdate(contrib) {
+    const id = contrib.id;
+    const response = await fetch(`api_v1/contributions/${id}/`, {
       method: "PUT",
       headers: {
         "X-CSRFToken": Cookies.get("csrftoken"),
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(editContribution),
-    }).then((response) => {
-      if (!response.ok) {
-        throw new Error("Oops, something went wrong!", response.status);
-      }
-      const updatedContribs = [...contribList];
-      const index = updatedContribs.findIndex((contrib) => {
-        return contrib.id == id;
-      });
-      updatedContribs.splice(index, 1);
-      setContribList(updatedContribs);
-      props.setContrib(defaultContrib);
-      setShow(false);
+      body: JSON.stringify(contrib),
     });
+
+    if (!response.ok) {
+      throw new Error("Oops, something went wrong!", response.status);
+    } else {
+      const data = await response.json();
+      const updatedContribs = [...contribList];
+      const index = updatedContribs.findIndex((contrib) => contrib.id == id);
+      updatedContribs[index] = data;
+      setContribList(updatedContribs);
+      console.log(contribList);
+      setSelectedContrib(defaultContrib);
+      setShow(false);
+    }
   }
 
-  const handleContributionSelect = (event) => {
-    console.log("firing");
-    setShow(true);
-    setEditContribution({
-      ...editContribution,
-      ein: event.ein,
-      charity: event.charity,
-      in_dollars: event.in_dollars,
-      in_hours: event.in_hours,
-      text: event.text,
-    });
+  const handleSelection = (contrib) => {
+    setSelectedContrib(contrib);
+    setTimeout(setShow(true), 0);
   };
 
-  // let dollarUS = Intl.NumberFormat("en-US", {
-  //   style: "currency",
-  //   currency: "USD",
-  // });
+  const handleClose = () => {
+    setShow(false);
+    setSelectedContrib(defaultContrib);
+  };
 
-  // function subtotal() {
-  //   let total = 0;
-  //   props.contribList.map((item) => {
-  //     // console.log("type", item.title, typeof item.price);
-  //     total = total + item.in_dollars;
-  //   });
-  //   console.log({ total });
-
-  //   return total;
-  // }
+  const handleShow = () => props.setShow(true);
 
   return (
     <div className="container-fluid contrib-list-holder">
@@ -111,8 +118,8 @@ function ContributionList(props) {
       {contribList?.map((contrib) => (
         <div key={contrib.ein} className="contribution-container">
           <h6>{contrib.charity}</h6>
-          <p>Volunteer hours: {contrib.in_hours}</p>
           <p>Donations: ${contrib.in_dollars}</p>
+          <p>Volunteer hours: {contrib.in_hours}</p>
           <p>Notes: {contrib.text}</p>
           <button
             type="button"
@@ -126,20 +133,30 @@ function ContributionList(props) {
             type="button"
             className="xbutton"
             value={contrib.id}
-            onClick={handleContributionSelect}
+            onClick={() => handleSelection(contrib)}
           >
             <AiFillEdit />
           </button>
         </div>
       ))}
       {/* <p>Total Amount Given: {dollarUS.format(subtotal())}</p> */}
+
+      <Fab
+        color="primary"
+        aria-label="add"
+        // className="btn"
+        onClick={() => setShow(true)}
+      >
+        <AddIcon />
+      </Fab>
+
       <ContributionForm
-        setContribList={setContribList}
-        editContribution={editContribution}
         show={show}
         setShow={setShow}
-        handleShow={handleShow}
+        selectedContrib={selectedContrib}
         handleClose={handleClose}
+        handleShow={handleShow}
+        addContribution={addContribution}
         handleUpdate={handleUpdate}
       />
     </div>

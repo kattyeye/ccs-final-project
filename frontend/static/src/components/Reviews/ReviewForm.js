@@ -23,7 +23,7 @@ function ReviewForm(props) {
       );
       const data = await response.json();
       console.log("data", data);
-      setCharities(data.slice(0, 20));
+      setCharities(data.slice(0, 5));
     };
     searchCharities();
   }, [review.charity]);
@@ -75,7 +75,6 @@ function ReviewForm(props) {
 
   return (
     <div>
-      {" "}
       <form>
         <div className="form-search">
           <input
