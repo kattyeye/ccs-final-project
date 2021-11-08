@@ -1,10 +1,11 @@
 import LoginForm from "../Login/LoginForm";
-import logo from "../App/logo/logo.png";
+import logo from "../App/pics/logo.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHandHoldingHeart } from "@fortawesome/free-solid-svg-icons";
 import { FaHandHoldingHeart, FaHandsHelping } from "react-icons/fa";
 import { Card } from "react-bootstrap";
 import { withRouter } from "react-router";
+import { CardContent, CardHeader } from "@mui/material";
 function LandingPage() {
   return (
     <div className="container-fluid col-lg col-12">
@@ -15,7 +16,7 @@ function LandingPage() {
             86 Hate is a movement to share resources and connect people to
             non-profits in Greenville.
           </h4>
-          <button className="btn">Learn More</button>
+          <a className="btn">Learn More</a>
         </div>
         <div className="header-login-form">
           <LoginForm />
@@ -56,7 +57,7 @@ function LandingPage() {
         </div>
         <div className="options-card-holder">
           <Card>
-            <FaHandHoldingHeart />
+            <FaHandHoldingHeart style={{ width: "100%", fontSize: "75px" }} />
             <br></br>
             <h4>Don8</h4>
             <p>
@@ -66,7 +67,7 @@ function LandingPage() {
           </Card>
           <div>
             <Card>
-              <FaHandsHelping />
+              <FaHandsHelping style={{ width: "100%", fontSize: "75px" }} />{" "}
               <br></br>
               <h4>Particip8</h4>
               <p>

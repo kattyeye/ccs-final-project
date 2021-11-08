@@ -1,7 +1,7 @@
 import { NavLink, withRouter } from "react-router-dom";
 import Navbar from "react-bootstrap/Navbar";
 import { Container, Nav, NavDropdown } from "react-bootstrap";
-import logo from "../App/logo/logo.png";
+import logo from "../App/pics/logo.png";
 
 function Header(props) {
   return (

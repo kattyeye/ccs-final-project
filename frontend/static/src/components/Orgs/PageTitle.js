@@ -1,13 +1,16 @@
 import { Carousel } from "react-bootstrap";
+import { FaHeart } from "react-icons/fa";
 import sliderpic from "../App/pics/sliderpic1.jpg";
-function ContributionsPageTitle() {
+function OrgPageTitle() {
   return (
     <div className="container-fluid">
       <Carousel>
-        <Carousel.Item>
+        <Carousel.Item interval={1000}>
           <img className="d-block w-100" src={sliderpic} alt="First slide" />
           <Carousel.Caption>
-            <h3>My Contributions</h3>
+            <h3>
+              Organizations We <FaHeart />
+            </h3>
             <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
           </Carousel.Caption>
         </Carousel.Item>
@@ -15,4 +18,4 @@ function ContributionsPageTitle() {
     </div>
   );
 }
-export default ContributionsPageTitle;
+export default OrgPageTitle;

@@ -15,26 +15,26 @@ function ReviewList(props) {
     fetchReviews();
   }, []);
 
-  async function handleDelete(event) {
-    const id = event.currentTarget.value;
-    fetch(`api_v1/reviews/${id}/`, {
-      method: "DELETE",
-      headers: {
-        "X-CSRFToken": Cookies.get("csrftoken"),
-      },
-    }).then((response) => {
-      if (!response.ok) {
-        throw new Error("Oops, something went wrong!", response.status);
-      }
-      const updatedReviews = [...reviewList];
-      const index = updatedReviews.findIndex((review) => {
-        return review.id == id;
-      });
+  // async function handleDelete(event) {
+  //   const id = event.currentTarget.value;
+  //   fetch(`api_v1/reviews/${id}/`, {
+  //     method: "DELETE",
+  //     headers: {
+  //       "X-CSRFToken": Cookies.get("csrftoken"),
+  //     },
+  //   }).then((response) => {
+  //     if (!response.ok) {
+  //       throw new Error("Oops, something went wrong!", response.status);
+  //     }
+  //     const updatedReviews = [...reviewList];
+  //     const index = updatedReviews.findIndex((review) => {
+  //       return review.id == id;
+  //     });
 
-      updatedReviews.splice(index, 1);
-      setReviewList(updatedReviews);
-    });
-  }
+  //     updatedReviews.splice(index, 1);
+  //     setReviewList(updatedReviews);
+  //   });
+  // }
 
   return (
     <div className="container-fluid contrib-list-holder">
@@ -45,28 +45,11 @@ function ReviewList(props) {
           <p>
             Review: {review.review_text}
             <br></br>
-            by {props.user}
+            Submitted by <strong>{review.user}</strong>
           </p>
-
-          <button
-            type="button"
-            className="xbutton"
-            value={review.id}
-            onClick={handleDelete}
-          >
-            <AiFillDelete />
-          </button>
-          <button
-            type="button"
-            className="xbutton"
-            value={review.id}
-            // onClick={handleUpdate}
-          >
-            <AiFillEdit />
-          </button>
         </div>
       ))}
-      <ReviewForm />
+      {/* <ReviewForm /> */}
     </div>
   );
 }
