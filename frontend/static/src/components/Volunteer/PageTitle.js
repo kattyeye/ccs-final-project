@@ -9,9 +9,7 @@ function VolPageTitle() {
           <img className="d-block w-100" src={sliderpic} alt="First slide" />
           <Carousel.Caption>
             <h3>Volunteer Opportunities</h3>
-            <p>
-              Hand-picked by 86 Hate from some of our favorite organizations.
-            </p>
+            <p>Hand-picked from some of our favorite organizations.</p>
           </Carousel.Caption>
         </Carousel.Item>
       </Carousel>

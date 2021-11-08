@@ -1,26 +1,30 @@
 {
   "files": {
-    "main.css": "/static/css/main.56c50683.chunk.css",
-    "main.js": "/static/js/main.b1731515.chunk.js",
-    "main.js.map": "/static/js/main.b1731515.chunk.js.map",
-    "runtime-main.js": "/static/js/runtime-main.014db5c6.js",
-    "runtime-main.js.map": "/static/js/runtime-main.014db5c6.js.map",
+    "main.css": "/static/css/main.7c5b6b4f.chunk.css",
+    "main.js": "/static/js/main.bcf982d1.chunk.js",
+    "main.js.map": "/static/js/main.bcf982d1.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.8874bab7.js",
+    "runtime-main.js.map": "/static/js/runtime-main.8874bab7.js.map",
     "static/css/2.0a9ec390.chunk.css": "/static/css/2.0a9ec390.chunk.css",
-    "static/js/2.ab22cbd4.chunk.js": "/static/js/2.ab22cbd4.chunk.js",
-    "static/js/2.ab22cbd4.chunk.js.map": "/static/js/2.ab22cbd4.chunk.js.map",
-    "static/js/3.5a49e41c.chunk.js": "/static/js/3.5a49e41c.chunk.js",
-    "static/js/3.5a49e41c.chunk.js.map": "/static/js/3.5a49e41c.chunk.js.map",
+    "static/js/2.27efdae2.chunk.js": "/static/js/2.27efdae2.chunk.js",
+    "static/js/2.27efdae2.chunk.js.map": "/static/js/2.27efdae2.chunk.js.map",
+    "static/js/3.a03f182d.chunk.js": "/static/js/3.a03f182d.chunk.js",
+    "static/js/3.a03f182d.chunk.js.map": "/static/js/3.a03f182d.chunk.js.map",
     "index.html": "/index.html",
     "static/css/2.0a9ec390.chunk.css.map": "/static/css/2.0a9ec390.chunk.css.map",
-    "static/css/main.56c50683.chunk.css.map": "/static/css/main.56c50683.chunk.css.map",
-    "static/js/2.ab22cbd4.chunk.js.LICENSE.txt": "/static/js/2.ab22cbd4.chunk.js.LICENSE.txt",
-    "static/media/logo.1a4137e6.png": "/static/media/logo.1a4137e6.png"
+    "static/css/main.7c5b6b4f.chunk.css.map": "/static/css/main.7c5b6b4f.chunk.css.map",
+    "static/js/2.27efdae2.chunk.js.LICENSE.txt": "/static/js/2.27efdae2.chunk.js.LICENSE.txt",
+    "static/media/bags.30407795.jpg": "/static/media/bags.30407795.jpg",
+    "static/media/dog.df757b62.jpg": "/static/media/dog.df757b62.jpg",
+    "static/media/logo.1a4137e6.png": "/static/media/logo.1a4137e6.png",
+    "static/media/sliderpic1.c0b414fa.jpg": "/static/media/sliderpic1.c0b414fa.jpg",
+    "static/media/turkeyfry.3830a6f2.jpeg": "/static/media/turkeyfry.3830a6f2.jpeg"
   },
   "entrypoints": [
-    "static/js/runtime-main.014db5c6.js",
+    "static/js/runtime-main.8874bab7.js",
     "static/css/2.0a9ec390.chunk.css",
-    "static/js/2.ab22cbd4.chunk.js",
-    "static/css/main.56c50683.chunk.css",
-    "static/js/main.b1731515.chunk.js"
+    "static/js/2.27efdae2.chunk.js",
+    "static/css/main.7c5b6b4f.chunk.css",
+    "static/js/main.bcf982d1.chunk.js"
   ]
 }

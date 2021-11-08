@@ -18,6 +18,7 @@ import MyReviews from "../Contributions/MyReviews";
 import OrgPageTitle from "../Orgs/PageTitle";
 import Footer from "../Footer/Footer";
 import FooterTop from "../Footer/FooterTop";
+import VolunteerOpportunities from "../Volunteer/VolunteerOpps";
 function App(props) {
   const [user, setUser] = useState(null);
   const history = useHistory();
@@ -87,6 +88,9 @@ function App(props) {
           <ReviewListAuth isAuth={isAuth} />
         </Route>
 
+        <Route path="/volunteer">
+          <VolunteerOpportunities />
+        </Route>
         <Route path="/">
           <LandingPage />
         </Route>

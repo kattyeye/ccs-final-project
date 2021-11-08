@@ -61,9 +61,9 @@ function Header(props) {
               )} */}
 
               <li className="nav-item ">
-                <NavLink to="/donate">
+                <NavLink to="/volunteer">
                   <button className="btn" type="button">
-                    Donate
+                    Get Involved
                   </button>
                 </NavLink>
               </li>

@@ -203,7 +203,9 @@ button.logout {
   right: 15%;
   text-align: center;
 }
-
+/* .card-img-top {
+  width: 100%;
+} */
 @media (max-width: 501px) {
   .horiz-container,
   .header-login-form {
