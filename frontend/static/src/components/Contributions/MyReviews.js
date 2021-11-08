@@ -48,6 +48,7 @@ function MyReviews(props) {
 
   return (
     <div className="container-fluid contrib-list-holder">
+      <h3>My Reviews</h3>
       {reviewList?.map((review) => (
         <div key={review.ein} className="contribution-container">
           <h6>{review.charity}</h6>

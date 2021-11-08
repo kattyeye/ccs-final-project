@@ -18,10 +18,10 @@ function ContributionForm(props) {
     text: "",
   });
   const [charities, setCharities] = useState([]);
-  const [show, setShow] = useState(false);
+  // const [show, setShow] = useState(false);
 
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
+  // const handleClose = () => setShow(false);
+  // const handleShow = () => setShow(true);
 
   useEffect(() => {
     const searchCharities = async () => {
@@ -52,7 +52,7 @@ function ContributionForm(props) {
       console.log(response);
       const data = await response.json();
       setContrib(data);
-      setShow(false);
+      props.setShow(false);
       props.setContribList((prevState) => [...prevState, data]);
     }
   }
@@ -68,7 +68,6 @@ function ContributionForm(props) {
 
   function selectCharity(charity) {
     // console.log("firing");
-
     setContrib({
       ein: charity.ein,
       charity: charity.charityName,
@@ -84,7 +83,7 @@ function ContributionForm(props) {
           color="primary"
           aria-label="add"
           // className="btn"
-          onClick={handleShow}
+          onClick={props.handleShow}
         >
           <AddIcon />
         </Fab>
@@ -92,7 +91,7 @@ function ContributionForm(props) {
           Add Contribution
         </button> */}
 
-        <Modal show={show} onHide={handleClose}>
+        <Modal show={props.show} onHide={props.handleClose}>
           <Modal.Header closeButton>
             <Modal.Title>Log Your Contribution</Modal.Title>
           </Modal.Header>
@@ -159,12 +158,24 @@ function ContributionForm(props) {
             </form>
           </Modal.Body>
           <Modal.Footer>
-            <Button variant="secondary" onClick={handleClose}>
-              Close
-            </Button>
-            <Button variant="primary" type="submit" onClick={saveContribution}>
-              Save Changes
-            </Button>
+            {contrib.id ? (
+              <Button type="submit" onClick={props.handleUpdate}>
+                Update
+              </Button>
+            ) : (
+              <>
+                <Button variant="secondary" onClick={props.handleClose}>
+                  Close
+                </Button>
+                <Button
+                  variant="primary"
+                  type="submit"
+                  onClick={saveContribution}
+                >
+                  Save Changes
+                </Button>
+              </>
+            )}
           </Modal.Footer>
         </Modal>
       </div>

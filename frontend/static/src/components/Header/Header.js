@@ -20,7 +20,7 @@ function Header(props) {
           <Nav>
             <ul className="links-nav">
               <li className="nav-item p-3">
-                <NavLink to="/">Blog</NavLink>
+                <NavLink to="/blog">Blog</NavLink>
               </li>
 
               <li className="nav-item p-3">

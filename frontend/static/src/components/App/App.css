@@ -15,7 +15,9 @@ body {
 img {
   width: 100%;
 }
-
+ul {
+  margin-bottom: 0px;
+}
 /* buttons */
 button.btn,
 a.btn {
@@ -183,6 +185,7 @@ button.logout {
   margin-bottom: 20px;
 }
 
+/* page titles */
 .carousel a,
 .carousel a:hover,
 .carousel-indicators,
@@ -203,9 +206,47 @@ button.logout {
   right: 15%;
   text-align: center;
 }
-/* .card-img-top {
+
+/* blog posts */
+.content {
+  width: 60%;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 49px;
+}
+
+.blog-hero-section {
+  display: flex;
+  flex-direction: column;
   width: 100%;
-} */
+  height: 473px;
+  overflow: hidden;
+  padding: 0px;
+  margin: 0px;
+}
+.blog-hero-section #hero-img {
+  flex-direction: column;
+  height: 100%;
+  width: auto;
+}
+
+.text {
+  padding: 26px 39px 30px 39px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid #000;
+  border-top: 0px;
+  width: 100%;
+}
+
+.info {
+  /* line-height: 1.6em; */
+  margin-top: 8px;
+}
+/* media queries */
 @media (max-width: 501px) {
   .horiz-container,
   .header-login-form {

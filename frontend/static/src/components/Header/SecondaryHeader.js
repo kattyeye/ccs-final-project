@@ -10,9 +10,7 @@ export default function SecondaryHeader(props) {
               <ul className="navbar-nav ml-auto">
                 <>
                   <li className="nav-item ">
-                    <NavLink to="/my-contributions/submitted">
-                      My Contributions
-                    </NavLink>
+                    <NavLink to="/my-contributions">My Dashboard</NavLink>
                   </li>
 
                   <li className="">

@@ -19,6 +19,7 @@ import OrgPageTitle from "../Orgs/PageTitle";
 import Footer from "../Footer/Footer";
 import FooterTop from "../Footer/FooterTop";
 import VolunteerOpportunities from "../Volunteer/VolunteerOpps";
+import BlogPosts from "../Blog/BlogPosts";
 function App(props) {
   const [user, setUser] = useState(null);
   const history = useHistory();
@@ -73,10 +74,12 @@ function App(props) {
         <Route path="/login">
           <LoginForm isAuth={isAuth} user={user} setUser={setUser} />
         </Route>
-        <Route path="/my-contributions:phase?">
+        <Route path="/my-contributions">
           <ContributionsPageTitle />
-          <ContributionList isAuth={isAuth} user={user} />
-          <MyReviews isAuth={isAuth} />
+          <div style={{ display: "flex" }}>
+            <ContributionList isAuth={isAuth} user={user} />
+            <MyReviews isAuth={isAuth} />
+          </div>
         </Route>
         <Route path="/organizations-with-reviews">
           <OrgPageTitle />
@@ -90,6 +93,9 @@ function App(props) {
 
         <Route path="/volunteer">
           <VolunteerOpportunities />
+        </Route>
+        <Route path="/blog">
+          <BlogPosts />
         </Route>
         <Route path="/">
           <LandingPage />
