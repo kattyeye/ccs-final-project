@@ -209,11 +209,11 @@ button.logout {
 
 /* blog posts */
 .content {
-  width: 60%;
+  width: 100%;
   background-color: white;
   display: flex;
   flex-direction: column;
-  align-items: center;
+
   margin-bottom: 49px;
 }
 
@@ -245,6 +245,13 @@ button.logout {
 .info {
   /* line-height: 1.6em; */
   margin-top: 8px;
+}
+
+.blog-holder {
+  display: flex;
+}
+.aside-container {
+  width: 40%;
 }
 /* media queries */
 @media (max-width: 501px) {

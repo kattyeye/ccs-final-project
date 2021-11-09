@@ -99,7 +99,7 @@ function App(props) {
           <BlogPosts />
         </Route>
         <Route path="/">
-          <LandingPage />
+          <LandingPage isAuth={isAuth} />
         </Route>
       </Switch>
       <FooterTop />

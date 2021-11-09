@@ -6,7 +6,7 @@ import { FaHandHoldingHeart, FaHandsHelping } from "react-icons/fa";
 import { Card } from "react-bootstrap";
 import { withRouter } from "react-router";
 import { CardContent, CardHeader } from "@mui/material";
-function LandingPage() {
+function LandingPage(props) {
   return (
     <div className="container-fluid col-lg col-12">
       <section className="horiz-container container-fluid">
@@ -18,9 +18,11 @@ function LandingPage() {
           </h4>
           <a className="btn">Learn More</a>
         </div>
-        <div className="header-login-form">
-          <LoginForm />
-        </div>
+        {!props.isAuth && (
+          <div className="header-login-form">
+            <LoginForm />
+          </div>
+        )}
       </section>
 
       <section className="container-fluid horiz-container-mid">
