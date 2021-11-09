@@ -1,12 +1,10 @@
 import { useState, useEffect } from "react";
-
-import { FaSearch } from "react-icons/fa";
 import Fab from "@mui/material/Fab";
 import AddIcon from "@mui/icons-material/Add";
 import { AiFillDelete, AiFillEdit } from "react-icons/ai";
 import { withRouter } from "react-router";
 import ContributionForm from "./ContributionForm";
-import Cookies, { set } from "js-cookie";
+import Cookies from "js-cookie";
 
 const defaultContrib = {
   ein: "",
@@ -31,7 +29,7 @@ function ContributionList(props) {
     fetchContribs();
   }, []);
 
-  async function addContribution(contrib) {
+  async function handleAdd(contrib) {
     console.log("firing");
     // e.preventDefault();
     const options = {
@@ -114,7 +112,17 @@ function ContributionList(props) {
 
   return (
     <div className="container-fluid contrib-list-holder">
-      <h3>My Contributions</h3>
+      <div className="headerwithicon">
+        <h3>My Contributions</h3>
+        <Fab
+          color="primary"
+          aria-label="add"
+          className="btn plus-icon-button"
+          onClick={() => setShow(true)}
+        >
+          <AddIcon />
+        </Fab>
+      </div>
       {contribList?.map((contrib) => (
         <div key={contrib.ein} className="contribution-container">
           <h6>{contrib.charity}</h6>
@@ -140,23 +148,13 @@ function ContributionList(props) {
         </div>
       ))}
       {/* <p>Total Amount Given: {dollarUS.format(subtotal())}</p> */}
-
-      <Fab
-        color="primary"
-        aria-label="add"
-        // className="btn"
-        onClick={() => setShow(true)}
-      >
-        <AddIcon />
-      </Fab>
-
       <ContributionForm
         show={show}
         setShow={setShow}
         selectedContrib={selectedContrib}
         handleClose={handleClose}
         handleShow={handleShow}
-        addContribution={addContribution}
+        handleAdd={handleAdd}
         handleUpdate={handleUpdate}
       />
     </div>

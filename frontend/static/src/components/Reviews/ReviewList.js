@@ -1,8 +1,11 @@
 import { useState, useEffect } from "react";
 import { AiFillDelete, AiFillEdit } from "react-icons/ai";
-import { withRouter } from "react-router";
+import { Redirect, withRouter } from "react-router";
 import Cookies from "js-cookie";
 import ReviewForm from "./ReviewForm";
+import { Link, NavLink } from "react-router-dom";
+import UserReviews from "../Reviews/UserReviews";
+
 function ReviewList(props) {
   const [reviewList, setReviewList] = useState([]);
   useEffect(() => {
@@ -38,18 +41,21 @@ function ReviewList(props) {
 
   return (
     <div className="container-fluid contrib-list-holder">
-      {reviewList?.map((review) => (
-        <div key={review.ein} className="contribution-container">
-          <h6>{review.charity}</h6>
+      {reviewList?.map(
+        (review) =>
+          review.phase == "PUB" && (
+            <div key={review.ein} className="contribution-container">
+              <h6>{review.charity}</h6>
 
-          <p>
-            Review: {review.review_text}
-            <br></br>
-            Submitted by <strong>{review.user}</strong>
-          </p>
-        </div>
-      ))}
-      {/* <ReviewForm /> */}
+              <p>
+                Review: {review.review_text}
+                <br></br>
+                Submitted by <strong>{review.user}</strong> <br></br>{" "}
+              </p>
+            </div>
+          )
+      )}
+      <UserReviews />
     </div>
   );
 }

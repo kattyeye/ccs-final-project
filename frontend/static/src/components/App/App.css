@@ -17,6 +17,7 @@ img {
 }
 ul {
   margin-bottom: 0px;
+  padding: 0px;
 }
 /* buttons */
 button.btn,
@@ -44,6 +45,7 @@ button.register-here-button {
   background-color: var(--med-green2);
   margin-left: 10px;
 }
+
 .select-button {
   border: none;
   background: none;
@@ -58,6 +60,18 @@ button.register-here-button {
 .xbutton {
   background: none;
   border: none;
+}
+button.plus-icon-button {
+  background-color: var(--med-green2);
+}
+.headerwithicon {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  /* margin-top: 20px; */
+}
+.headerwithicon h3 {
+  margin-right: 20px;
 }
 li {
   list-style: none;

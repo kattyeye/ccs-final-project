@@ -27,28 +27,30 @@ function OrganizationList(props) {
 
   return (
     <>
-      <ul>
-        {charities?.map((charity) => (
-          <li key={charity.ein}>
-            {charity.charityName}
-            <img
-              className="stars-img"
-              src={charity.currentRating.ratingImage.large}
-            ></img>
-          </li>
-        ))}
-      </ul>
-      {/* <ReviewForm isAuth={props.isAuth} />
+      <div className="container-fluid ">
+        <ul>
+          {charities?.map((charity) => (
+            <li key={charity.ein}>
+              {charity.charityName}
+              <img
+                className="stars-img"
+                src={charity.currentRating.ratingImage.large}
+              ></img>
+            </li>
+          ))}
+        </ul>
+        {/* <ReviewForm isAuth={props.isAuth} />
       <ReviewList isAuth={props.isAuth} /> */}
-      <iframe
-        width="560"
-        height="315"
-        src="https://www.youtube.com/embed/WetuL6Jo0gM"
-        title="YouTube video player"
-        frameborder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        allowfullscreen
-      ></iframe>
+        <iframe
+          width="560"
+          height="315"
+          src="https://www.youtube.com/embed/WetuL6Jo0gM"
+          title="YouTube video player"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+        ></iframe>
+      </div>
     </>
   );
 }

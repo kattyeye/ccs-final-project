@@ -2,7 +2,7 @@ import { Carousel } from "react-bootstrap";
 import sliderpic from "../App/pics/sliderpic1.jpg";
 function ContributionsPageTitle() {
   return (
-    <div className="container-fluid">
+    <div>
       <Carousel>
         <Carousel.Item>
           <img className="d-block w-100" src={sliderpic} alt="First slide" />

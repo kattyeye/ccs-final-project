@@ -1,6 +1,6 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, withRouter } from "react-router-dom";
 
-export default function SecondaryHeader(props) {
+function SecondaryHeader(props) {
   return (
     <>
       {props.isAuth && (
@@ -31,3 +31,4 @@ export default function SecondaryHeader(props) {
     </>
   );
 }
+export default withRouter(SecondaryHeader);

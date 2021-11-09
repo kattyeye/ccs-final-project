@@ -8,7 +8,7 @@ from .serializers import ContributionSerializer, ReviewSerializer
 
 class ContributionListAPIView(generics.ListCreateAPIView):
     serializer_class = ContributionSerializer
-    # permission_classes = (IsOwner,)
+    permission_classes = (IsOwner,)
 
     def get_queryset(self):
         if not self.request.user.is_anonymous:
@@ -22,7 +22,7 @@ class ContributionListAPIView(generics.ListCreateAPIView):
 class ReviewListAPIView(generics.ListCreateAPIView):
     serializer_class = ReviewSerializer
     # queryset = Review.objects.all()
-    # permission_classes = (IsOwner,)
+    permission_classes = (IsOwner | IsAuthenticatedOrReadOnly,)
 
     def get_queryset(self):
         # logic for an authenticated user
@@ -37,8 +37,7 @@ class ReviewListAPIView(generics.ListCreateAPIView):
 
 class ReviewListAdminAPIView(generics.ListCreateAPIView):
     serializer_class = ReviewSerializer
-    permissions_class = (IsAdminUser, IsOwner,
-                         IsAuthenticatedOrReadOnly,)
+    permissions_class = (IsAdminUser,)
 
     def get_queryset(self):
         # logic for an authenticated user
@@ -72,7 +71,7 @@ class ReviewDetailAPIView(generics.RetrieveUpdateDestroyAPIView):
 class ReviewDetailAdminAPIView(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = ReviewSerializer
     queryset = Review.objects.all()
-    permission_classes = (IsOwner, IsAdminUser)
+    permission_classes = (IsAdminUser,)
 
     def perform_create(self, serializer):
         serializer.save(user=self.request.user)

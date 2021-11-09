@@ -4,7 +4,6 @@ import { Route, Switch, useHistory } from "react-router-dom";
 import RegistrationForm from "../Registration/RegistrationForm";
 import LoginForm from "../Login/LoginForm";
 import LandingPage from "../LandingPage/LandingPage";
-import ContributionForm from "../Contributions/ContributionForm";
 import Header from "../Header/Header";
 import Cookies from "js-cookie";
 import ContributionList from "../Contributions/ContributionList";
@@ -14,12 +13,14 @@ import ReviewForm from "../Reviews/ReviewForm";
 import ReviewList from "../Reviews/ReviewList";
 import ReviewListAuth from "../Reviews/ReviewListAuth";
 import SecondaryHeader from "../Header/SecondaryHeader";
-import MyReviews from "../Contributions/MyReviews";
+import UserReviews from "../Contributions/UserReviews";
 import OrgPageTitle from "../Orgs/PageTitle";
 import Footer from "../Footer/Footer";
 import FooterTop from "../Footer/FooterTop";
 import VolunteerOpportunities from "../Volunteer/VolunteerOpps";
 import BlogPosts from "../Blog/BlogPosts";
+import UserReviewForm from "../Contributions/UserReviewForm";
+import AboutUs from "../AboutUs/AboutUs";
 function App(props) {
   const [user, setUser] = useState(null);
   const history = useHistory();
@@ -76,20 +77,25 @@ function App(props) {
         </Route>
         <Route path="/my-contributions">
           <ContributionsPageTitle />
-          <div style={{ display: "flex" }}>
+          <div style={{ display: "flex" }} className="mt-5 mb-5">
             <ContributionList isAuth={isAuth} user={user} />
-            <MyReviews isAuth={isAuth} />
+            <UserReviews isAuth={isAuth} />
           </div>
         </Route>
         <Route path="/organizations-with-reviews">
           <OrgPageTitle />
           <OrganizationList />
           <ReviewList />
-          <ReviewForm isAuth={isAuth} />
+          {/* <ReviewListAuth isAuth={isAuth} /> */}
+          {/* <ReviewForm isAuth={isAuth} /> */}
+          {/* <UserReviewForm isAuth={isAuth} /> */}
         </Route>
 
         <Route path="/my-reviews">
           <ReviewListAuth isAuth={isAuth} />
+        </Route>
+        <Route path="/about-us">
+          <AboutUs />
         </Route>
 
         <Route path="/volunteer">

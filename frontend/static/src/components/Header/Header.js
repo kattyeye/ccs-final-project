@@ -30,7 +30,7 @@ function Header(props) {
               </li>
 
               <li className="nav-item p-3">
-                <NavLink to="/">About Us</NavLink>
+                <NavLink to="/about-us">About Us</NavLink>
               </li>
 
               {/* {!!!props.isAuth && (

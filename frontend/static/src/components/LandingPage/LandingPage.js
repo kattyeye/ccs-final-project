@@ -6,6 +6,8 @@ import { FaHandHoldingHeart, FaHandsHelping } from "react-icons/fa";
 import { Card } from "react-bootstrap";
 import { withRouter } from "react-router";
 import { CardContent, CardHeader } from "@mui/material";
+import { Link } from "react-router-dom";
+
 function LandingPage(props) {
   return (
     <div className="container-fluid col-lg col-12">
@@ -16,7 +18,9 @@ function LandingPage(props) {
             86 Hate is a movement to share resources and connect people to
             non-profits in Greenville.
           </h4>
-          <a className="btn">Learn More</a>
+          <Link className="btn" to="/about-us">
+            Learn More
+          </Link>
         </div>
         {!props.isAuth && (
           <div className="header-login-form">

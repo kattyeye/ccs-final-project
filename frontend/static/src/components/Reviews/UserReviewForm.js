@@ -9,31 +9,32 @@ const BASE_URL = "https://api.data.charitynavigator.org/v2";
 const APP_ID = "0523b096";
 const APP_KEY = "ed9cb1c120b866a6232e01a7affb00c5";
 
-function ContributionForm(props) {
-  const [contrib, setContrib] = useState({ ...props.selectedContrib });
+function UserReviewForm(props) {
+  const [review, setReview] = useState({ ...props.selectedReview });
+  //   const [reviews, setReviews] = useState([]);
   const [charities, setCharities] = useState([]);
 
   useEffect(() => {
-    setContrib(props.selectedContrib);
+    setReview(props.selectedReview);
   }, [props]);
 
   useEffect(() => {
     console.log("firing");
     const searchCharities = async () => {
       const response = await fetch(
-        `${BASE_URL}/Organizations?app_id=${APP_ID}&app_key=${APP_KEY}&search=${contrib.charity}&rated=true`
+        `${BASE_URL}/Organizations?app_id=${APP_ID}&app_key=${APP_KEY}&search=${review.charity}&rated=true`
       );
       const data = await response.json();
       console.log("data", data);
       setCharities(data.slice(0, 5));
     };
     searchCharities();
-  }, [contrib.charity]);
+  }, [review.charity]);
 
   function handleChange(e) {
     const { name, value } = e.target;
     console.log(name, value);
-    setContrib((prevState) => ({
+    setReview((prevState) => ({
       ...prevState,
       [name]: value,
     }));
@@ -41,7 +42,7 @@ function ContributionForm(props) {
 
   function selectCharity(charity) {
     console.log("firing two");
-    setContrib((prev) => ({
+    setReview((prev) => ({
       ...prev,
       ein: charity.ein,
       charity: charity.charityName,
@@ -50,7 +51,7 @@ function ContributionForm(props) {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    props.handleAdd(contrib);
+    props.handleAdd(review);
   };
 
   return (
@@ -58,7 +59,7 @@ function ContributionForm(props) {
       <div>
         <Modal show={props.show} onHide={props.handleClose}>
           <Modal.Header closeButton>
-            <Modal.Title>Log Your Contribution</Modal.Title>
+            <Modal.Title>Log Your Review</Modal.Title>
           </Modal.Header>
           <Modal.Body>
             <form>
@@ -67,7 +68,7 @@ function ContributionForm(props) {
                   type="text"
                   placeholder="Search for a charity"
                   name="charity"
-                  value={contrib.charity}
+                  value={review.charity}
                   onChange={handleChange}
                 />
                 <FaSearch className="fa-search" />
@@ -79,7 +80,7 @@ function ContributionForm(props) {
                       <button
                         type="button"
                         className="select-button"
-                        value={contrib.charity}
+                        value={review.charity}
                         onClick={() => selectCharity(charity)}
                       >
                         Select
@@ -93,38 +94,22 @@ function ContributionForm(props) {
                   type="text"
                   placeholder="Charity Name"
                   name="charity"
-                  value={contrib.charity}
-                  onChange={handleChange}
-                />
-                <input
-                  type="number"
-                  min="0"
-                  placeholder="Dollar Amount"
-                  name="in_dollars"
-                  value={contrib.in_dollars}
-                  onChange={handleChange}
-                />
-                <input
-                  type="number"
-                  min="0"
-                  placeholder="Volunteer hours"
-                  name="in_hours"
-                  value={contrib.in_hours}
+                  value={review.charity}
                   onChange={handleChange}
                 />
                 <input
                   type="text"
                   placeholder="Description"
-                  name="text"
-                  value={contrib.text}
+                  name="review_text"
+                  value={review.review_text}
                   onChange={handleChange}
                 />
               </div>
             </form>
           </Modal.Body>
           <Modal.Footer>
-            {contrib.id ? (
-              <Button type="button" onClick={() => props.handleUpdate(contrib)}>
+            {review.id ? (
+              <Button type="button" onClick={() => props.handleUpdate(review)}>
                 Update
               </Button>
             ) : (
@@ -133,7 +118,7 @@ function ContributionForm(props) {
                   Close
                 </Button>
                 <Button type="button" onClick={handleSubmit}>
-                  Add contribution
+                  Add Review
                 </Button>
               </>
             )}
@@ -144,4 +129,4 @@ function ContributionForm(props) {
   );
 }
 
-export default withRouter(ContributionForm);
+export default withRouter(UserReviewForm);
