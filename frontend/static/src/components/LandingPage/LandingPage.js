@@ -11,7 +11,7 @@ import { Link } from "react-router-dom";
 function LandingPage(props) {
   return (
     <div className="container-fluid col-lg col-12">
-      <section className="horiz-container container-fluid">
+      {/* <section className="horiz-container container-fluid">
         <div className="half-text">
           <h1>Don't be a hater.</h1>
           <h4>
@@ -27,7 +27,41 @@ function LandingPage(props) {
             <LoginForm />
           </div>
         )}
-      </section>
+      </section> */}
+      <div className="container-fluid mt-5 mb-5">
+        <div className="row d-sm-flex align-items-center justify-content-between">
+          <div className="col-md-6 order-2 order-sm-1 p-3 p-sm-5">
+            <div className="p-0 p-sm-5">
+              <small className="text-uppercase" style={{ color: "#60993d" }}>
+                Spread the word
+              </small>
+              <h1 className="mb-4 display-4" style={{ fontWeight: "600" }}>
+                Don't be a <span style={{ color: "#60993d" }}>Hater</span>
+              </h1>
+              <p className="text-secondary" style={{ lineHeight: "2" }}>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Suscipit repellat iure laboriosam cum voluptatum, nam minima
+                deserunt aut? Distinctio voluptatibus dolor quaerat quo omnis
+                illo sequi at velit, odit quod!
+              </p>
+              <button
+                type="button"
+                className="btn"
+                style={{ backgroundColor: "" }}
+              >
+                Contact Us
+              </button>
+            </div>
+          </div>
+          {!props.isAuth && (
+            <div className="w-50 col-md-6 order-2 order-sm-2 p-sm-5">
+              <div className="p-5">
+                <LoginForm />
+              </div>
+            </div>
+          )}
+        </div>
+      </div>
 
       <section className="container-fluid horiz-container-mid">
         <div className="half-text">

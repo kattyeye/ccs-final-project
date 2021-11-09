@@ -6,6 +6,7 @@ import ReviewForm from "../Reviews/ReviewForm";
 import UserReviewForm from "./UserReviewForm";
 import Fab from "@mui/material/Fab";
 import AddIcon from "@mui/icons-material/Add";
+import { Card, CardContent, Typography } from "@mui/material";
 const phases = {
   submitted: "SUB",
   published: "PUB",
@@ -176,27 +177,29 @@ function UserReviews(props) {
   const handleShow = () => props.setShow(true);
 
   const reviewsHTML = reviews.map((review) => (
-    <div key={review.ein} className="contribution-container">
-      <h6>{review.charity}</h6>
+    <Card key={review.ein} className="contribution-container mb-5">
+      <CardContent>
+        <Typography variant="h5">{review.charity}</Typography>
 
-      <p>Review: {review.review_text}</p>
-      <button
-        type="button"
-        className="xbutton"
-        data-id={review.id}
-        onClick={handleDelete}
-      >
-        <AiFillDelete />
-      </button>
-      <button
-        type="button"
-        className="xbutton"
-        value={review.id}
-        onClick={() => handleSelection(review)}
-      >
-        <AiFillEdit />
-      </button>
-    </div>
+        <Typography variant="body2">Review: {review.review_text}</Typography>
+        <button
+          type="button"
+          className="xbutton"
+          data-id={review.id}
+          onClick={handleDelete}
+        >
+          <AiFillDelete />
+        </button>
+        <button
+          type="button"
+          className="xbutton"
+          value={review.id}
+          onClick={() => handleSelection(review)}
+        >
+          <AiFillEdit />
+        </button>
+      </CardContent>
+    </Card>
   ));
 
   return (

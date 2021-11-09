@@ -3,9 +3,9 @@ import { FaHeart } from "react-icons/fa";
 import sliderpic from "../App/pics/sliderpic1.jpg";
 function VolPageTitle() {
   return (
-    <div className="container-fluid">
+    <div>
       <Carousel>
-        <Carousel.Item interval={1000}>
+        <Carousel.Item>
           <img className="d-block w-100" src={sliderpic} alt="First slide" />
           <Carousel.Caption>
             <h3>Volunteer Opportunities</h3>

@@ -5,6 +5,8 @@ import { AiFillDelete, AiFillEdit } from "react-icons/ai";
 import { withRouter } from "react-router";
 import ContributionForm from "./ContributionForm";
 import Cookies from "js-cookie";
+import { Card, Typography, CardContent } from "@mui/material";
+import Button from "@restart/ui/esm/Button";
 
 const defaultContrib = {
   ein: "",
@@ -111,7 +113,7 @@ function ContributionList(props) {
   const handleShow = () => props.setShow(true);
 
   return (
-    <div className="container-fluid contrib-list-holder">
+    <div className="container-fluid">
       <div className="headerwithicon">
         <h3>My Contributions</h3>
         <Fab
@@ -124,28 +126,35 @@ function ContributionList(props) {
         </Fab>
       </div>
       {contribList?.map((contrib) => (
-        <div key={contrib.ein} className="contribution-container">
-          <h6>{contrib.charity}</h6>
-          <p>Donations: ${contrib.in_dollars}</p>
-          <p>Volunteer hours: {contrib.in_hours}</p>
-          <p>Notes: {contrib.text}</p>
-          <button
-            type="button"
-            className="xbutton"
-            value={contrib.id}
-            onClick={handleDelete}
-          >
-            <AiFillDelete />
-          </button>
-          <button
-            type="button"
-            className="xbutton"
-            value={contrib.id}
-            onClick={() => handleSelection(contrib)}
-          >
-            <AiFillEdit />
-          </button>
-        </div>
+        <Card key={contrib.ein} sx={{ minWidth: 275 }} className="mb-5">
+          <CardContent>
+            <Typography variant="h5">{contrib.charity}</Typography>
+            <Typography variant="body2">
+              Donations: ${contrib.in_dollars}
+              <br></br>
+              Volunteer hours: {contrib.in_hours}
+              <br></br>
+              Notes: {contrib.text}
+            </Typography>
+
+            <Button
+              type="button"
+              className="xbutton"
+              value={contrib.id}
+              onClick={handleDelete}
+            >
+              <AiFillDelete />
+            </Button>
+            <Button
+              type="button"
+              className="xbutton"
+              value={contrib.id}
+              onClick={() => handleSelection(contrib)}
+            >
+              <AiFillEdit />
+            </Button>
+          </CardContent>
+        </Card>
       ))}
       {/* <p>Total Amount Given: {dollarUS.format(subtotal())}</p> */}
       <ContributionForm
