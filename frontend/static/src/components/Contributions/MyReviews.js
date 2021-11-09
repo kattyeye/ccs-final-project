@@ -8,13 +8,74 @@ const phases = {
   submitted: "SUB",
   published: "PUB",
 };
+
+function ReviewDetail(props) {
+  const [updatedReview, setUpdatedReview] = useState(props.review);
+  const [isEditing, setIsEditing] = useState(false);
+
+  function handleChange(e) {
+    const { name, value } = e.target;
+    setUpdatedReview((prevState) => ({
+      ...prevState,
+      [name]: value,
+    }));
+  }
+
+  function handleSave(e) {
+    setIsEditing(false);
+    props.handleUpdate(updatedReview);
+  }
+
+  return (
+    <div className="contribution-container">
+      <input
+        type="text"
+        placeholder="Charity Name"
+        name="charity"
+        value={updatedReview.charity}
+        onChange={handleChange}
+        disabled={!isEditing}
+      />
+      <input
+        type="text"
+        placeholder="Description"
+        name="review_text"
+        value={updatedReview.review_text}
+        onChange={handleChange}
+        disabled={!isEditing}
+      />
+
+      {isEditing ? (
+        <button
+          className="btn btn-save save-btn"
+          type="button"
+          onClick={handleSave}
+        >
+          Save and submit
+        </button>
+      ) : (
+        <button
+          type="button"
+          className="xbutton"
+          onClick={() => setIsEditing(true)}
+        >
+          <AiFillEdit />
+        </button>
+      )}
+      <button
+        type="button"
+        className="xbutton"
+        data-id={updatedReview.id}
+        onClick={props.handleDelete}
+      >
+        <AiFillDelete />
+      </button>
+    </div>
+  );
+}
+
 function MyReviews(props) {
-  const [reviewList, setReviewList] = useState([]);
-  const [isEditing, setIsEditing] = useState(null);
-  //   const [review, setReview] = useState({
-  //     charity: "",
-  //     review_text: "",
-  //   });
+  const [reviews, setReviews] = useState([]);
 
   useEffect(() => {
     const key = props.match.params.phase;
@@ -25,129 +86,66 @@ function MyReviews(props) {
     async function fetchReviews() {
       const response = await fetch(url);
       const data = await response.json();
-      console.log("reviews", data);
-      setReviewList(data);
+      setReviews(data);
     }
     fetchReviews();
   }, []);
 
   async function handleDelete(event) {
-    const id = event.currentTarget.value;
-    fetch(`api_v1/reviews/${id}/`, {
+    const id = event.currentTarget.dataset.id;
+    const response = await fetch(`api_v1/reviews/${id}/`, {
       method: "DELETE",
       headers: {
         "X-CSRFToken": Cookies.get("csrftoken"),
       },
-    }).then((response) => {
-      if (!response.ok) {
-        throw new Error("Oops, something went wrong!", response.status);
-      }
-      const updatedReviews = [...reviewList];
-      const index = updatedReviews.findIndex((review) => {
-        return review.id == id;
-      });
-
-      updatedReviews.splice(index, 1);
-      setReviewList(updatedReviews);
     });
+
+    if (!response.ok) {
+      console.log(response);
+      throw new Error("Oops, something went wrong!", response.status);
+    } else {
+      const updatedReviews = [...reviews];
+      const index = updatedReviews.findIndex((review) => review.id == id);
+      updatedReviews.splice(index, 1);
+      setReviews(updatedReviews);
+    }
   }
 
-  function handleChange(e) {
-    const { name, value } = e.target.value;
-    // console.log("here", e.target.value);
-    const copyOfReviews = [...reviewList];
-    const index = copyOfReviews.findIndex((review) => review.id === isEditing);
-
-    const reviewCopy = { ...reviewList[index] };
-    reviewCopy[name] = value;
-    copyOfReviews[index] = reviewCopy;
-    setReviewList(copyOfReviews);
-  }
-
-  async function handleUpdate(e) {
-    const id = e.target.value;
-    const phase = e.target.dataset.phase;
-    const formData = new FormData();
-    formData.append("charity", e.charity);
-    formData.append("review_text", e.review_text);
-    formData.append("phase", phase);
-    // console.log({ id });
+  async function handleUpdate(updatedReview) {
+    const id = updatedReview.id;
     const response = await fetch(`api_v1/reviews/${id}/`, {
       method: "PUT",
       headers: {
         "X-CSRFToken": Cookies.get("csrftoken"),
         "Content-Type": "application/json",
       },
-      body: formData,
+      body: JSON.stringify(updatedReview),
     });
 
     if (!response.ok) {
       throw new Error("Oops, something went wrong!", response.status);
     } else {
       const data = await response.json();
-      const updatedReviews = [...reviewList];
+      const updatedReviews = [...reviews];
       const index = updatedReviews.findIndex((review) => review.id == id);
       updatedReviews[index] = data;
-      setReviewList(updatedReviews);
-      console.log(reviewList);
+      setReviews(updatedReviews);
     }
   }
+
+  const reviewsHTML = reviews.map((review) => (
+    <ReviewDetail
+      key={review.id}
+      review={review}
+      handleDelete={handleDelete}
+      handleUpdate={handleUpdate}
+    />
+  ));
 
   return (
     <div className="container-fluid contrib-list-holder">
       <h3>My Reviews</h3>
-
-      {reviewList?.map((review) => (
-        <div key={review.ein} className="contribution-container">
-          <input
-            type="text"
-            placeholder="Charity Name"
-            name="charity"
-            value={review.charity}
-            onChange={handleChange}
-          />
-
-          <input
-            type="text"
-            placeholder="Description"
-            name="review_text"
-            value={review.review_text}
-            onChange={handleChange}
-          />
-          {review.id === isEditing ? (
-            <>
-              <button
-                className="btn btn-save save-btn"
-                type="click"
-                value={review.id}
-                data-phase="SUB"
-                onClick={handleUpdate}
-              >
-                Save and submit
-              </button>
-            </>
-          ) : (
-            <>
-              <button
-                type="button"
-                className="xbutton"
-                value={review.id}
-                onClick={handleDelete}
-              >
-                <AiFillDelete />
-              </button>
-              <button
-                type="button"
-                className="xbutton"
-                value={review.id}
-                onClick={() => setIsEditing(review.id)}
-              >
-                <AiFillEdit />
-              </button>
-            </>
-          )}
-        </div>
-      ))}
+      <section>{reviewsHTML}</section>
     </div>
   );
 }

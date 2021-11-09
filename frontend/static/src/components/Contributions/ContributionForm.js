@@ -41,10 +41,11 @@ function ContributionForm(props) {
 
   function selectCharity(charity) {
     console.log("firing two");
-    setContrib({
+    setContrib((prev) => ({
+      ...prev,
       ein: charity.ein,
       charity: charity.charityName,
-    });
+    }));
   }
 
   const handleSubmit = (event) => {
