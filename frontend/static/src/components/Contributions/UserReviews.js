@@ -7,6 +7,8 @@ import UserReviewForm from "./UserReviewForm";
 import Fab from "@mui/material/Fab";
 import AddIcon from "@mui/icons-material/Add";
 import { Card, CardContent, Typography } from "@mui/material";
+import { Snackbar, Alert } from "@mui/material";
+
 const phases = {
   submitted: "SUB",
   published: "PUB",
@@ -16,76 +18,20 @@ const defaultReview = {
   charity: "",
   review_text: "",
 };
-// function ReviewDetail(props) {
-//   const [updatedReview, setUpdatedReview] = useState(props.review);
-//   const [isEditing, setIsEditing] = useState(false);
-
-//   function handleChange(e) {
-//     const { name, value } = e.target;
-//     setUpdatedReview((prevState) => ({
-//       ...prevState,
-//       [name]: value,
-//     }));
-//   }
-
-//   function handleSave(e) {
-//     setIsEditing(false);
-//     props.handleUpdate(updatedReview);
-//   }
-
-//   return (
-//     <div className="contribution-container">
-//       <input
-//         type="text"
-//         placeholder="Charity Name"
-//         name="charity"
-//         value={updatedReview.charity}
-//         onChange={handleChange}
-//         disabled={!isEditing}
-//       />
-//       <input
-//         type="text"
-//         placeholder="Description"
-//         name="review_text"
-//         value={updatedReview.review_text}
-//         onChange={handleChange}
-//         disabled={!isEditing}
-//       />
-
-//       {isEditing ? (
-//         <button
-//           className="btn btn-save save-btn"
-//           type="button"
-//           onClick={handleSave}
-//         >
-//           Save and submit
-//         </button>
-//       ) : (
-//         <button
-//           type="button"
-//           className="xbutton"
-//           onClick={() => setIsEditing(true)}
-//         >
-//           <AiFillEdit />
-//         </button>
-//       )}
-//       <button
-//         type="button"
-//         className="xbutton"
-//         data-id={updatedReview.id}
-//         onClick={props.handleDelete}
-//       >
-//         <AiFillDelete />
-//       </button>
-//     </div>
-//   );
-// }
 
 function UserReviews(props) {
   const [show, setShow] = useState(false);
   const [selectedReview, setSelectedReview] = useState(defaultReview);
   const [reviews, setReviews] = useState([]);
+  const [openSuccess, setOpenSuccess] = useState(false);
 
+  const handleClosey = (event, reason) => {
+    if (reason === "clickaway") {
+      return;
+    }
+
+    setOpenSuccess(false);
+  };
   useEffect(() => {
     const key = props.match.params.phase;
     let url = `/api_v1/reviews/`;
@@ -204,6 +150,15 @@ function UserReviews(props) {
 
   return (
     <div className="container-fluid contrib-list-holder">
+      <Snackbar
+        open={openSuccess}
+        autoHideDuration={6000}
+        onClose={handleClosey}
+      >
+        <Alert onClose={handleClosey} severity="danger" sx={{ width: "100%" }}>
+          Review Deleted.
+        </Alert>
+      </Snackbar>
       <div className="headerwithicon">
         <h3 id="myreviews">My Reviews</h3>
         <Fab
@@ -226,6 +181,9 @@ function UserReviews(props) {
         handleShow={handleShow}
         handleAdd={handleAdd}
         handleUpdate={handleUpdate}
+        openSuccess={openSuccess}
+        setOpenSuccess={setOpenSuccess}
+        handleClosey={handleClosey}
       />
     </div>
   );

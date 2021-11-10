@@ -20,7 +20,7 @@ export default function VolunteerOpportunities() {
               image={turkeyfry}
             />
             <CardContent>
-              <Typography gutterBottom variant="h4">
+              <Typography gutterBottom variant="h5">
                 Turkey Fry
               </Typography>
               <Typography variant="body2">
@@ -49,7 +49,7 @@ export default function VolunteerOpportunities() {
               image={bags}
             />
             <CardContent>
-              <Typography gutterBottom variant="h4">
+              <Typography gutterBottom variant="h5">
                 Feed the Thousands
               </Typography>
               <Typography variant="body2">
@@ -81,7 +81,7 @@ export default function VolunteerOpportunities() {
               image={dog}
             />
             <CardContent>
-              <Typography gutterBottom variant="h4">
+              <Typography gutterBottom variant="h5">
                 Greenville Humane Society
               </Typography>
               <Typography variant="body2">

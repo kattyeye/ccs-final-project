@@ -117,7 +117,7 @@ function UserReviews(props) {
       const data = await response.json();
       setReviews((prevState) => [...prevState, data]);
       setShow(false);
-      // setSelectedReview(props.review);
+      // setSelectedReview(review);
     }
   }
   async function handleDelete(event) {

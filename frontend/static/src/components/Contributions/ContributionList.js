@@ -49,7 +49,7 @@ function ContributionList(props) {
       const data = await response.json();
       setContribList((prevState) => [...prevState, data]);
       setShow(false);
-      setSelectedContrib(props.defaultContrib);
+      setSelectedContrib(selectedContrib);
     }
   }
 

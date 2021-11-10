@@ -41,21 +41,26 @@ function ReviewList(props) {
 
   return (
     <div className="container-fluid contrib-list-holder">
-      {reviewList?.map(
-        (review) =>
-          review.phase == "PUB" && (
-            <div key={review.ein} className="contribution-container">
-              <h6>{review.charity}</h6>
+      <div className="text-center mt-5 mb-5">
+        <span className=" text-uppercase" style={{ color: "#60993d" }}>
+          Reviews
+        </span>
+        <h1 className="text-capitalize font-weight-bold mt-2">
+          From <span style={{ color: "#60993d" }}>Locals</span> You Can Trust
+        </h1>
+      </div>
+      {reviewList?.map((review) => (
+        <div key={review.ein} className="contribution-container">
+          <h6>{review.charity}</h6>
 
-              <p>
-                Review: {review.review_text}
-                <br></br>
-                Submitted by <strong>{review.user}</strong> <br></br>{" "}
-              </p>
-            </div>
-          )
-      )}
-      <UserReviews />
+          <p>
+            Review: {review.review_text}
+            <br></br>
+            Submitted by <strong>{review.user}</strong> <br></br>
+          </p>
+        </div>
+      ))}
+      {props.isAuth && <UserReviews />}
     </div>
   );
 }

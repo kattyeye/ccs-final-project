@@ -5,6 +5,8 @@ import { withRouter } from "react-router";
 import { FaSearch } from "react-icons/fa";
 import Fab from "@mui/material/Fab";
 import AddIcon from "@mui/icons-material/Add";
+import { Snackbar, Alert } from "@mui/material";
+
 const BASE_URL = "https://api.data.charitynavigator.org/v2";
 const APP_ID = "0523b096";
 const APP_KEY = "ed9cb1c120b866a6232e01a7affb00c5";
@@ -52,10 +54,25 @@ function UserReviewForm(props) {
   const handleSubmit = (event) => {
     event.preventDefault();
     props.handleAdd(review);
+    props.setOpenSuccess(true);
   };
 
   return (
     <div className="container-fluid">
+      <Snackbar
+        open={props.openSuccess}
+        autoHideDuration={6000}
+        onClose={props.handleClosey}
+      >
+        <Alert
+          onClose={props.handleClosey}
+          severity="success"
+          sx={{ width: "100%" }}
+        >
+          Success! Review submitted!
+        </Alert>
+      </Snackbar>
+
       <div>
         <Modal show={props.show} onHide={props.handleClose}>
           <Modal.Header closeButton>

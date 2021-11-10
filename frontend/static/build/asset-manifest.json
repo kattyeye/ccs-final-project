@@ -1,19 +1,19 @@
 {
   "files": {
-    "main.css": "/static/css/main.afee9463.chunk.css",
-    "main.js": "/static/js/main.bcd08be3.chunk.js",
-    "main.js.map": "/static/js/main.bcd08be3.chunk.js.map",
-    "runtime-main.js": "/static/js/runtime-main.beda5af0.js",
-    "runtime-main.js.map": "/static/js/runtime-main.beda5af0.js.map",
+    "main.css": "/static/css/main.36420452.chunk.css",
+    "main.js": "/static/js/main.8c41031c.chunk.js",
+    "main.js.map": "/static/js/main.8c41031c.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.53f86f39.js",
+    "runtime-main.js.map": "/static/js/runtime-main.53f86f39.js.map",
     "static/css/2.0a9ec390.chunk.css": "/static/css/2.0a9ec390.chunk.css",
-    "static/js/2.5e7b1d98.chunk.js": "/static/js/2.5e7b1d98.chunk.js",
-    "static/js/2.5e7b1d98.chunk.js.map": "/static/js/2.5e7b1d98.chunk.js.map",
-    "static/js/3.e4c15a7d.chunk.js": "/static/js/3.e4c15a7d.chunk.js",
-    "static/js/3.e4c15a7d.chunk.js.map": "/static/js/3.e4c15a7d.chunk.js.map",
+    "static/js/2.56e2ea10.chunk.js": "/static/js/2.56e2ea10.chunk.js",
+    "static/js/2.56e2ea10.chunk.js.map": "/static/js/2.56e2ea10.chunk.js.map",
+    "static/js/3.06ab8c9d.chunk.js": "/static/js/3.06ab8c9d.chunk.js",
+    "static/js/3.06ab8c9d.chunk.js.map": "/static/js/3.06ab8c9d.chunk.js.map",
     "index.html": "/index.html",
     "static/css/2.0a9ec390.chunk.css.map": "/static/css/2.0a9ec390.chunk.css.map",
-    "static/css/main.afee9463.chunk.css.map": "/static/css/main.afee9463.chunk.css.map",
-    "static/js/2.5e7b1d98.chunk.js.LICENSE.txt": "/static/js/2.5e7b1d98.chunk.js.LICENSE.txt",
+    "static/css/main.36420452.chunk.css.map": "/static/css/main.36420452.chunk.css.map",
+    "static/js/2.56e2ea10.chunk.js.LICENSE.txt": "/static/js/2.56e2ea10.chunk.js.LICENSE.txt",
     "static/media/bags.30407795.jpg": "/static/media/bags.30407795.jpg",
     "static/media/dog.df757b62.jpg": "/static/media/dog.df757b62.jpg",
     "static/media/logo.1a4137e6.png": "/static/media/logo.1a4137e6.png",
@@ -21,10 +21,10 @@
     "static/media/turkeyfry.3830a6f2.jpeg": "/static/media/turkeyfry.3830a6f2.jpeg"
   },
   "entrypoints": [
-    "static/js/runtime-main.beda5af0.js",
+    "static/js/runtime-main.53f86f39.js",
     "static/css/2.0a9ec390.chunk.css",
-    "static/js/2.5e7b1d98.chunk.js",
-    "static/css/main.afee9463.chunk.css",
-    "static/js/main.bcd08be3.chunk.js"
+    "static/js/2.56e2ea10.chunk.js",
+    "static/css/main.36420452.chunk.css",
+    "static/js/main.8c41031c.chunk.js"
   ]
 }

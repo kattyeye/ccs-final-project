@@ -291,4 +291,7 @@ button.logout {
     display: flex;
     flex-direction: column-reverse;
   }
+  .charitycolumns {
+    column-count: 1;
+  }
 }

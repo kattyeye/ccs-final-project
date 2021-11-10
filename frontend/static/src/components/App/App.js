@@ -92,8 +92,15 @@ function App(props) {
         <Route path="/organizations-with-reviews">
           <OrgPageTitle />
           <OrganizationList />
+
           <ReviewList />
-          {/* <ReviewListAuth isAuth={isAuth} /> */}
+
+          {/* {isAuth && (
+            <>
+              <ReviewList />
+              <UserReviews />
+            </>
+          )} */}
           {/* <ReviewForm isAuth={isAuth} /> */}
           {/* <UserReviewForm isAuth={isAuth} /> */}
         </Route>

@@ -12,7 +12,7 @@ function ReviewListAuth(props) {
   const [reviewList, setReviewList] = useState([]);
   useEffect(() => {
     const key = props.match.params.phase;
-    let url = `/api_v1/reviews/`;
+    let url = `/api_v1/admin/reviews/`;
     if (key) {
       url = `/api_v1/reviews/?phase=${phases[key]}`;
     }
