@@ -22,12 +22,12 @@ class ContributionListAPIView(generics.ListCreateAPIView):
 class ReviewListAPIView(generics.ListCreateAPIView):
     serializer_class = ReviewSerializer
     # queryset = Review.objects.all()
-    permission_classes = (IsAuthenticatedOrReadOnly | IsOwner | IsAdminUser,)
+    permission_classes = (IsOwner | IsAdminUser,)
 
     def get_queryset(self):
         # logic for an authenticated user
         if not self.request.user.is_anonymous:
-            return Review.objects.filter(phase="SUB", user=self.request.user)
+            return Review.objects.filter(user=self.request.user)
 
         return Review.objects.filter(phase='PUB')
 
@@ -35,22 +35,23 @@ class ReviewListAPIView(generics.ListCreateAPIView):
         serializer.save(user=self.request.user,)
 
 
-class ReviewListAdminAPIView(generics.ListCreateAPIView):
+class PublicReviewListAPIView(generics.ListAPIView):
     serializer_class = ReviewSerializer
-    # permissions_classes = (IsAuthenticatedOrReadOnly | IsAdminUser | IsOwner,)
+    permission_classes = (IsAuthenticatedOrReadOnly,)
+    queryset = Review.objects.filter(phase='PUB',)
 
-    def get_queryset(self):
-        # logic for an authenticated user
-        if self.request.user.is_superuser:
-            return Review.objects.all()
+    # def get_queryset(self):
+    #     # logic for an authenticated user
+    #     if self.request.user.is_superuser:
+    #         return Review.objects.all()
 
-        if self.request.user.is_anonymous:
-            return Review.objects.filter(phase='PUB',)
+    #     # if self.request.user.is_anonymous:
+    #     #     return Review.objects.filter(phase='PUB',)
 
-        return Review.objects.filter(phase='PUB',)
+    #     return Review.objects.filter(phase='PUB',)
 
-    def perform_create(self, serializer):
-        serializer.save(user=self.request.user,)
+    # def perform_create(self, serializer):
+    #     serializer.save(user=self.request.user,)
 
 
 class ContributionDetailAPIView(generics.RetrieveUpdateDestroyAPIView):

@@ -6,11 +6,11 @@ function AboutUs() {
       <div className="row d-sm-flex align-items-center justify-content-between">
         <div className="col-md-6 order-2 order-sm-1 p-3 p-sm-5">
           <div className="p-0 p-sm-5">
-            <small className="text-uppercase" style={{ color: "#60993d" }}>
+            <small className="text-uppercase" style={{ color: "#429125" }}>
               History Lesson
             </small>
             <h1 className="mb-4 display-4" style={{ fontWeight: "600" }}>
-              About <span style={{ color: "#60993d" }}>Us</span>
+              About <span style={{ color: "#429125" }}>Us</span>
             </h1>
             <p className="text-secondary" style={{ lineHeight: "2" }}>
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit
@@ -21,7 +21,7 @@ function AboutUs() {
             <button
               type="button"
               className="btn"
-              style={{ backgroundColor: "#60993d" }}
+              style={{ backgroundColor: "#429125" }}
             >
               Contact Us
             </button>

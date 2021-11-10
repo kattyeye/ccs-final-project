@@ -123,27 +123,31 @@ function UserReviews(props) {
   const handleShow = () => props.setShow(true);
 
   const reviewsHTML = reviews.map((review) => (
-    <Card key={review.ein} className="contribution-container mb-5">
+    <Card key={review.ein} sx={{ minWidth: 275 }} className=" mb-5">
       <CardContent>
         <Typography variant="h5">{review.charity}</Typography>
 
         <Typography variant="body2">Review: {review.review_text}</Typography>
-        <button
-          type="button"
-          className="xbutton"
-          data-id={review.id}
-          onClick={handleDelete}
-        >
-          <AiFillDelete />
-        </button>
-        <button
-          type="button"
-          className="xbutton"
-          value={review.id}
-          onClick={() => handleSelection(review)}
-        >
-          <AiFillEdit />
-        </button>
+        {review.phase == "SUB" && (
+          <>
+            <button
+              type="button"
+              className="xbutton"
+              data-id={review.id}
+              onClick={handleDelete}
+            >
+              <AiFillDelete />
+            </button>
+            <button
+              type="button"
+              className="xbutton"
+              value={review.id}
+              onClick={() => handleSelection(review)}
+            >
+              <AiFillEdit />
+            </button>
+          </>
+        )}
       </CardContent>
     </Card>
   ));
@@ -160,7 +164,6 @@ function UserReviews(props) {
         </Alert>
       </Snackbar>
       <div className="headerwithicon">
-        <h3 id="myreviews">My Reviews</h3>
         <Fab
           color="primary"
           aria-label="add"

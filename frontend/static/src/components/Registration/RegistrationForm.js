@@ -1,8 +1,8 @@
 import { useState } from "react";
 import Cookies from "js-cookie";
-import { useHistory } from "react-router";
+import { Redirect, useHistory, withRouter } from "react-router";
 
-export default function RegistrationForm(props) {
+function RegistrationForm(props) {
   const [user, setUser] = useState({
     username: "",
     email: "",
@@ -47,7 +47,7 @@ export default function RegistrationForm(props) {
       } else {
         const data = await response.json();
         Cookies.set("Authorization", `Token${data.key}`);
-        props.history.push("/");
+        props.history.push("/my-contributions");
       }
     }
   }
@@ -107,10 +107,11 @@ export default function RegistrationForm(props) {
           />
           {error && <span className="text-danger">{error}</span>}
         </div>
-        <button type="submit" className="btn btn-primary mt-3">
+        <button type="submit" className="btn mt-3">
           Register
         </button>
       </form>
     </div>
   );
 }
+export default withRouter(RegistrationForm);

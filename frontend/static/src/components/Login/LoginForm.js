@@ -48,12 +48,13 @@ function LoginForm(props) {
   }
 
   return (
-    <form className="container" onSubmit={handleSubmit}>
-      <div className="form-group text-left mb-3">
+    <form className="container-fluid" onSubmit={handleSubmit}>
+      <h4 className="d-flex justify-content-center mb-3">Welcome back!</h4>
+      <div className="form-group d-flex-col">
         {/* <label htmlFor="username">username</label> */}
         <input
           type="text"
-          className="form-control"
+          className="form-control mb-2"
           id="username"
           placeholder="enter username."
           onChange={handleInput}
@@ -61,9 +62,7 @@ function LoginForm(props) {
           name="username"
           value={user.username}
         />
-      </div>
 
-      <div className="form-group text-left mb-3">
         {/* <label htmlFor="password">password</label> */}
         <input
           type="password"
@@ -76,19 +75,23 @@ function LoginForm(props) {
           value={user.password}
         />
       </div>
-
-      <button type="submit" className="btn btn-primary mt-3">
-        Login
-      </button>
-      <button
-        type="button"
-        className="btn btn-primary mt-3 register-here-button"
-        onClick={() => {
-          props.history.push("/registration");
-        }}
-      >
-        register
-      </button>
+      <div className="form-buttons">
+        <button type="submit" className="btn mt-3 login">
+          Login
+        </button>
+        <p>
+          Don't have an account yet?
+          <button
+            type="button"
+            className="mt-3 register-here-button"
+            onClick={() => {
+              props.history.push("/registration");
+            }}
+          >
+            Register here.
+          </button>
+        </p>
+      </div>
     </form>
   );
 }

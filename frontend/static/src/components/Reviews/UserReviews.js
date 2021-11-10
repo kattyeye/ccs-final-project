@@ -100,8 +100,6 @@ function UserReviews(props) {
   }, []);
 
   async function handleAdd(review) {
-    console.log("firing");
-    // e.preventDefault();
     const options = {
       method: "POST",
       headers: {

@@ -103,6 +103,7 @@ function ContributionForm(props) {
                   name="in_dollars"
                   value={contrib.in_dollars}
                   onChange={handleChange}
+                  required
                 />
                 <input
                   type="number"
@@ -111,6 +112,7 @@ function ContributionForm(props) {
                   name="in_hours"
                   value={contrib.in_hours}
                   onChange={handleChange}
+                  required
                 />
                 <input
                   type="text"

@@ -115,7 +115,6 @@ function ContributionList(props) {
   return (
     <div className="container-fluid">
       <div className="headerwithicon">
-        <h3>My Contributions</h3>
         <Fab
           color="primary"
           aria-label="add"
