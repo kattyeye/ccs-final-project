@@ -259,6 +259,28 @@ button.logout {
     rgba(140, 255, 41, 0.5018382352941176) 100%
   );
 }
+
+/* organizations page */
+div.charitycard {
+  position: relative;
+  background-color: #defc61;
+  margin-bottom: 20px;
+}
+
+.charitycolumns {
+  column-count: 3;
+}
+
+/* footer */
+.footertop {
+  background: black;
+  color: white;
+}
+@media (min-width: 1000px) and (max-width: 1400px) {
+  .charitycolumns {
+    column-count: 2;
+  }
+}
 /* media queries */
 @media (max-width: 501px) {
   .horiz-container,

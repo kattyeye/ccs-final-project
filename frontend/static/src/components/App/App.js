@@ -21,44 +21,6 @@ import VolunteerOpportunities from "../Volunteer/VolunteerOpps";
 import BlogPosts from "../Blog/BlogPosts";
 import UserReviewForm from "../Contributions/UserReviewForm";
 import AboutUs from "../AboutUs/AboutUs";
-import PropTypes from "prop-types";
-import Tabs from "@mui/material/Tabs";
-import Tab from "@mui/material/Tab";
-import Typography from "@mui/material/Typography";
-import Box from "@mui/material/Box";
-
-function TabPanel(props) {
-  const { children, value, index, ...other } = props;
-
-  return (
-    <div
-      role="tabpanel"
-      hidden={value !== index}
-      id={`simple-tabpanel-${index}`}
-      aria-labelledby={`simple-tab-${index}`}
-      {...other}
-    >
-      {value === index && (
-        <Box sx={{ p: 3 }}>
-          <Typography>{children}</Typography>
-        </Box>
-      )}
-    </div>
-  );
-}
-
-TabPanel.propTypes = {
-  children: PropTypes.node,
-  index: PropTypes.number.isRequired,
-  value: PropTypes.number.isRequired,
-};
-
-function a11yProps(index) {
-  return {
-    id: `simple-tab-${index}`,
-    "aria-controls": `simple-tabpanel-${index}`,
-  };
-}
 function App(props) {
   const [user, setUser] = useState(null);
   const history = useHistory();
@@ -98,12 +60,6 @@ function App(props) {
   }
 
   const isAuth = user?.isAuth;
-
-  const [value, setValue] = useState(0);
-
-  const handleChange = (event, newValue) => {
-    setValue(newValue);
-  };
   // const isAdmin = user?.isAdmin;
   return (
     <>
@@ -122,32 +78,15 @@ function App(props) {
         <Route path="/my-contributions">
           <ContributionsPageTitle user={user} isAuth={isAuth} />
           <div
-            style={{
-              display: "flex",
-              justifyContent: "center",
-              flexDirection: "column",
-            }}
+            style={{ display: "flex", justifyContent: "center" }}
             className="mt-5 mb-5 contribandreviewcontainer"
           >
-            <Tabs
-              value={value}
-              onChange={handleChange}
-              textColor="secondary"
-              indicatorColor="secondary"
-            >
-              <Tab label="My Contributions" {...a11yProps(0)} />
-              <Tab label="My Reviews" {...a11yProps(1)} />
-            </Tabs>
-            <TabPanel value={value} index={0}>
-              <div style={{ display: "inline-block" }}>
-                <ContributionList isAuth={isAuth} user={user} />
-              </div>
-            </TabPanel>
-            <TabPanel value={value} index={1}>
-              <div style={{ display: "inline-block" }}>
-                <UserReviews isAuth={isAuth} />
-              </div>
-            </TabPanel>
+            <div style={{ display: "inline-block" }}>
+              <ContributionList isAuth={isAuth} user={user} />
+            </div>
+            <div style={{ display: "inline-block" }}>
+              <UserReviews isAuth={isAuth} />
+            </div>
           </div>
         </Route>
         <Route path="/organizations-with-reviews">
@@ -155,7 +94,6 @@ function App(props) {
           <OrganizationList />
 
           <ReviewList />
-
           {isAuth && <UserReviews isAuth={isAuth} />}
 
           {/* {isAuth && (

@@ -34,31 +34,18 @@ function OrganizationList(props) {
 
   return (
     <>
-      <div className="container-fluid  mt-5">
+      <div className="container-fluid  mt-5 p-5">
         <div className="text-center mb-5">
-          <span className=" text-uppercase" style={{ color: "#60993d" }}>
+          <span className=" text-uppercase" style={{ color: "#429125" }}>
             Organizations
           </span>
           <h1 className="text-capitalize font-weight-bold mt-2">
-            <span style={{ color: "#60993d" }}>Best</span> of the Upstate
+            <span style={{ color: "#429125" }}>Best</span> of the Upstate
           </h1>
         </div>
-        <div
-          className="charitycolumns "
-          style={{
-            columnCount: 2,
-          }}
-        >
+        <div className="charitycolumns px-5">
           {charities?.map((charity) => (
-            <Card
-              key={charity.ein}
-              style={{
-                position: "relative",
-                background: "#defc61",
-                marginBottom: "20px",
-                width: "85%",
-              }}
-            >
+            <Card key={charity.ein} className="charitycard">
               <img
                 src={charity.cause.image}
                 style={{

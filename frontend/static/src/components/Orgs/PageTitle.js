@@ -8,10 +8,8 @@ function OrgPageTitle() {
         <Carousel.Item interval={1000}>
           <img className="d-block w-100" src={sliderpic} alt="First slide" />
           <Carousel.Caption>
-            <h3>
-              Organizations We <FaHeart />
-            </h3>
-            <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+            <h3>Organizations</h3>
+            <p>A hand-picked group of charities we know and love.</p>
           </Carousel.Caption>
         </Carousel.Item>
       </Carousel>

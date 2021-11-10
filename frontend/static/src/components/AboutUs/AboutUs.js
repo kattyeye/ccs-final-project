@@ -12,7 +12,7 @@ function AboutUs() {
             <h1 className="mb-4 display-4" style={{ fontWeight: "600" }}>
               About <span style={{ color: "#429125" }}>Us</span>
             </h1>
-            <p className="text-secondary" style={{ lineHeight: "2" }}>
+            <p style={{ lineHeight: "2" }}>
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit
               repellat iure laboriosam cum voluptatum, nam minima deserunt aut?
               Distinctio voluptatibus dolor quaerat quo omnis illo sequi at

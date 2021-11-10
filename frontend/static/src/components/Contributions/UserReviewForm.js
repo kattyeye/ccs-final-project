@@ -116,11 +116,14 @@ function UserReviewForm(props) {
                 />
                 <input
                   type="text"
-                  placeholder="Description"
+                  placeholder="Review"
                   name="review_text"
                   value={review.review_text}
                   onChange={handleChange}
                 />
+                {/* <input type="file"
+                  value={review.image}
+                  onChange={handleImage} /> */}
               </div>
             </form>
           </Modal.Body>

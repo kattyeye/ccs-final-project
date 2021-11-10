@@ -5,6 +5,7 @@ import Cookies from "js-cookie";
 import ReviewForm from "./ReviewForm";
 import { Link, NavLink } from "react-router-dom";
 import UserReviews from "../Reviews/UserReviews";
+import { FaStar } from "react-icons/fa";
 
 function ReviewList(props) {
   const [reviewList, setReviewList] = useState([]);
@@ -40,27 +41,28 @@ function ReviewList(props) {
   // }
 
   return (
-    <div className="container-fluid contrib-list-holder">
-      <div className="text-center mt-5 mb-5">
-        <span className=" text-uppercase" style={{ color: "#60993d" }}>
+    <div className="container-fluid contrib-list-holder d-flex-col justify-content-center">
+      <div className="text-center mt-5 mb-5 d-flex-col">
+        <span className=" text-uppercase" style={{ color: "#429125" }}>
           Reviews
         </span>
         <h1 className="text-capitalize font-weight-bold mt-2">
-          From <span style={{ color: "#60993d" }}>Locals</span> You Can Trust
+          From <span style={{ color: "#429125" }}>Locals</span> You Can Trust
         </h1>
       </div>
-      {reviewList?.map((review) => (
-        <div key={review.ein} className="contribution-container">
-          <h6>{review.charity}</h6>
-
-          <p>
-            Review: {review.review_text}
-            <br></br>
-            Submitted by <strong>{review.user}</strong> <br></br>
-          </p>
-        </div>
-      ))}
-      {props.isAuth && <UserReviews />}
+      <div className="col-sm-8 p-5">
+        {reviewList?.map((review) => (
+          <div key={review.ein} className="review-container px-5">
+            <h6 style={{ color: "#429125" }}>{review.charity}</h6>
+            <p>
+              by <strong>{review.user}</strong> <br></br>
+              Review: {review.review_text}
+              <hr></hr>
+            </p>
+          </div>
+        ))}
+        {/* {props.isAuth && <UserReviews />} */}
+      </div>
     </div>
   );
 }

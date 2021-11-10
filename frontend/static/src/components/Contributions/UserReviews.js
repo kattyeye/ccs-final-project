@@ -128,6 +128,7 @@ function UserReviews(props) {
         <Typography variant="h5">{review.charity}</Typography>
 
         <Typography variant="body2">Review: {review.review_text}</Typography>
+        <Typography variant="body2">Status: {review.phase}</Typography>
         {review.phase == "SUB" && (
           <>
             <button
@@ -164,6 +165,8 @@ function UserReviews(props) {
         </Alert>
       </Snackbar>
       <div className="headerwithicon">
+        {reviews.user ? <h3>My Reviews</h3> : <h3>Add Review</h3>}
+
         <Fab
           color="primary"
           aria-label="add"
