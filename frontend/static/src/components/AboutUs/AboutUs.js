@@ -2,7 +2,7 @@ import { withRouter } from "react-router";
 
 function AboutUs() {
   return (
-    <div className="container-fluid mt-5 mb-5">
+    <div className="container-fluid mb-5">
       <div className="row d-sm-flex align-items-center justify-content-between">
         <div className="col-md-6 order-2 order-sm-1 p-3 p-sm-5">
           <div className="p-0 p-sm-5">

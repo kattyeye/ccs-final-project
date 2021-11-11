@@ -113,8 +113,8 @@ function ContributionList(props) {
   const handleShow = () => props.setShow(true);
 
   return (
-    <div className="container-fluid">
-      <div className="headerwithicon">
+    <div className="container-fluid p-5">
+      <div className="headerwithicon p-5">
         <h3>My Contributions</h3>
         <Fab
           color="primary"

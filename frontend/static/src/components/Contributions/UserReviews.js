@@ -6,7 +6,7 @@ import ReviewForm from "../Reviews/ReviewForm";
 import UserReviewForm from "./UserReviewForm";
 import Fab from "@mui/material/Fab";
 import AddIcon from "@mui/icons-material/Add";
-import { Card, CardContent, Typography } from "@mui/material";
+import { Card, CardContent, CardMedia, Typography } from "@mui/material";
 import { Snackbar, Alert } from "@mui/material";
 
 const phases = {
@@ -17,21 +17,14 @@ const defaultReview = {
   ein: "",
   charity: "",
   review_text: "",
+  image: null,
 };
 
 function UserReviews(props) {
   const [show, setShow] = useState(false);
   const [selectedReview, setSelectedReview] = useState(defaultReview);
   const [reviews, setReviews] = useState([]);
-  const [openSuccess, setOpenSuccess] = useState(false);
 
-  const handleClosey = (event, reason) => {
-    if (reason === "clickaway") {
-      return;
-    }
-
-    setOpenSuccess(false);
-  };
   useEffect(() => {
     const key = props.match.params.phase;
     let url = `/api_v1/reviews/`;
@@ -47,15 +40,22 @@ function UserReviews(props) {
   }, []);
 
   async function handleAdd(review) {
-    console.log("firing");
+    // console.log("firing");
     // e.preventDefault();
+
+    const formData = new FormData();
+    formData.append("charity", review.charity);
+    formData.append("ein", review.ein);
+    formData.append("review_text", review.review_text);
+    formData.append("image", review.image);
+
     const options = {
       method: "POST",
       headers: {
-        "Content-type": "application/json",
+        // "Content-type": "application/json",
         "X-CSRFToken": Cookies.get("csrftoken"),
       },
-      body: JSON.stringify(review),
+      body: formData,
     };
     const response = await fetch("/api_v1/reviews/", options);
     if (!response) {
@@ -64,9 +64,10 @@ function UserReviews(props) {
       const data = await response.json();
       setReviews((prevState) => [...prevState, data]);
       setShow(false);
-      // setSelectedReview(props.review);
+      // setSelectedReview(data);
     }
   }
+
   async function handleDelete(event) {
     const id = event.currentTarget.dataset.id;
     const response = await fetch(`api_v1/reviews/${id}/`, {
@@ -89,13 +90,25 @@ function UserReviews(props) {
 
   async function handleUpdate(selectedReview) {
     const id = selectedReview.id;
+    const review = { ...reviews[id] };
+
+    const formData = new FormData();
+    formData.append("review_text", selectedReview.review_text);
+    formData.append("charity", selectedReview.charity);
+    formData.append("ein", selectedReview.ein);
+    formData.append("image", selectedReview.image);
+
+    if (!File) {
+      delete selectedReview.image;
+    } else {
+    }
     const response = await fetch(`api_v1/reviews/${id}/`, {
       method: "PUT",
       headers: {
         "X-CSRFToken": Cookies.get("csrftoken"),
-        "Content-Type": "application/json",
+        // "Content-Type": "application/json",
       },
-      body: JSON.stringify(selectedReview),
+      body: formData,
     });
 
     if (!response.ok) {
@@ -114,48 +127,59 @@ function UserReviews(props) {
     setSelectedReview(review);
     setTimeout(setShow(true), 0);
   };
-
+  const handleShow = () => setShow(true);
   const handleClose = () => {
     setShow(false);
     setSelectedReview(defaultReview);
   };
 
-  const handleShow = () => props.setShow(true);
-
   const reviewsHTML = reviews.map((review) => (
-    <Card key={review.ein} sx={{ minWidth: 275 }} className=" mb-5">
-      <CardContent>
-        <Typography variant="h5">{review.charity}</Typography>
+    <Card
+      key={review.ein}
+      sx={{ minWidth: 275, width: "80%", display: "flex" }}
+      className=" mb-5"
+    >
+      <CardContent className="d-flex ">
+        <div className="user-review-image-container ">
+          {review.image && (
+            <img src={review.image} className="user-review-image" />
+          )}
+        </div>
+        <div className="user-review-text-container">
+          <Typography variant="h5">{review.charity}</Typography>
 
-        <Typography variant="body2">Review: {review.review_text}</Typography>
-        <Typography variant="body2">Status: {review.phase}</Typography>
-        {review.phase == "SUB" && (
-          <>
-            <button
-              type="button"
-              className="xbutton"
-              data-id={review.id}
-              onClick={handleDelete}
-            >
-              <AiFillDelete />
-            </button>
-            <button
-              type="button"
-              className="xbutton"
-              value={review.id}
-              onClick={() => handleSelection(review)}
-            >
-              <AiFillEdit />
-            </button>
-          </>
-        )}
+          <Typography variant="body2">Review: {review.review_text}</Typography>
+          <Typography variant="body2">Status: {review.phase}</Typography>
+
+          {review.phase == "SUB" && (
+            <>
+              <button
+                type="button"
+                className="xbutton"
+                data-id={review.id}
+                onClick={handleDelete}
+              >
+                <AiFillDelete />
+              </button>
+              <button
+                type="button"
+                className="xbutton"
+                value={review.id}
+                onClick={() => handleSelection(review)}
+              >
+                <AiFillEdit />
+              </button>
+            </>
+          )}
+        </div>
       </CardContent>
     </Card>
   ));
 
   return (
-    <div className="container-fluid contrib-list-holder">
-      <Snackbar
+    <div className="p-5">
+      <div className="container-fluid review-list-holder p-5">
+        {/* <Snackbar
         open={openSuccess}
         autoHideDuration={6000}
         onClose={handleClosey}
@@ -163,34 +187,35 @@ function UserReviews(props) {
         <Alert onClose={handleClosey} severity="danger" sx={{ width: "100%" }}>
           Review Deleted.
         </Alert>
-      </Snackbar>
-      <div className="headerwithicon">
-        {reviews.user ? <h3>My Reviews</h3> : <h3>Add Review</h3>}
+      </Snackbar> */}
+        <div className="headerwithicon">
+          {reviews.user ? <h3>My Reviews</h3> : <h3>Add Review</h3>}
 
-        <Fab
-          color="primary"
-          aria-label="add"
-          className="btn plus-icon-button"
-          onClick={() => setShow(true)}
-        >
-          <AddIcon />
-        </Fab>
+          <Fab
+            color="primary"
+            aria-label="add"
+            className="btn plus-icon-button"
+            onClick={() => setShow(true)}
+          >
+            <AddIcon />
+          </Fab>
+        </div>
+
+        <section>{reviewsHTML}</section>
+
+        <UserReviewForm
+          show={show}
+          setShow={setShow}
+          selectedReview={selectedReview}
+          handleClose={handleClose}
+          handleShow={handleShow}
+          handleAdd={handleAdd}
+          handleUpdate={handleUpdate}
+          // openSuccess={openSuccess}
+          // setOpenSuccess={setOpenSuccess}
+          // handleClosey={handleClosey}
+        />
       </div>
-
-      <section>{reviewsHTML}</section>
-
-      <UserReviewForm
-        show={show}
-        setShow={setShow}
-        selectedReview={selectedReview}
-        handleClose={handleClose}
-        handleShow={handleShow}
-        handleAdd={handleAdd}
-        handleUpdate={handleUpdate}
-        openSuccess={openSuccess}
-        setOpenSuccess={setOpenSuccess}
-        handleClosey={handleClosey}
-      />
     </div>
   );
 }

@@ -21,6 +21,8 @@ class Review(models.Model):
     review_text = models.TextField()
     user = models.ForeignKey(settings.AUTH_USER_MODEL,
                              on_delete=models.CASCADE, blank=True,)
+    image = models.ImageField(
+        upload_to='review_images', null=True, blank=True)
 
     SUBMITTED = 'SUB'
     PUBLISHED = "PUB"

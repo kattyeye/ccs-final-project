@@ -169,3 +169,10 @@ SITE_ID = 1
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+
+# Image Field Django
+# https://docs.djangoproject.com/en/3.2/topics/files/
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'

@@ -3,8 +3,6 @@ import { Modal, Button } from "react-bootstrap";
 import Cookies from "js-cookie";
 import { withRouter } from "react-router";
 import { FaSearch } from "react-icons/fa";
-import Fab from "@mui/material/Fab";
-import AddIcon from "@mui/icons-material/Add";
 import { Snackbar, Alert } from "@mui/material";
 
 const BASE_URL = "https://api.data.charitynavigator.org/v2";
@@ -15,6 +13,8 @@ function UserReviewForm(props) {
   const [review, setReview] = useState({ ...props.selectedReview });
   //   const [reviews, setReviews] = useState([]);
   const [charities, setCharities] = useState([]);
+  const [openSuccess, setOpenSuccess] = useState(false);
+  const [preview, setPreview] = useState("");
 
   useEffect(() => {
     setReview(props.selectedReview);
@@ -26,9 +26,14 @@ function UserReviewForm(props) {
       const response = await fetch(
         `${BASE_URL}/Organizations?app_id=${APP_ID}&app_key=${APP_KEY}&search=${review.charity}&rated=true`
       );
-      const data = await response.json();
-      console.log("data", data);
-      setCharities(data.slice(0, 5));
+
+      if (!response.ok) {
+        alert("No organizations match your input.");
+      } else {
+        const data = await response.json();
+        console.log("data", data);
+        setCharities(data.slice(0, 5));
+      }
     };
     searchCharities();
   }, [review.charity]);
@@ -42,6 +47,20 @@ function UserReviewForm(props) {
     }));
   }
 
+  const handleImage = (event) => {
+    const file = event.target.files[0];
+    setReview((prevState) => ({
+      ...prevState,
+      image: file,
+    }));
+
+    const reader = new FileReader();
+    reader.onloadend = () => {
+      setPreview(reader.result);
+    };
+    reader.readAsDataURL(file);
+  };
+
   function selectCharity(charity) {
     console.log("firing two");
     setReview((prev) => ({
@@ -54,21 +73,24 @@ function UserReviewForm(props) {
   const handleSubmit = (event) => {
     event.preventDefault();
     props.handleAdd(review);
-    props.setOpenSuccess(true);
+    setOpenSuccess(true);
   };
 
+  const handleClosey = (event, reason) => {
+    if (reason === "clickaway") {
+      return;
+    }
+
+    setOpenSuccess(false);
+  };
   return (
     <div className="container-fluid">
       <Snackbar
-        open={props.openSuccess}
+        open={openSuccess}
         autoHideDuration={6000}
-        onClose={props.handleClosey}
+        onClose={handleClosey}
       >
-        <Alert
-          onClose={props.handleClosey}
-          severity="success"
-          sx={{ width: "100%" }}
-        >
+        <Alert onClose={handleClosey} severity="success" sx={{ width: "100%" }}>
           Success! Review submitted!
         </Alert>
       </Snackbar>
@@ -121,9 +143,14 @@ function UserReviewForm(props) {
                   value={review.review_text}
                   onChange={handleChange}
                 />
-                {/* <input type="file"
-                  value={review.image}
-                  onChange={handleImage} /> */}
+                <input
+                  onChange={handleImage}
+                  type="file"
+                  className="form-control"
+                />
+                {review.image && (
+                  <img src={preview} alt="" className="preview-image" />
+                )}
               </div>
             </form>
           </Modal.Body>

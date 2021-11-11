@@ -43,10 +43,8 @@ function LandingPage(props) {
                   Don't be a <span style={{ color: "#429125" }}>Hater</span>
                 </h1>
                 <p className="" style={{ lineHeight: "2" }}>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Suscipit repellat iure laboriosam cum voluptatum, nam minima
-                  deserunt aut? Distinctio voluptatibus dolor quaerat quo omnis
-                  illo sequi at velit, odit quod!
+                  86 Hate is a unique movement aimed to spread kindness and
+                  connect people to local non-profits across the upstate.
                 </p>
                 <button
                   type="button"
@@ -99,7 +97,7 @@ function LandingPage(props) {
 
           <div className="w-50 col-md-6 order-1 order-sm-2 p-sm-5">
             <div className="p-5">
-              <img src={sliderpic} />
+              <img src={sliderpic} className="landingpageimg" />
             </div>
           </div>
         </div>
@@ -109,7 +107,7 @@ function LandingPage(props) {
         <div className="row d-sm-flex align-items-center justify-content-between">
           <div className="w-50 col-md-6 order-1 order-sm-1 p-sm-5">
             <div className="p-5">
-              <img src={soupkitchen} />
+              <img src={soupkitchen} className="landingpageimg" />
             </div>
           </div>
 

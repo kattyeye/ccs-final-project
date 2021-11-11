@@ -1,11 +1,7 @@
+import { Card } from "@mui/material";
 import { useState, useEffect } from "react";
 import { AiFillDelete, AiFillEdit } from "react-icons/ai";
 import { Redirect, withRouter } from "react-router";
-import Cookies from "js-cookie";
-import ReviewForm from "./ReviewForm";
-import { Link, NavLink } from "react-router-dom";
-import UserReviews from "../Reviews/UserReviews";
-import { FaStar } from "react-icons/fa";
 
 function ReviewList(props) {
   const [reviewList, setReviewList] = useState([]);
@@ -50,18 +46,24 @@ function ReviewList(props) {
           From <span style={{ color: "#429125" }}>Locals</span> You Can Trust
         </h1>
       </div>
-      <div className="col-sm-8 p-5">
-        {reviewList?.map((review) => (
-          <div key={review.ein} className="review-container px-5">
-            <h6 style={{ color: "#429125" }}>{review.charity}</h6>
-            <p>
-              by <strong>{review.user}</strong> <br></br>
-              Review: {review.review_text}
-              <hr></hr>
-            </p>
-          </div>
-        ))}
-        {/* {props.isAuth && <UserReviews />} */}
+      <div className=" p-5">
+        <div className=" p-5">
+          {reviewList?.map((review) => (
+            <Card key={review.ein} className="review-container p-3 mb-3">
+              <div className="review-imagecontainer">
+                <img src={review.image} className="reviewimage" />
+              </div>
+              <div className="review-textcontainer">
+                <h6 style={{ color: "#429125" }}>{review.charity}</h6>
+                <p>
+                  by <strong>{review.user}</strong> <br></br>
+                  Review: {review.review_text}
+                </p>
+              </div>
+            </Card>
+          ))}
+          {/* {props.isAuth && <UserReviews />} */}
+        </div>
       </div>
     </div>
   );

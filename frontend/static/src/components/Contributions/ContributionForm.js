@@ -23,9 +23,13 @@ function ContributionForm(props) {
       const response = await fetch(
         `${BASE_URL}/Organizations?app_id=${APP_ID}&app_key=${APP_KEY}&search=${contrib.charity}&rated=true`
       );
-      const data = await response.json();
-      console.log("data", data);
-      setCharities(data.slice(0, 5));
+      if (!response.ok) {
+        alert("No organizations match your input.");
+      } else {
+        const data = await response.json();
+        console.log("data", data);
+        setCharities(data.slice(0, 5));
+      }
     };
     searchCharities();
   }, [contrib.charity]);

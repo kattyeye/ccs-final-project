@@ -1,5 +1,5 @@
 import BlogPageTitle from "./PageTitle";
-
+import { Card } from "@mui/material";
 export default function BlogPosts() {
   return (
     <>
@@ -64,18 +64,18 @@ export default function BlogPosts() {
           </section>
         </aside>
       </div> */}
-      <div className="container-fluid mt-5">
-        <div className="text-center mb-5">
+      <div className="container-fluid blog-page-bg">
+        <div className="text-center py-5">
           <span className=" text-uppercase" style={{ color: "#60993d" }}>
-            Blog
+            What's The News?
           </span>
           <h1 className="text-capitalize font-weight-bold mt-2">
             Our Latest <span style={{ color: "#60993d" }}>Blogs</span>
           </h1>
         </div>
-        <div className="row">
-          <div className="col-md-9 mx-auto mb-5">
-            <div className="border-bottom">
+        <div className="px-5 d-flex">
+          <div className="col-md d-flex-col px-5 mx-auto mb-5">
+            <Card sx={{ padding: "50px", marginBottom: "10px" }}>
               <h1 className="text-dark" style={{ fontWeight: "600" }}>
                 Interested in Volunteering? Easy ways to get involved locally.
               </h1>
@@ -85,7 +85,7 @@ export default function BlogPosts() {
                 src="https://images.unsplash.com/photo-1623863774468-7741435322e2?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1175&q=80"
                 alt=""
               />
-              <p className="text-secondary">
+              <p>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam
                 quam aut ea minus illo ex ducimus, rerum quasi optio a, sint
                 reiciendis! Consequuntur, neque ratione eaque nihil ipsum
@@ -103,7 +103,109 @@ export default function BlogPosts() {
                   </button>
                 </div>
               </div>
-            </div>
+            </Card>
+            <Card sx={{ padding: "50px" }}>
+              <h1 className="text-dark" style={{ fontWeight: "600" }}>
+                Interested in Volunteering? Easy ways to get involved locally.
+              </h1>
+
+              <img
+                className="w-100 my-4"
+                src="https://images.unsplash.com/photo-1623863774468-7741435322e2?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1175&q=80"
+                alt=""
+              />
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam
+                quam aut ea minus illo ex ducimus, rerum quasi optio a, sint
+                reiciendis! Consequuntur, neque ratione eaque nihil ipsum
+                similique totam! Lorem ipsum dolor sit amet consectetur
+                adipisicing elit. Ipsam quam aut ea minus illo ex ducimus, rerum
+                quasi optio a, sint reiciendis!
+              </p>
+              <div className="d-flex align-items-center my-4">
+                <div className="d-flex align-items-center mr-4">
+                  <button
+                    className="btn mt-1"
+                    style={{ backgroundColor: "#60993d" }}
+                  >
+                    Read More
+                  </button>
+                </div>
+              </div>
+            </Card>
+          </div>
+          <div className="d-flex mx-5 mb-5">
+            <Card sx={{ padding: "50px" }}>
+              <h1 className="text-dark" style={{ fontWeight: "600" }}>
+                Interested in Volunteering? Easy ways to get involved locally.
+              </h1>
+
+              <img
+                className="w-100 my-4"
+                src="https://images.unsplash.com/photo-1623863774468-7741435322e2?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1175&q=80"
+                alt=""
+              />
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam
+                quam aut ea minus illo ex ducimus, rerum quasi optio a, sint
+                reiciendis! Consequuntur, neque ratione eaque nihil ipsum
+                similique totam! Lorem ipsum dolor sit amet consectetur
+                adipisicing elit. Ipsam quam aut ea minus illo ex ducimus, rerum
+                quasi optio a, sint reiciendis!
+              </p>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam
+                quam aut ea minus illo ex ducimus, rerum quasi optio a, sint
+                reiciendis! Consequuntur, neque ratione eaque nihil ipsum
+                similique totam! Lorem ipsum dolor sit amet consectetur
+                adipisicing elit. Ipsam quam aut ea minus illo ex ducimus, rerum
+                quasi optio a, sint reiciendis!
+              </p>
+              <br></br>
+              <blockquote
+                class=" p-3 font-italic"
+                style={{ borderLeft: "4px solid black", lineHeight: "2" }}
+              >
+                Lorem Ipsum is simply dummy text of the printing and typesetting
+                industry. Lorem Ipsum has been the industry's standard dummy
+                text ever since the 1500s.
+              </blockquote>
+              <br></br>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam
+                quam aut ea minus illo ex ducimus, rerum quasi optio a, sint
+                reiciendis! Consequuntur, neque ratione eaque nihil ipsum
+                similique totam! Lorem ipsum dolor sit amet consectetur
+                adipisicing elit. Ipsam quam aut ea minus illo ex ducimus, rerum
+                quasi optio a, sint reiciendis!
+              </p>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam
+                quam aut ea minus illo ex ducimus, rerum quasi optio a, sint
+                reiciendis! Consequuntur, neque ratione eaque nihil ipsum
+                similique totam! Lorem ipsum dolor sit amet consectetur
+                adipisicing elit. Ipsam quam aut ea minus illo ex ducimus, rerum
+                quasi optio a, sint reiciendis!
+              </p>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam
+                quam aut ea minus illo ex ducimus, rerum quasi optio a, sint
+                reiciendis! Consequuntur, neque ratione eaque nihil ipsum
+                similique totam! Lorem ipsum dolor sit amet consectetur
+                adipisicing elit. Ipsam quam aut ea minus illo ex ducimus, rerum
+                quasi optio a, sint reiciendis!
+              </p>
+              <div className="d-flex align-items-center my-4">
+                <div className="d-flex align-items-center mr-4">
+                  <button
+                    className="btn mt-1"
+                    style={{ backgroundColor: "#60993d" }}
+                  >
+                    Read More
+                  </button>
+                </div>
+              </div>
+            </Card>
           </div>
         </div>
       </div>

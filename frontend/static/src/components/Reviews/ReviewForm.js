@@ -12,6 +12,7 @@ function ReviewForm(props) {
     ein: "",
     charity: "",
     review_text: "",
+    image: null,
   });
 
   const [charities, setCharities] = useState([]);
