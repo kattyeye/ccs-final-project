@@ -44,25 +44,26 @@ function UserReviews(props) {
     // e.preventDefault();
 
     // This breaks causing charity object to go missing from the data completely
-
-    // const formData = new FormData();
-    // formData.append("charity", JSON.stringify(review.charity));
-    // formData.append("ein", review.ein);
-    // formData.append("review_text", review.review_text);
+    console.log("review", review);
+    const formData = new FormData();
+    formData.append("charity", JSON.stringify(review.charity));
+    formData.append("ein", review.ein);
+    formData.append("review_text", review.review_text);
     // formData.append("image", review.image);
 
-    const formData = JSON.stringify({
-      charity: review.charity,
-      ein: review.ein,
-      review_text: review.review_text,
-      // image: review.image,
-    });
+    // console.log("charity", charity);
+
+    // const data = {
+    //   charity: review.charity,
+    //   ein: review.ein,
+    //   review_text: review.review_text,
+    // };
 
     const options = {
       method: "POST",
       headers: {
-        "Content-type": "application/json",
         "X-CSRFToken": Cookies.get("csrftoken"),
+        // "Content-Type": "application/json",
       },
       body: formData,
     };

@@ -16,22 +16,15 @@ class CharitySerializer(serializers.ModelSerializer):
 class ContributionSerializer(serializers.ModelSerializer):
     user = serializers.ReadOnlyField(source="user.username")
     charity = CharitySerializer(
-        many=False, read_only=True)
-    # charity_json = JSONField(write_only=True,)
+        many=False,)
 
-    # def validate_json(self, value):
-    #     if not isinstance(value, list):
-    #         ValidationError("charity_json expects a list")
-
-    #     for item in value:
-    #         serializer = CharitySerializer(charity=item)
-    #         serializer.is_valid(raise_exception=True)
-    #     return value
     class Meta:
         model = Contribution
         fields = '__all__'
 
     def create(self, validated_data):
+        import pdb
+        pdb.set_trace()
         validated_data['charity'] = Charity.objects.get_or_create(
             name=validated_data['charity']['name'], ein=validated_data['charity']['ein'], url=validated_data['charity']['url'])[0]
         contribution = Contribution.objects.create(
@@ -43,15 +36,17 @@ class ContributionSerializer(serializers.ModelSerializer):
 class ReviewSerializer(serializers.ModelSerializer):
     user = serializers.ReadOnlyField(source="user.username")
     charity = CharitySerializer(
-        many=False, required=False, read_only=True)
+        many=False, read_only=True)
 
     class Meta:
         model = Review
         fields = '__all__'
 
     def create(self, validated_data):
+        charity_details = json.loads(
+            self.context.get('request').data['charity'])
         validated_data['charity'] = Charity.objects.get_or_create(
-            name=validated_data['charity']['name'], ein=validated_data['charity']['ein'], url=validated_data['charity']['url'])[0]
+            name=charity_details['name'], ein=charity_details['ein'], url=charity_details['url'])[0]
         review = Review.objects.create(
             **validated_data,)
 

@@ -25,7 +25,6 @@ class ContributionListAPIView(generics.ListCreateAPIView):
 
 class ReviewListAPIView(generics.ListCreateAPIView):
     serializer_class = ReviewSerializer
-    # queryset = Review.objects.all()
     permission_classes = (IsOwner | IsAdminUser,)
 
     def get_queryset(self):
