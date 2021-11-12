@@ -14,8 +14,8 @@ const phases = {
   published: "PUB",
 };
 const defaultReview = {
+  charity: {},
   ein: "",
-  charity: "",
   review_text: "",
   image: null,
 };
@@ -43,16 +43,23 @@ function UserReviews(props) {
     // console.log("firing");
     // e.preventDefault();
 
-    const formData = new FormData();
-    formData.append("charity", review.charity);
-    formData.append("ein", review.ein);
-    formData.append("review_text", review.review_text);
-    formData.append("image", review.image);
+    // const formData = new FormData();
+    // formData.append("charity", JSON.stringify(review.charity));
+    // formData.append("ein", review.ein);
+    // formData.append("review_text", review.review_text);
+    // formData.append("image", review.image);
+
+    const formData = JSON.stringify({
+      charity: review.charity,
+      ein: review.ein,
+      review_text: review.review_text,
+      // image: review.image,
+    });
 
     const options = {
       method: "POST",
       headers: {
-        // "Content-type": "application/json",
+        "Content-type": "application/json",
         "X-CSRFToken": Cookies.get("csrftoken"),
       },
       body: formData,
@@ -146,7 +153,7 @@ function UserReviews(props) {
           )}
         </div>
         <div className="user-review-text-container">
-          <Typography variant="h5">{review.charity}</Typography>
+          <Typography variant="h5">{review.charity.name}</Typography>
 
           <Typography variant="body2">Review: {review.review_text}</Typography>
           <Typography variant="body2">Status: {review.phase}</Typography>

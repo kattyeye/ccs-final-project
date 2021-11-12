@@ -66,7 +66,11 @@ function UserReviewForm(props) {
     setReview((prev) => ({
       ...prev,
       ein: charity.ein,
-      charity: charity.charityName,
+      charity: {
+        name: charity.charityName,
+        ein: charity.ein,
+        url: charity.websiteURL,
+      },
     }));
   }
 
@@ -107,7 +111,7 @@ function UserReviewForm(props) {
                   type="text"
                   placeholder="Search for a charity"
                   name="charity"
-                  value={review.charity}
+                  value={review.charity.name}
                   onChange={handleChange}
                 />
                 <FaSearch className="fa-search" />
@@ -119,7 +123,7 @@ function UserReviewForm(props) {
                       <button
                         type="button"
                         className="select-button"
-                        value={review.charity}
+                        value={review.charity.name}
                         onClick={() => selectCharity(charity)}
                       >
                         Select
@@ -133,7 +137,7 @@ function UserReviewForm(props) {
                   type="text"
                   placeholder="Charity Name"
                   name="charity"
-                  value={review.charity}
+                  value={review.charity.name}
                   onChange={handleChange}
                 />
                 <input

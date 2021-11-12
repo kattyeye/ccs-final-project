@@ -21,7 +21,7 @@ function ContributionForm(props) {
     console.log("firing");
     const searchCharities = async () => {
       const response = await fetch(
-        `${BASE_URL}/Organizations?app_id=${APP_ID}&app_key=${APP_KEY}&search=${contrib.charity}&rated=true`
+        `${BASE_URL}/Organizations?app_id=${APP_ID}&app_key=${APP_KEY}&search=${contrib.charity.name}&rated=true`
       );
       if (!response.ok) {
         alert("No organizations match your input.");
@@ -48,7 +48,11 @@ function ContributionForm(props) {
     setContrib((prev) => ({
       ...prev,
       ein: charity.ein,
-      charity: charity.charityName,
+      charity: {
+        name: charity.charityName,
+        ein: charity.ein,
+        url: charity.websiteURL,
+      },
     }));
   }
 
@@ -71,7 +75,7 @@ function ContributionForm(props) {
                   type="text"
                   placeholder="Search for a charity"
                   name="charity"
-                  value={contrib.charity}
+                  value={contrib.charity.name}
                   onChange={handleChange}
                 />
                 <FaSearch className="fa-search" />
@@ -83,7 +87,7 @@ function ContributionForm(props) {
                       <button
                         type="button"
                         className="select-button"
-                        value={contrib.charity}
+                        value={contrib.charity.name}
                         onClick={() => selectCharity(charity)}
                       >
                         Select
@@ -97,7 +101,7 @@ function ContributionForm(props) {
                   type="text"
                   placeholder="Charity Name"
                   name="charity"
-                  value={contrib.charity}
+                  value={contrib.charity.name}
                   onChange={handleChange}
                 />
                 <input

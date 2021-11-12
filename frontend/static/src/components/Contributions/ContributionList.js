@@ -9,8 +9,8 @@ import { Card, Typography, CardContent } from "@mui/material";
 import Button from "@restart/ui/esm/Button";
 
 const defaultContrib = {
+  charity: {},
   ein: "",
-  charity: "",
   in_dollars: "",
   in_hours: "",
   text: "",
@@ -128,7 +128,7 @@ function ContributionList(props) {
       {contribList?.map((contrib) => (
         <Card key={contrib.ein} sx={{ minWidth: 275 }} className="mb-5">
           <CardContent>
-            <Typography variant="h5">{contrib.charity}</Typography>
+            <Typography variant="h5">{contrib.charity.name}</Typography>
             <Typography variant="body2">
               Donations: ${contrib.in_dollars}
               <br></br>

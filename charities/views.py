@@ -1,5 +1,5 @@
 from rest_framework import permissions
-from .models import Contribution, Review
+from .models import Charity, Contribution, Review
 from rest_framework import generics
 from .permissions import IsOwner
 from rest_framework.permissions import IsAuthenticatedOrReadOnly, IsAdminUser
@@ -16,7 +16,11 @@ class ContributionListAPIView(generics.ListCreateAPIView):
         # return Contribution.objects.all()
 
     def perform_create(self, serializer):
-        serializer.save(user=self.request.user,)
+        # find out if the charity exists
+        # if it does, save the charity name,
+        # if it doesn't create new charity name
+
+        serializer.save(user=self.request.user, )
 
 
 class ReviewListAPIView(generics.ListCreateAPIView):

@@ -51,10 +51,12 @@ function ReviewList(props) {
           {reviewList?.map((review) => (
             <Card key={review.ein} className="review-container p-3 mb-3">
               <div className="review-imagecontainer">
-                <img src={review.image} className="reviewimage" />
+                {review.image && (
+                  <img src={review.image} className="reviewimage" />
+                )}
               </div>
               <div className="review-textcontainer">
-                <h6 style={{ color: "#429125" }}>{review.charity}</h6>
+                <h6 style={{ color: "#429125" }}>{review.charity.name}</h6>
                 <p>
                   by <strong>{review.user}</strong> <br></br>
                   Review: {review.review_text}
