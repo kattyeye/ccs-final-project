@@ -12,6 +12,7 @@ const APP_KEY = "ed9cb1c120b866a6232e01a7affb00c5";
 function ContributionForm(props) {
   const [contrib, setContrib] = useState({ ...props.selectedContrib });
   const [charities, setCharities] = useState([]);
+  const [preview, setPreview] = useState("");
 
   useEffect(() => {
     setContrib(props.selectedContrib);
@@ -42,6 +43,20 @@ function ContributionForm(props) {
       [name]: value,
     }));
   }
+
+  const handleImage = (event) => {
+    const file = event.target.files[0];
+    setContrib((prevState) => ({
+      ...prevState,
+      image: file,
+    }));
+
+    const reader = new FileReader();
+    reader.onloadend = () => {
+      setPreview(reader.result);
+    };
+    reader.readAsDataURL(file);
+  };
 
   function selectCharity(charity) {
     console.log("firing two");
@@ -129,6 +144,14 @@ function ContributionForm(props) {
                   value={contrib.text}
                   onChange={handleChange}
                 />
+                <input
+                  onChange={handleImage}
+                  type="file"
+                  className="form-control"
+                />
+                {contrib.image && (
+                  <img src={preview} alt="" className="preview-image" />
+                )}
               </div>
             </form>
           </Modal.Body>

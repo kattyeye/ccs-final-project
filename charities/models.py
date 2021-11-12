@@ -7,6 +7,9 @@ class Charity(models.Model):
     ein = models.CharField(max_length=20,)
     url = models.CharField(max_length=255,)
 
+    class Meta:
+        verbose_name_plural = "charities"
+
     def __str__(self):
         return self.name
 
@@ -18,6 +21,8 @@ class Contribution(models.Model):
     in_hours = models.IntegerField(blank=True, default=2)
     in_dollars = models.IntegerField(blank=True, default=20)
     text = models.CharField(max_length=255, blank=True,)
+    image = models.ImageField(
+        upload_to='contrib_images', null=True, blank=True)
     user = models.ForeignKey(settings.AUTH_USER_MODEL,
                              on_delete=models.CASCADE, blank=True,)
 

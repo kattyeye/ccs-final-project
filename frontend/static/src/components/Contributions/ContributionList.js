@@ -14,6 +14,7 @@ const defaultContrib = {
   in_dollars: "",
   in_hours: "",
   text: "",
+  image: null,
 };
 
 function ContributionList(props) {
@@ -33,14 +34,23 @@ function ContributionList(props) {
 
   async function handleAdd(contrib) {
     console.log("firing");
+
+    const formData = new FormData();
+    formData.append("charity", JSON.stringify(contrib.charity));
+    formData.append("ein", contrib.ein);
+    formData.append("in_dollars", contrib.in_dollars);
+    formData.append("in_hours", contrib.in_hours);
+    formData.append("text", contrib.text);
+    formData.append("image", contrib.image);
+
     // e.preventDefault();
     const options = {
       method: "POST",
       headers: {
-        "Content-type": "application/json",
+        // "Content-type": "application/json",
         "X-CSRFToken": Cookies.get("csrftoken"),
       },
-      body: JSON.stringify(contrib),
+      body: formData,
     };
     const response = await fetch("/api_v1/contributions/", options);
     if (!response) {
@@ -77,13 +87,22 @@ function ContributionList(props) {
   }
   async function handleUpdate(contrib) {
     const id = contrib.id;
+
+    const formData = new FormData();
+    formData.append("charity", JSON.stringify(contrib.charity));
+    formData.append("ein", contrib.ein);
+    formData.append("in_dollars", contrib.in_dollars);
+    formData.append("in_hours", contrib.in_hours);
+    formData.append("text", contrib.text);
+    formData.append("image", contrib.image);
+
     const response = await fetch(`api_v1/contributions/${id}/`, {
       method: "PUT",
       headers: {
         "X-CSRFToken": Cookies.get("csrftoken"),
-        "Content-Type": "application/json",
+        // "Content-Type": "application/json",
       },
-      body: JSON.stringify(contrib),
+      body: formData,
     });
 
     if (!response.ok) {
@@ -128,31 +147,39 @@ function ContributionList(props) {
       {contribList?.map((contrib) => (
         <Card key={contrib.ein} sx={{ minWidth: 275 }} className="mb-5">
           <CardContent>
-            <Typography variant="h5">{contrib.charity.name}</Typography>
-            <Typography variant="body2">
-              Donations: ${contrib.in_dollars}
-              <br></br>
-              Volunteer hours: {contrib.in_hours}
-              <br></br>
-              Notes: {contrib.text}
-            </Typography>
-
-            <Button
-              type="button"
-              className="xbutton"
-              value={contrib.id}
-              onClick={handleDelete}
-            >
-              <AiFillDelete />
-            </Button>
-            <Button
-              type="button"
-              className="xbutton"
-              value={contrib.id}
-              onClick={() => handleSelection(contrib)}
-            >
-              <AiFillEdit />
-            </Button>
+            <div className="user-review-image-container d-flex-col py-1">
+              {contrib.image && (
+                <img src={contrib.image} className="user-review-image" />
+              )}
+            </div>
+            <div className="user-review-text-container d-flex-col py-1">
+              <Typography variant="h5">{contrib.charity.name}</Typography>
+              <Typography variant="body2">
+                Donations: ${contrib.in_dollars}
+                <br></br>
+                Volunteer hours: {contrib.in_hours}
+                <br></br>
+                Notes: {contrib.text}
+              </Typography>
+              <div className="deleteeditbuttons d-flex">
+                <Button
+                  type="button"
+                  className="xbutton"
+                  value={contrib.id}
+                  onClick={handleDelete}
+                >
+                  <AiFillDelete className="icondel" />
+                </Button>
+                <Button
+                  type="button"
+                  className="xbutton"
+                  value={contrib.id}
+                  onClick={() => handleSelection(contrib)}
+                >
+                  <AiFillEdit className="icondel" />
+                </Button>
+              </div>
+            </div>
           </CardContent>
         </Card>
       ))}

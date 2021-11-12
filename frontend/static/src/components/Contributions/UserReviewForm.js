@@ -81,10 +81,6 @@ function UserReviewForm(props) {
   };
 
   const handleClosey = (event, reason) => {
-    if (reason === "clickaway") {
-      return;
-    }
-
     setOpenSuccess(false);
   };
   return (

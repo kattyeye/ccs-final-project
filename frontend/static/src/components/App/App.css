@@ -36,7 +36,7 @@ button.btn:hover,
 a.btn:hover {
   background-color: black;
   color: white;
-  border: 3px solid white;
+  border: 3px solid black;
 }
 button.donate a:hover,
 button.donate:hover {
@@ -155,6 +155,31 @@ button.logout {
   align-items: center;
   color: white;
 }
+
+/* landing page */
+.loginformcontainer {
+  background: white;
+  padding: 30px 10px;
+  border: none;
+  border-radius: 5px;
+  box-shadow: rgba(0, 0, 0, 0.452) 10px 10px 40px;
+  display: flex;
+}
+
+.headersection-landing {
+  background: rgb(207, 255, 48);
+  background-image: linear-gradient(
+      90deg,
+      rgba(207, 255, 48, 0.75) 0%,
+      rgba(140, 255, 41, 0.85) 100%
+    ),
+    url(./pics/bg2.jpg);
+  background-size: cover;
+  background-position-y: center;
+}
+.landingpageimg {
+  box-shadow: rgba(0, 0, 0, 0.452) 10px 10px 40px;
+}
 .stars-img {
   width: 65px;
 }
@@ -241,30 +266,6 @@ button.logout {
   display: flex;
 }
 
-/* landing page */
-.loginformcontainer {
-  background: white;
-  padding: 30px 10px;
-  border: none;
-  border-radius: 5px;
-  box-shadow: rgba(0, 0, 0, 0.452) 10px 10px 40px;
-  display: flex;
-}
-
-.headersection-landing {
-  background: rgb(207, 255, 48);
-  background-image: linear-gradient(
-      90deg,
-      rgba(207, 255, 48, 0.75) 0%,
-      rgba(140, 255, 41, 0.85) 100%
-    ),
-    url(https://images.unsplash.com/photo-1464207687429-7505649dae38?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1473&q=80);
-  background-position-y: center;
-  background-position-x: left;
-}
-.landingpageimg {
-  box-shadow: rgba(0, 0, 0, 0.452) 10px 10px 40px;
-}
 .blog-page-bg {
   background-image: linear-gradient(
     180deg,
@@ -307,7 +308,16 @@ div.charitycard {
   flex-direction: column;
   width: 100%;
 }
-
+/* on cards */
+.deleteeditbuttons {
+  font-size: 18px;
+}
+.icondel {
+  color: var(--dark-green);
+}
+.icondel:hover {
+  color: var(--med-green1);
+}
 /* footer */
 .footertop {
   background: black;

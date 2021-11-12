@@ -43,13 +43,11 @@ function UserReviews(props) {
     // console.log("firing");
     // e.preventDefault();
 
-    // This breaks causing charity object to go missing from the data completely
-    console.log("review", review);
     const formData = new FormData();
     formData.append("charity", JSON.stringify(review.charity));
     formData.append("ein", review.ein);
     formData.append("review_text", review.review_text);
-    // formData.append("image", review.image);
+    formData.append("image", review.image);
 
     // console.log("charity", charity);
 
@@ -106,7 +104,7 @@ function UserReviews(props) {
     formData.append("review_text", selectedReview.review_text);
     formData.append("charity", JSON.stringify(selectedReview.charity));
     formData.append("ein", selectedReview.ein);
-    // formData.append("image", selectedReview.image);
+    formData.append("image", selectedReview.image);
 
     if (!File) {
       delete selectedReview.image;
@@ -144,43 +142,40 @@ function UserReviews(props) {
   };
 
   const reviewsHTML = reviews.map((review) => (
-    <Card
-      key={review.ein}
-      sx={{ minWidth: 275, width: "80%", display: "flex" }}
-      className=" mb-5"
-    >
-      <CardContent className="d-flex ">
-        <div className="user-review-image-container ">
+    <Card key={review.ein} sx={{ minWidth: 275 }} className=" mb-5">
+      <CardContent className="d-flex-col col-sm-12 p-3">
+        <div className="user-review-image-container d-flex-col py-1">
           {review.image && (
             <img src={review.image} className="user-review-image" />
           )}
         </div>
-        <div className="user-review-text-container">
+        <div className="user-review-text-container d-flex-col py-1">
           <Typography variant="h5">{review.charity.name}</Typography>
 
           <Typography variant="body2">Review: {review.review_text}</Typography>
           <Typography variant="body2">Status: {review.phase}</Typography>
-
-          {review.phase == "SUB" && (
-            <>
-              <button
-                type="button"
-                className="xbutton"
-                data-id={review.id}
-                onClick={handleDelete}
-              >
-                <AiFillDelete />
-              </button>
-              <button
-                type="button"
-                className="xbutton"
-                value={review.id}
-                onClick={() => handleSelection(review)}
-              >
-                <AiFillEdit />
-              </button>
-            </>
-          )}
+          <div className="deleteeditbuttons d-flex">
+            {review.phase == "SUB" && (
+              <>
+                <button
+                  type="button"
+                  className="xbutton"
+                  data-id={review.id}
+                  onClick={handleDelete}
+                >
+                  <AiFillDelete className="icondel" />
+                </button>
+                <button
+                  type="button"
+                  className="xbutton"
+                  value={review.id}
+                  onClick={() => handleSelection(review)}
+                >
+                  <AiFillEdit className="icondel" />
+                </button>
+              </>
+            )}
+          </div>
         </div>
       </CardContent>
     </Card>
