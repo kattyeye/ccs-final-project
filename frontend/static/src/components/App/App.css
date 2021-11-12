@@ -386,4 +386,8 @@ div.charitycard {
   .carousel-caption {
     top: 95px;
   }
+  .headersection-landing {
+    padding-top: 60px;
+    text-align: center;
+  }
 }

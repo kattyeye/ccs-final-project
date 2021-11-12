@@ -10,7 +10,7 @@ function SecondaryHeader(props) {
               <ul className="navbar-nav ml-auto">
                 <>
                   <li className="nav-item ">
-                    <NavLink to="/my-contributions">My Dashboard</NavLink>
+                    <NavLink to="/dashboard">My Dashboard</NavLink>
                   </li>
 
                   <li className="">

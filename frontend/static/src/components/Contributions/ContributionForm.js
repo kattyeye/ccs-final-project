@@ -3,8 +3,6 @@ import { Modal, Button } from "react-bootstrap";
 import Cookies from "js-cookie";
 import { withRouter } from "react-router";
 import { FaSearch } from "react-icons/fa";
-import Fab from "@mui/material/Fab";
-import AddIcon from "@mui/icons-material/Add";
 const BASE_URL = "https://api.data.charitynavigator.org/v2";
 const APP_ID = "0523b096";
 const APP_KEY = "ed9cb1c120b866a6232e01a7affb00c5";
@@ -22,7 +20,7 @@ function ContributionForm(props) {
     console.log("firing");
     const searchCharities = async () => {
       const response = await fetch(
-        `${BASE_URL}/Organizations?app_id=${APP_ID}&app_key=${APP_KEY}&search=${contrib.charity.name}&rated=true`
+        `${BASE_URL}/Organizations?app_id=${APP_ID}&app_key=${APP_KEY}&search=${contrib.charity}&rated=true`
       );
       if (!response.ok) {
         alert("No organizations match your input.");

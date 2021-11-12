@@ -43,7 +43,7 @@ function LoginForm(props) {
         ...prevState,
         isAuth: true,
       }));
-      props.history.push("/my-contributions");
+      props.history.push("/dashboard");
     }
   }
 

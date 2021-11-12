@@ -46,18 +46,14 @@ function LandingPage(props) {
                   86 Hate is a unique movement aimed to spread kindness and
                   connect people to local non-profits across the upstate.
                 </p>
-                <button
-                  type="button"
-                  className="btn"
-                  style={{ backgroundColor: "" }}
-                >
+                <button type="button" className="btn">
                   Contact Us
                 </button>
               </div>
             </div>
 
             <div
-              className="w-50 col-md-6 order-2 order-sm-2 p-sm-5"
+              className="w-lg-50 col-md-6 order-2 order-sm-2 p-sm-5"
               style={{ display: "flex", justifyContent: "center" }}
             >
               <div className="p-5" style={{ display: "flex" }}>
@@ -92,21 +88,24 @@ function LandingPage(props) {
                 drinks establishment; or referring to a person or people who are
                 not welcome in the premises. Hate is no longer welcome here.
               </p>
+              <button type="button" className="btn">
+                Learn More
+              </button>
             </div>
           </div>
 
-          <div className="w-50 col-md-6 order-1 order-sm-2 p-sm-5">
-            <div className="p-5">
+          <div className="col col-md-6 mx-auto order-1 order-sm-2 p-sm-5">
+            <div className="p-5 w-100">
               <img src={sliderpic} className="landingpageimg" />
             </div>
           </div>
         </div>
       </section>
 
-      <section className="container-fluid ">
+      <section className="container-fluid">
         <div className="row d-sm-flex align-items-center justify-content-between">
-          <div className="w-50 col-md-6 order-1 order-sm-1 p-sm-5">
-            <div className="p-5">
+          <div className="col col-md-6 mx-auto order-1 order-sm-1 p-sm-5">
+            <div className="p-5 w-100">
               <img src={soupkitchen} className="landingpageimg" />
             </div>
           </div>
@@ -119,16 +118,19 @@ function LandingPage(props) {
               <p className="" style={{ lineHeight: "2" }}>
                 Since 2021, our mission is to spread love and serve others. We
                 offer several resources to connect you with local organizations.
-                Try something new, give a helping hand or a hoodie!
+                Try something new, give a helping hand or hoodie!
               </p>
+              <button type="button" className="btn">
+                Learn More
+              </button>
             </div>
           </div>
         </div>
       </section>
 
-      <div className="container  mt-5">
+      <div className="container mt-5">
         <section>
-          <div className="text-center mb-5">
+          <div className="text-center mb">
             <small className="text-uppercase" style={{ color: "#429125" }}>
               How you can help{" "}
             </small>

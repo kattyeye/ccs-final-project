@@ -21,6 +21,7 @@ import VolunteerOpportunities from "../Volunteer/VolunteerOpps";
 import BlogPosts from "../Blog/BlogPosts";
 import UserReviewForm from "../Contributions/UserReviewForm";
 import AboutUs from "../AboutUs/AboutUs";
+import PrivateRoute from "../privateroute/PrivateRoute";
 function App(props) {
   const [user, setUser] = useState(null);
   const history = useHistory();
@@ -75,7 +76,7 @@ function App(props) {
         <Route path="/login">
           <LoginForm isAuth={isAuth} user={user} setUser={setUser} />
         </Route>
-        <Route path="/my-contributions">
+        <PrivateRoute isAuth={isAuth} path="/dashboard">
           <ContributionsPageTitle user={user} isAuth={isAuth} />
           <div
             style={{ display: "flex", justifyContent: "center" }}
@@ -88,7 +89,7 @@ function App(props) {
               <UserReviews isAuth={isAuth} />
             </div>
           </div>
-        </Route>
+        </PrivateRoute>
         <Route path="/organizations-with-reviews">
           <OrgPageTitle />
           <OrganizationList />
