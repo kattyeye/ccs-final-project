@@ -43,6 +43,8 @@ function UserReviews(props) {
     // console.log("firing");
     // e.preventDefault();
 
+    // This breaks causing charity object to go missing from the data completely
+
     // const formData = new FormData();
     // formData.append("charity", JSON.stringify(review.charity));
     // formData.append("ein", review.ein);
@@ -101,9 +103,9 @@ function UserReviews(props) {
 
     const formData = new FormData();
     formData.append("review_text", selectedReview.review_text);
-    formData.append("charity", selectedReview.charity);
+    formData.append("charity", JSON.stringify(selectedReview.charity));
     formData.append("ein", selectedReview.ein);
-    formData.append("image", selectedReview.image);
+    // formData.append("image", selectedReview.image);
 
     if (!File) {
       delete selectedReview.image;
