@@ -64,11 +64,11 @@ function App(props) {
   // const isAdmin = user?.isAdmin;
   return (
     <>
-      <SecondaryHeader
+      {/* <SecondaryHeader
         isAuth={isAuth}
         handleLogoutSubmit={handleLogoutSubmit}
-      />
-      <Header />
+      /> */}
+      <Header isAuth={isAuth} handleLogoutSubmit={handleLogoutSubmit} />
       <Switch>
         <Route path="/registration">
           <RegistrationForm />

@@ -3,7 +3,7 @@ import { NavLink, withRouter } from "react-router-dom";
 function SecondaryHeader(props) {
   return (
     <>
-      {props.isAuth && (
+      {/* {props.isAuth && (
         <nav className="navbar navbar-expand-lg secondary-navbar">
           <div className="container-fluid">
             <div className="collapse navbar-collapse " id="navbarResponsive">
@@ -27,7 +27,7 @@ function SecondaryHeader(props) {
             </div>
           </div>
         </nav>
-      )}
+      )} */}
     </>
   );
 }

@@ -48,6 +48,15 @@ button.register-here-button {
   color: var(--dark-green);
 }
 
+li button.btn.dashboardbutton a {
+  text-decoration: none;
+  color: black;
+}
+li button.btn.dashboardbutton a:hover {
+  text-decoration: none;
+  color: white;
+}
+
 .form-buttons {
   display: flex;
   flex-direction: column;
@@ -97,6 +106,11 @@ li a:focus {
   }
 }
 
+.public-center-nav {
+  display: flex;
+  justify-content: center;
+}
+
 .nav-both {
   display: flex;
   flex-direction: column;
@@ -120,7 +134,7 @@ nav img {
 }
 .links-nav {
   display: flex;
-  justify-content: flex-end;
+  justify-content: flex-start;
   padding-right: 100px;
 }
 .nav-item a {
@@ -167,10 +181,10 @@ button.logout {
   background: rgb(207, 255, 48);
   background-image: linear-gradient(
       90deg,
-      rgba(207, 255, 48, 0.75) 0%,
+      rgba(207, 255, 48, 0.95) 0%,
       rgba(140, 255, 41, 0.85) 100%
     ),
-    url(./pics/bg2.jpg);
+    url(./pics/bg3.png);
   background-size: cover;
   background-position-y: center;
 }

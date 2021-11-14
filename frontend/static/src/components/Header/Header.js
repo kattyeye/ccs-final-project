@@ -2,6 +2,7 @@ import { NavLink, withRouter } from "react-router-dom";
 import Navbar from "react-bootstrap/Navbar";
 import { Container, Nav, NavDropdown } from "react-bootstrap";
 import logo from "../App/pics/logo.png";
+import { FaSignInAlt } from "react-icons/fa";
 
 function Header(props) {
   return (
@@ -19,21 +20,22 @@ function Header(props) {
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav>
             <ul className="links-nav">
-              <li className="nav-item p-3">
-                <NavLink to="/blog">Blog</NavLink>
-              </li>
+              <div className="public-center-nav">
+                <li className="nav-item p-3">
+                  <NavLink to="/blog">Blog</NavLink>
+                </li>
 
-              <li className="nav-item p-3">
-                <NavLink to="/organizations-with-reviews">
-                  Organizations
-                </NavLink>
-              </li>
+                <li className="nav-item p-3">
+                  <NavLink to="/organizations-with-reviews">
+                    Organizations
+                  </NavLink>
+                </li>
 
-              <li className="nav-item p-3">
-                <NavLink to="/about-us">About Us</NavLink>
-              </li>
+                <li className="nav-item p-3">
+                  <NavLink to="/about-us">About Us</NavLink>
+                </li>
 
-              {/* {!!!props.isAuth && (
+                {/* {!!!props.isAuth && (
 
                 <li className="nav-item p-3 ">
                   <NavLink className="login-btn" to="/login">
@@ -42,7 +44,7 @@ function Header(props) {
                 </li>
 
             )} */}
-              {/* {props.isAuth && (
+                {/* {props.isAuth && (
                 <>
                   <li className="nav-item p-3">
                     <NavLink to="/my-contributions">My Contributions</NavLink>
@@ -60,13 +62,37 @@ function Header(props) {
                 </>
               )} */}
 
-              <li className="nav-item ">
-                <NavLink to="/volunteer">
-                  <button className="btn" type="button">
-                    Get Involved
-                  </button>
-                </NavLink>
-              </li>
+                <li className="nav-item p-3">
+                  <NavLink to="/volunteer">Get Involved</NavLink>
+                </li>
+              </div>
+              {!props.isAuth && (
+                <li className="nav-item p-3 ">
+                  <NavLink to="/">
+                    <FaSignInAlt /> Login
+                  </NavLink>
+                </li>
+              )}
+
+              {props.isAuth && (
+                <>
+                  <li className="dashboard">
+                    <button type="button" className="btn dashboardbutton">
+                      <NavLink to="/dashboard">My Dashboard</NavLink>
+                    </button>
+                  </li>
+
+                  <li className="">
+                    <button
+                      className="nav-item p-3 logout"
+                      type="button"
+                      onClick={() => props.handleLogoutSubmit()}
+                    >
+                      Logout
+                    </button>
+                  </li>
+                </>
+              )}
             </ul>
           </Nav>
         </Navbar.Collapse>
