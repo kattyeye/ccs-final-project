@@ -41,10 +41,10 @@ function ContributionList(props) {
     formData.append("in_dollars", contrib.in_dollars);
     formData.append("in_hours", contrib.in_hours);
     formData.append("text", contrib.text);
-    // if (!File) {
-    //   formData.delete("image", contrib.image);
-    // }
-    formData.append("image", contrib.image);
+
+    if (contrib.image instanceof File) {
+      formData.append("image", contrib.image);
+    }
 
     const options = {
       method: "POST",
@@ -95,10 +95,13 @@ function ContributionList(props) {
     formData.append("in_dollars", contrib.in_dollars);
     formData.append("in_hours", contrib.in_hours);
     formData.append("text", contrib.text);
-    formData.append("image", contrib.image);
+
+    if (contrib.image instanceof File) {
+      formData.append("image", contrib.image);
+    }
 
     const response = await fetch(`api_v1/contributions/${id}/`, {
-      method: "PUT",
+      method: "PATCH",
       headers: {
         "X-CSRFToken": Cookies.get("csrftoken"),
         // "Content-Type": "application/json",

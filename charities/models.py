@@ -22,7 +22,7 @@ class Contribution(models.Model):
     in_dollars = models.IntegerField(blank=True, default=20)
     text = models.CharField(max_length=255, blank=True,)
     image = models.ImageField(
-        upload_to='contrib_images', null=True, blank=True)
+        upload_to='contrib_images', default='usericon.png', blank=True)
     user = models.ForeignKey(settings.AUTH_USER_MODEL,
                              on_delete=models.CASCADE, blank=True,)
 
@@ -38,7 +38,7 @@ class Review(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL,
                              on_delete=models.CASCADE, blank=True,)
     image = models.ImageField(
-        upload_to='review_images', null=True, blank=True)
+        upload_to='review_images', blank=True, default='usericon.png')
 
     SUBMITTED = 'SUB'
     PUBLISHED = "PUB"

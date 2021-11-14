@@ -2,36 +2,15 @@ import { useState, useEffect } from "react";
 import { Modal, Button } from "react-bootstrap";
 import Cookies from "js-cookie";
 import { withRouter } from "react-router";
-import { FaSearch } from "react-icons/fa";
-const BASE_URL = "https://api.data.charitynavigator.org/v2";
-const APP_ID = "0523b096";
-const APP_KEY = "ed9cb1c120b866a6232e01a7affb00c5";
+import CharitySearch from "../CharitySearch/CharitySearch";
 
 function ContributionForm(props) {
   const [contrib, setContrib] = useState({ ...props.selectedContrib });
-  const [charities, setCharities] = useState([]);
   const [preview, setPreview] = useState("");
 
   useEffect(() => {
     setContrib(props.selectedContrib);
   }, [props]);
-
-  useEffect(() => {
-    console.log("firing");
-    const searchCharities = async () => {
-      const response = await fetch(
-        `${BASE_URL}/Organizations?app_id=${APP_ID}&app_key=${APP_KEY}&search=${contrib.charity}&rated=true`
-      );
-      if (!response.ok) {
-        alert("No organizations match your input.");
-      } else {
-        const data = await response.json();
-        console.log("data", data);
-        setCharities(data.slice(0, 5));
-      }
-    };
-    searchCharities();
-  }, [contrib.charity]);
 
   function handleChange(e) {
     const { name, value } = e.target;
@@ -83,37 +62,13 @@ function ContributionForm(props) {
           </Modal.Header>
           <Modal.Body>
             <form>
-              <div className="form-search">
-                <input
-                  type="text"
-                  placeholder="Search for a charity"
-                  name="charity"
-                  value={contrib.charity.name}
-                  onChange={handleChange}
-                />
-                <FaSearch className="fa-search" />
-
-                <ul>
-                  {charities?.map((charity) => (
-                    <li className="charitysearchlist" key={charity.ein}>
-                      <button
-                        type="button"
-                        className="select-button"
-                        value={contrib.charity.name}
-                        onClick={() => selectCharity(charity)}
-                      >
-                        {charity.charityName}
-                      </button>
-                    </li>
-                  ))}
-                </ul>
-              </div>
               <div className="form-data">
+                <CharitySearch select={selectCharity} />
                 <input
                   type="text"
                   placeholder="Charity Name"
                   name="charity"
-                  value={contrib.charity.name}
+                  value={contrib.charity?.name ?? ""}
                   onChange={handleChange}
                 />
                 <input

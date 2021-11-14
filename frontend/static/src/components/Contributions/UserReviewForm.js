@@ -4,6 +4,7 @@ import Cookies from "js-cookie";
 import { withRouter } from "react-router";
 import { FaSearch } from "react-icons/fa";
 import { Snackbar, Alert } from "@mui/material";
+import CharitySearch from "../CharitySearch/CharitySearch";
 
 const BASE_URL = "https://api.data.charitynavigator.org/v2";
 const APP_ID = "0523b096";
@@ -12,31 +13,12 @@ const APP_KEY = "ed9cb1c120b866a6232e01a7affb00c5";
 function UserReviewForm(props) {
   const [review, setReview] = useState({ ...props.selectedReview });
   //   const [reviews, setReviews] = useState([]);
-  const [charities, setCharities] = useState([]);
   const [openSuccess, setOpenSuccess] = useState(false);
   const [preview, setPreview] = useState("");
 
   useEffect(() => {
     setReview(props.selectedReview);
   }, [props]);
-
-  useEffect(() => {
-    console.log("firing");
-    const searchCharities = async () => {
-      const response = await fetch(
-        `${BASE_URL}/Organizations?app_id=${APP_ID}&app_key=${APP_KEY}&search=${review.charity}&rated=true`
-      );
-
-      if (!response.ok) {
-        alert("No organizations match your input.");
-      } else {
-        const data = await response.json();
-        console.log("data", data);
-        setCharities(data.slice(0, 5));
-      }
-    };
-    searchCharities();
-  }, [review.charity]);
 
   function handleChange(e) {
     const { name, value } = e.target;
@@ -102,37 +84,14 @@ function UserReviewForm(props) {
           </Modal.Header>
           <Modal.Body>
             <form>
-              <div className="form-search">
-                <input
-                  type="text"
-                  placeholder="Search for a charity"
-                  name="charity"
-                  value={review.charity.name}
-                  onChange={handleChange}
-                />
-                <FaSearch className="fa-search" />
+              <CharitySearch select={selectCharity} />
 
-                <ul>
-                  {charities?.map((charity) => (
-                    <li className="charitysearchlist" key={charity.ein}>
-                      <button
-                        type="button"
-                        className="select-button"
-                        value={review.charity.name}
-                        onClick={() => selectCharity(charity)}
-                      >
-                        {charity.charityName}
-                      </button>
-                    </li>
-                  ))}
-                </ul>
-              </div>
               <div className="form-data">
                 <input
                   type="text"
                   placeholder="Charity Name"
                   name="charity"
-                  value={review.charity.name}
+                  value={review.charity?.name ?? ""}
                   onChange={handleChange}
                 />
                 <input

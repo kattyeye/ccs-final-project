@@ -75,7 +75,7 @@ function Header(props) {
               )}
 
               {props.isAuth && (
-                <>
+                <div className="authnavitems">
                   <li className="dashboard">
                     <button type="button" className="btn dashboardbutton">
                       <NavLink to="/dashboard">My Dashboard</NavLink>
@@ -91,7 +91,7 @@ function Header(props) {
                       Logout
                     </button>
                   </li>
-                </>
+                </div>
               )}
             </ul>
           </Nav>

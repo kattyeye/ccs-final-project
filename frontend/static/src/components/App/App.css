@@ -109,6 +109,18 @@ li a:focus {
 .public-center-nav {
   display: flex;
   justify-content: center;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.authnavitems {
+  display: flex;
+}
+
+div.navbar-nav {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
 }
 
 .nav-both {
@@ -134,8 +146,8 @@ nav img {
 }
 .links-nav {
   display: flex;
-  justify-content: flex-start;
   padding-right: 100px;
+  width: 100%;
 }
 .nav-item a {
   text-decoration: none;
@@ -315,7 +327,7 @@ div.charitycard {
 }
 .reviewimage,
 .user-review-image {
-  width: 200px;
+  width: 100px;
 }
 
 .cardvolunteer {
@@ -333,6 +345,7 @@ div.charitycard {
   flex-direction: column;
   width: 100%;
 }
+
 /* on cards */
 .deleteeditbuttons {
   font-size: 18px;

@@ -14,7 +14,7 @@ const phases = {
   published: "PUB",
 };
 const defaultReview = {
-  charity: {},
+  charity: null,
   ein: "",
   review_text: "",
   image: null,
@@ -47,7 +47,10 @@ function UserReviews(props) {
     formData.append("charity", JSON.stringify(review.charity));
     formData.append("ein", review.ein);
     formData.append("review_text", review.review_text);
-    formData.append("image", review.image);
+
+    if (review.image) {
+      formData.append("image", review.image);
+    }
 
     // console.log("charity", charity);
 
@@ -104,14 +107,13 @@ function UserReviews(props) {
     formData.append("review_text", selectedReview.review_text);
     formData.append("charity", JSON.stringify(selectedReview.charity));
     formData.append("ein", selectedReview.ein);
-    formData.append("image", selectedReview.image);
 
-    if (!File) {
-      delete selectedReview.image;
-    } else {
+    if (selectedReview.image instanceof File) {
+      formData.append("image", selectedReview.image);
     }
+
     const response = await fetch(`api_v1/reviews/${id}/`, {
-      method: "PUT",
+      method: "PATCH",
       headers: {
         "X-CSRFToken": Cookies.get("csrftoken"),
         // "Content-Type": "application/json",
@@ -142,7 +144,7 @@ function UserReviews(props) {
   };
 
   const reviewsHTML = reviews.map((review) => (
-    <Card key={review.ein} sx={{ minWidth: 275 }} className=" mb-5">
+    <Card key={review.id} sx={{ minWidth: 275 }} className=" mb-5">
       <CardContent className="d-flex-col col-sm-12 p-3">
         <div className="user-review-image-container d-flex-col py-1">
           {review.image && (
@@ -151,10 +153,11 @@ function UserReviews(props) {
         </div>
         <div className="user-review-text-container d-flex-col py-1">
           <Typography variant="h5">
-            {" "}
-            <a href={review.charity.url} target="_blank">
-              {review.charity.name}
-            </a>
+            {review.charity && (
+              <a href={review.charity.url} target="_blank">
+                {review.charity.name}
+              </a>
+            )}
           </Typography>
 
           <Typography variant="body2">Review: {review.review_text}</Typography>

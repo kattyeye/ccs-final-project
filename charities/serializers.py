@@ -43,6 +43,8 @@ class ReviewSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
     def create(self, validated_data):
+        print(validated_data)
+
         charity_details = json.loads(
             self.context.get('request').data['charity'])
         validated_data['charity'] = Charity.objects.get_or_create(
