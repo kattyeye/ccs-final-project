@@ -56,13 +56,9 @@ button.register-here-button {
 .select-button {
   border: none;
   background: none;
-  color: var(--dark-green);
-  font-size: 12px;
-  text-transform: uppercase;
-  font-weight: 900;
 }
-.select-button:hover {
-  color: #fff;
+.charitysearchlist:hover {
+  background: #cfec5b;
 }
 .xbutton {
   background: none;
@@ -85,7 +81,8 @@ button.plus-icon-button {
 li {
   list-style: none;
 }
-li a:hover {
+li a:hover,
+li a:focus {
   color: #60993d;
 }
 
@@ -135,7 +132,7 @@ nav img {
   padding: 0px;
   background-color: black;
   height: 20px;
-  font-size: 12px;
+  font-size: 14px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -147,13 +144,13 @@ nav img {
 button.logout {
   border: none;
   background: none;
-  font-size: 12px;
+  font-size: 14px;
   padding: none;
   margin: none;
   margin-left: 5px;
   display: flex;
   align-items: center;
-  color: white;
+  color: var(--dark-green);
 }
 
 /* landing page */
@@ -269,8 +266,8 @@ button.logout {
 .blog-page-bg {
   background-image: linear-gradient(
     180deg,
-    rgba(207, 255, 48, 0.75) 0%,
-    rgba(140, 255, 41, 0.85) 100%
+    rgba(207, 255, 48, 0.25) 0%,
+    rgba(140, 255, 41, 0.35) 100%
   );
 }
 
@@ -298,9 +295,23 @@ div.charitycard {
   flex-direction: column;
   align-items: flex-start;
 }
+.user-review-text-container a {
+  text-decoration: none;
+  color: var(--dark-green);
+}
 .reviewimage,
 .user-review-image {
   width: 200px;
+}
+
+.cardvolunteer {
+  width: 100%;
+  page-break-inside: avoid;
+  break-inside: avoid;
+  margin-bottom: 10px;
+}
+.cardvolunteer img {
+  margin-bottom: 10px;
 }
 
 .review-list-holder section {
@@ -337,10 +348,17 @@ div.charitycard {
 .socialicons li a {
   color: white;
 }
-
+.volcolumns {
+  column-count: 3;
+  column-gap: 10px;
+}
 @media (min-width: 502px) and (max-width: 1050px) {
   .charitycolumns {
     column-count: 1;
+  }
+  .volcolumns {
+    column-count: 1;
+    column-gap: 10px;
   }
 }
 @media (min-width: 1051px) and (max-width: 1450px) {
@@ -389,5 +407,9 @@ div.charitycard {
   .headersection-landing {
     padding-top: 60px;
     text-align: center;
+  }
+  .volcolumns {
+    column-count: 1;
+    column-gap: 10px;
   }
 }

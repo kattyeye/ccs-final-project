@@ -1,7 +1,7 @@
 import { Carousel } from "react-bootstrap";
 import { withRouter } from "react-router";
 import sliderpic from "../App/pics/sliderpic1.jpg";
-function ContributionsPageTitle() {
+function ContributionsPageTitle(props) {
   return (
     <div>
       <Carousel>
@@ -9,7 +9,9 @@ function ContributionsPageTitle() {
           <img className="d-block w-100" src={sliderpic} alt="First slide" />
           <Carousel.Caption>
             <h3>Dashboard</h3>
-            <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+            <div>
+              <h4></h4>
+            </div>
           </Carousel.Caption>
         </Carousel.Item>
       </Carousel>

@@ -150,7 +150,12 @@ function UserReviews(props) {
           )}
         </div>
         <div className="user-review-text-container d-flex-col py-1">
-          <Typography variant="h5">{review.charity.name}</Typography>
+          <Typography variant="h5">
+            {" "}
+            <a href={review.charity.url} target="_blank">
+              {review.charity.name}
+            </a>
+          </Typography>
 
           <Typography variant="body2">Review: {review.review_text}</Typography>
           <Typography variant="body2">Status: {review.phase}</Typography>
@@ -183,16 +188,7 @@ function UserReviews(props) {
 
   return (
     <div className="p-5">
-      <div className="container-fluid review-list-holder p-5">
-        {/* <Snackbar
-        open={openSuccess}
-        autoHideDuration={6000}
-        onClose={handleClosey}
-      >
-        <Alert onClose={handleClosey} severity="danger" sx={{ width: "100%" }}>
-          Review Deleted.
-        </Alert>
-      </Snackbar> */}
+      <div className="container-fluid review-list-holder">
         <div className="headerwithicon">
           {reviews.user ? <h3>My Reviews</h3> : <h3>Add Review</h3>}
 

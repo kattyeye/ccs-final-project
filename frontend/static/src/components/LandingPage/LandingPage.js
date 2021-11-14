@@ -5,7 +5,7 @@ import logoremovedbg from "../App/pics/86hate_logo-removebg-preview.png";
 // import { faHandHoldingHeart } from "@fortawesome/free-solid-svg-icons";
 import { FaHandHoldingHeart, FaHandsHelping } from "react-icons/fa";
 import { MdCelebration } from "react-icons/md";
-import { Card } from "react-bootstrap";
+import { Card, NavLink } from "react-bootstrap";
 import { withRouter } from "react-router";
 // import { CardContent, CardHeader } from "@mui/material";
 // import { Link } from "react-router-dom";
@@ -46,9 +46,11 @@ function LandingPage(props) {
                   86 Hate is a unique movement aimed to spread kindness and
                   connect people to local non-profits across the upstate.
                 </p>
-                <button type="button" className="btn">
-                  Contact Us
-                </button>
+                <a href="#footer">
+                  <button className="btn" type="button">
+                    Contact Us
+                  </button>
+                </a>
               </div>
             </div>
 
@@ -104,7 +106,7 @@ function LandingPage(props) {
 
       <section className="container-fluid">
         <div className="row d-sm-flex align-items-center justify-content-between">
-          <div className="col col-md-6 mx-auto order-1 order-sm-1 p-sm-5">
+          <div className="col col-md-6 mx-auto order-1 order-sm-1 ">
             <div className="p-5 w-100">
               <img src={soupkitchen} className="landingpageimg" />
             </div>

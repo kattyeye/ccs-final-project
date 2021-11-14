@@ -9,6 +9,7 @@ import { useState, useEffect } from "react";
 import { useLocation, withRouter } from "react-router";
 // import ReviewForm from "../Reviews/ReviewForm";
 // import ReviewList from "../Reviews/ReviewList";
+import { FaHandHoldingHeart, FaHandsHelping } from "react-icons/fa";
 
 const BASE_URL = "https://api.data.charitynavigator.org/v2";
 const APP_ID = "0523b096";
@@ -46,17 +47,22 @@ function OrganizationList(props) {
         <div className="charitycolumns px-5">
           {charities?.map((charity) => (
             <Card key={charity.ein} className="charitycard">
-              <img
-                src={charity.cause.image}
+              <div
+                className="circle text-white rounded-circle d-flex align-items-center justify-content-center mx-auto mb-4"
                 style={{
                   width: "60px",
-                  position: "absolute",
-                  top: "0px",
-                  left: "0px",
+                  height: "60px",
+                  backgroundColor: "#429125",
                 }}
-              />
-              <CardContent style={{ paddingLeft: "100px" }}>
-                <Typography variant="h5">{charity.charityName}</Typography>
+              >
+                <FaHandHoldingHeart
+                  style={{ width: "100%", fontSize: "35px", color: "black" }}
+                />
+              </div>
+              <CardContent style={{}}>
+                <Typography variant="h5">
+                  <a href={charity.websiteURL}>{charity.charityName}</a>
+                </Typography>
 
                 <Typography variant="body1">
                   {charity.cause.causeName}
@@ -65,13 +71,13 @@ function OrganizationList(props) {
                   Current Rating: {charity.currentRating.score}
                 </Typography>
               </CardContent>
-              <CardActions
+              {/* <CardActions
                 style={{ paddingLeft: "100px", paddingBottom: "20px" }}
               >
                 <a href={charity.websiteURL} target="_blank" className="btn">
                   Learn More
                 </a>
-              </CardActions>
+              </CardActions> */}
             </Card>
           ))}
         </div>

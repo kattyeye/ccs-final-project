@@ -4,6 +4,7 @@ from rest_framework import generics
 from .permissions import IsOwner
 from rest_framework.permissions import IsAuthenticatedOrReadOnly, IsAdminUser
 from .serializers import ContributionSerializer, ReviewSerializer
+from django.db.models import Sum
 
 
 class ContributionListAPIView(generics.ListCreateAPIView):
@@ -13,14 +14,14 @@ class ContributionListAPIView(generics.ListCreateAPIView):
     def get_queryset(self):
         if not self.request.user.is_anonymous:
             return Contribution.objects.filter(user=self.request.user)
-        # return Contribution.objects.all()
+
+    # def total_contribution(self):
+    #     total = Contribution.objects.aggregate(
+    #         TOTAL=Sum('in_hours'))['TOTAL']
+    #     return total
 
     def perform_create(self, serializer):
-        # find out if the charity exists
-        # if it does, save the charity name,
-        # if it doesn't create new charity name
-
-        serializer.save(user=self.request.user, )
+        serializer.save(user=self.request.user,)
 
 
 class ReviewListAPIView(generics.ListCreateAPIView):

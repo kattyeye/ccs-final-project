@@ -41,13 +41,14 @@ function ContributionList(props) {
     formData.append("in_dollars", contrib.in_dollars);
     formData.append("in_hours", contrib.in_hours);
     formData.append("text", contrib.text);
+    // if (!File) {
+    //   formData.delete("image", contrib.image);
+    // }
     formData.append("image", contrib.image);
 
-    // e.preventDefault();
     const options = {
       method: "POST",
       headers: {
-        // "Content-type": "application/json",
         "X-CSRFToken": Cookies.get("csrftoken"),
       },
       body: formData,
@@ -146,6 +147,7 @@ function ContributionList(props) {
       </div>
       {contribList?.map((contrib) => (
         <Card key={contrib.ein} sx={{ minWidth: 275 }} className="mb-5">
+          {/* {contrib.in_hours.total} */}
           <CardContent>
             <div className="user-review-image-container d-flex-col py-1">
               {contrib.image && (

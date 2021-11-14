@@ -96,14 +96,13 @@ function ContributionForm(props) {
                 <ul>
                   {charities?.map((charity) => (
                     <li className="charitysearchlist" key={charity.ein}>
-                      {charity.charityName}
                       <button
                         type="button"
                         className="select-button"
                         value={contrib.charity.name}
                         onClick={() => selectCharity(charity)}
                       >
-                        Select
+                        {charity.charityName}
                       </button>
                     </li>
                   ))}

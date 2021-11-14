@@ -115,14 +115,13 @@ function UserReviewForm(props) {
                 <ul>
                   {charities?.map((charity) => (
                     <li className="charitysearchlist" key={charity.ein}>
-                      {charity.charityName}
                       <button
                         type="button"
                         className="select-button"
                         value={review.charity.name}
                         onClick={() => selectCharity(charity)}
                       >
-                        Select
+                        {charity.charityName}
                       </button>
                     </li>
                   ))}

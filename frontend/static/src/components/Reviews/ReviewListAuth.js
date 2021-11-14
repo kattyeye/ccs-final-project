@@ -13,9 +13,9 @@ function ReviewListAuth(props) {
   useEffect(() => {
     const key = props.match.params.phase;
     let url = `/api_v1/admin/reviews/`;
-    if (key) {
-      url = `/api_v1/reviews/?phase=${phases[key]}`;
-    }
+    // if (key) {
+    //   url = `/api_v1/reviews/?phase=${phases[key]}`;
+    // }
     async function fetchReviews() {
       const response = await fetch(url);
       const data = await response.json();

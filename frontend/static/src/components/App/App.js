@@ -76,20 +76,11 @@ function App(props) {
         <Route path="/login">
           <LoginForm isAuth={isAuth} user={user} setUser={setUser} />
         </Route>
-        <PrivateRoute isAuth={isAuth} path="/dashboard">
+        <Route isAuth={isAuth} path="/dashboard">
           <ContributionsPageTitle user={user} isAuth={isAuth} />
-          <div
-            style={{ display: "flex", justifyContent: "center" }}
-            className="mt-5 mb-5 contribandreviewcontainer"
-          >
-            <div style={{ display: "inline-block" }}>
-              <ContributionList isAuth={isAuth} user={user} />
-            </div>
-            <div style={{ display: "inline-block" }}>
-              <UserReviews isAuth={isAuth} />
-            </div>
-          </div>
-        </PrivateRoute>
+          <ContributionList isAuth={isAuth} user={user} />
+          <UserReviews isAuth={isAuth} />
+        </Route>
         <Route path="/organizations-with-reviews">
           <OrgPageTitle />
           <OrganizationList />
