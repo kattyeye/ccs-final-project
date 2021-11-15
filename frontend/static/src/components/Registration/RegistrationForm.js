@@ -1,7 +1,8 @@
 import { useState } from "react";
 import Cookies from "js-cookie";
 import { Redirect, useHistory, withRouter } from "react-router";
-
+import { Card, Typography } from "@mui/material";
+import logo from "../App/pics/logo.png";
 function RegistrationForm(props) {
   const [user, setUser] = useState({
     username: "",
@@ -47,70 +48,73 @@ function RegistrationForm(props) {
       } else {
         const data = await response.json();
         Cookies.set("Authorization", `Token${data.key}`);
-        props.history.push("/my-contributions");
+        props.history.push("/dashboard");
       }
     }
   }
   return (
-    <div className="container">
-      <form className="mt-3 col-6 " onSubmit={handleSubmit}>
-        <div className="form-group text-left mb-3 ">
-          <label htmlFor="username">username</label>
-          <input
-            type="text"
-            className="form-control"
-            id="username"
-            placeholder="enter username."
-            onChange={handleInput}
-            required
-            name="username"
-            value={user.username}
-          />
-        </div>
-        <div className="form-group text-left mb-3">
-          <label htmlFor="email">email</label>
-          <input
-            type="text"
-            className="form-control"
-            id="email"
-            placeholder="enter email."
-            onChange={handleInput}
-            required
-            name="email"
-            value={user.email}
-          />
-        </div>
-        <div className="form-group text-left mb-3">
-          <label htmlFor="password1">password</label>
-          <input
-            type="password"
-            className="form-control"
-            id="password1"
-            placeholder="enter password."
-            onChange={handleInput}
-            required
-            name="password1"
-            value={user.password1}
-          />
-        </div>
-        <div className="form-group text-left mb-3">
-          <label htmlFor="password2">confirm password</label>
-          <input
-            type="password"
-            className="form-control"
-            id="password2"
-            placeholder="confirm password."
-            onChange={handleInput}
-            required
-            name="password2"
-            value={user.password2}
-          />
-          {error && <span className="text-danger">{error}</span>}
-        </div>
-        <button type="submit" className="btn mt-3">
-          Register
-        </button>
-      </form>
+    <div className="registrationbg">
+      <div>
+        <Card className=" registrationform">
+          <img src={logo} style={{ width: "100px" }} />
+          <form className="mt-3 " onSubmit={handleSubmit}>
+            <div className="form-group text-left">
+              <label htmlFor="username">Username</label>
+              <input
+                type="text"
+                className="form-control"
+                id="username"
+                onChange={handleInput}
+                required
+                name="username"
+                value={user.username}
+              />
+            </div>
+            <div className="form-group text-left">
+              <label htmlFor="Email">Email</label>
+
+              <input
+                type="text"
+                className="form-control"
+                id="email"
+                onChange={handleInput}
+                required
+                name="email"
+                value={user.email}
+              />
+            </div>
+            <div className="form-group text-left ">
+              <label htmlFor="Password">Password</label>
+
+              <input
+                type="password"
+                className="form-control"
+                id="password1"
+                onChange={handleInput}
+                required
+                name="password1"
+                value={user.password1}
+              />
+            </div>
+            <div className="form-group text-left ">
+              <label htmlFor="Confirm Password">Confirm Password</label>
+              <input
+                type="password"
+                className="form-control"
+                id="password2"
+                onChange={handleInput}
+                required
+                name="password2"
+                value={user.password2}
+              />
+              {error && <span className="text-danger">{error}</span>}
+            </div>
+            <button type="submit" className="btn mt-3">
+              Register
+            </button>
+          </form>
+        </Card>
+      </div>
     </div>
   );
 }

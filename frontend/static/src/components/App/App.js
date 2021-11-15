@@ -87,20 +87,8 @@ function App(props) {
 
           <ReviewList />
           {isAuth && <UserReviews isAuth={isAuth} />}
-
-          {/* {isAuth && (
-            <>
-              <ReviewList />
-              <UserReviews />
-            </>
-          )} */}
-          {/* <ReviewForm isAuth={isAuth} /> */}
-          {/* <UserReviewForm isAuth={isAuth} /> */}
         </Route>
-        {/*
-        <Route path="/my-reviews">
-          <ReviewListAuth isAuth={isAuth} />
-        </Route> */}
+
         <Route path="/about-us">
           <AboutUs />
         </Route>

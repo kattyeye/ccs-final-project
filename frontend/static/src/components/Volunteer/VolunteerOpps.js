@@ -5,6 +5,7 @@ import bags from "../App/pics/bags.jpg";
 import dog from "../App/pics/dog.jpg";
 import homerebuild from "../App/pics/homerebuild.jpg";
 import fooddrive from "../App/pics/fooddrive.jpg";
+import blooddrive from "../App/pics/blooddrive.jpg";
 import women from "../App/pics/women.jpg";
 import { Typography, CardContent, CardActions } from "@mui/material";
 import CardMedia from "@mui/material/CardMedia";
@@ -115,6 +116,36 @@ export default function VolunteerOpportunities() {
                 component="img"
                 alt="turkeyfry"
                 height="240"
+                image={blooddrive}
+              />
+              <Typography gutterBottom variant="h5">
+                Red Cross Blood Donation{" "}
+              </Typography>
+              <Typography variant="body2" gutterBottom>
+                Every two seconds someone in the U.S. needs blood. It is
+                essential for surgeries, cancer treatment, chronic illnesses,
+                and traumatic injuries. Whether a patient receives whole blood,
+                red cells, platelets or plasma, this lifesaving care starts with
+                one person making a generous donation.
+              </Typography>
+              <CardActions>
+                <Button
+                  variant="primary"
+                  href="https://www.redcrossblood.org/give.html/find-drive"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Learn More
+                </Button>
+              </CardActions>
+            </CardContent>
+          </Card>
+          <Card className="cardvolunteer">
+            <CardContent>
+              <CardMedia
+                component="img"
+                alt="turkeyfry"
+                height="240"
                 image={dog}
               />
               <Typography gutterBottom variant="h5">
@@ -173,7 +204,12 @@ export default function VolunteerOpportunities() {
               <Typography gutterBottom variant="h5">
                 Greenville Animal Care: Volunteering and Adoption
               </Typography>
-              <Typography variant="body2"></Typography>
+              <Typography variant="body2">
+                This organization offers wonderful pets available for adoption,
+                as well as volunteer positions on the daily. They are always
+                looking for new animal lovers to help out. Click the link below
+                to learn more.
+              </Typography>
               <CardActions>
                 <Button
                   variant="primary"

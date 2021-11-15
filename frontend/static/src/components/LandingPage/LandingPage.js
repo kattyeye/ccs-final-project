@@ -14,37 +14,22 @@ import soupkitchen from "../App/pics/soupkitchen.jpg";
 function LandingPage(props) {
   return (
     <div className="col-lg col-12">
-      {/* <section className="horiz-container container-fluid">
-        <div className="half-text">
-          <h1>Don't be a hater.</h1>
-          <h4>
-            86 Hate is a movement to share resources and connect people to
-            non-profits in Greenville.
-          </h4>
-          <Link className="btn" to="/about-us">
-            Learn More
-          </Link>
-        </div>
-        {!props.isAuth && (
-          <div className="header-login-form">
-            <LoginForm />
-          </div>
-        )}
-      </section> */}
       <div className="headersection-landing">
         <section className="container-fluid ">
           <div className="row d-sm-flex align-items-center justify-content-between">
             <div className="col-md-6 order-2 order-sm-1 p-3 p-sm-5">
               <div className="p-0 p-sm-5">
                 <small className="text-uppercase" style={{ color: "#429125" }}>
-                  Spread the word
+                  Do. Give. Share.
                 </small>
                 <h1 className="mb-4 display-4" style={{ fontWeight: "600" }}>
-                  Don't be a <span style={{ color: "#429125" }}>Hater</span>
+                  Change how people view their world:{" "}
+                  <span style={{ color: "#429125" }}>86 Hate.</span>
                 </h1>
                 <p className="" style={{ lineHeight: "2" }}>
-                  86 Hate is a unique movement aimed to spread kindness and
-                  connect people to local non-profits across the upstate.
+                  You can make a difference. How? Doing random acts of kindness.
+                  Giving your time and resources. And sharing the 86 Hate
+                  movement with your community.
                 </p>
                 <a href="#footer">
                   <button className="btn" type="button">
@@ -82,13 +67,16 @@ function LandingPage(props) {
           <div className="col-md-6 order-2 order-sm-1 p-3 p-sm-5">
             <div className="p-0 p-sm-5">
               <h3 className="mb-4 display-6" style={{ fontWeight: "600" }}>
-                What does <span style={{ color: "#429125" }}>86</span> mean?
+                The <span style={{ color: "#429125" }}>86 Hate</span> Big
+                Picture.
               </h3>
               <p className="" style={{ lineHeight: "2" }}>
-                Eighty-six or 86 is American English slang used to indicate that
-                an item is no longer available, traditionally from a food or
-                drinks establishment; or referring to a person or people who are
-                not welcome in the premises. Hate is no longer welcome here.
+                We’re all about empowering ordinary people to make an
+                extraordinary difference by getting involved. Originally, to 86
+                something meant removing it from a restaurant menu. We’re
+                eliminating inconvenience to empower local charities and
+                non-profits by creating a portal where likeminded people can get
+                involved, give, and serve.
               </p>
               <button type="button" className="btn">
                 Learn More
@@ -104,7 +92,7 @@ function LandingPage(props) {
         </div>
       </section>
 
-      <section className="container-fluid">
+      {/* <section className="container-fluid">
         <div className="row d-sm-flex align-items-center justify-content-between">
           <div className="col col-md-6 mx-auto order-1 order-sm-1 ">
             <div className="p-5 w-100">
@@ -128,19 +116,19 @@ function LandingPage(props) {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
 
       <div className="container mt-5">
         <section>
           <div className="text-center mb">
             <small className="text-uppercase" style={{ color: "#429125" }}>
-              How you can help{" "}
+              Eliminate the hate.
             </small>
             <h2
               className="font-weight-bold display-6 "
               style={{ fontWeight: "600" }}
             >
-              <span style={{ color: "#429125" }}>Elimin8</span> the hate
+              Be the <span style={{ color: "#429125" }}>Solution.</span>
             </h2>
           </div>
           <div className="row">
@@ -160,11 +148,10 @@ function LandingPage(props) {
                 </div>
                 <div className="px-3 text-center pb-3">
                   <h5 className="text-uppercase" style={{ fontWeight: "600" }}>
-                    Don8
+                    Donate
                   </h5>
                   <p className="font-weight-light my-3">
-                    Lorem ipsum dolor sit consectetur adipisicing elit. Alias
-                    amet deleniti et fugit iusto nesciunt.
+                    Share your resources.
                   </p>
                 </div>
               </div>
@@ -185,12 +172,9 @@ function LandingPage(props) {
                 </div>
                 <div className="px-3 text-center pb-3">
                   <h5 className="text-uppercase" style={{ fontWeight: "600" }}>
-                    Particip8
+                    Participate
                   </h5>
-                  <p className="font-weight-light my-3">
-                    Lorem ipsum dolor sit consectetur adipisicing elit. Alias
-                    amet deleniti et fugit iusto nesciunt.
-                  </p>
+                  <p className="font-weight-light my-3">Spend time helping.</p>
                 </div>
               </div>
             </div>
@@ -210,11 +194,10 @@ function LandingPage(props) {
                 </div>
                 <div className="px-3 text-center pb-3">
                   <h5 className="text-uppercase" style={{ fontWeight: "600" }}>
-                    Celebr8
+                    Celebrate
                   </h5>
                   <p className="font-weight-light my-3">
-                    Lorem ipsum dolor sit consectetur adipisicing elit. Alias
-                    amet deleniti et fugit iusto nesciunt.
+                    Spread the good news.
                   </p>
                 </div>
               </div>

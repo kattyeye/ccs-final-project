@@ -8,7 +8,7 @@ function ContributionsPageTitle(props) {
         <Carousel.Item>
           <img className="d-block w-100" src={sliderpic} alt="First slide" />
           <Carousel.Caption>
-            <h3>Dashboard</h3>
+            <h2>Dashboard</h2>
             <div>
               <h4></h4>
             </div>
