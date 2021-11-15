@@ -144,7 +144,7 @@ function UserReviews(props) {
   };
 
   const reviewsHTML = reviews.map((review) => (
-    <Card key={review.id} sx={{ minWidth: 275 }} className=" mb-5">
+    <Card key={review.id} sx={{ minWidth: 275 }} className=" mb-3">
       <CardContent className="d-flex-col col-sm-12 p-3">
         <div className="user-review-image-container d-flex-col py-1">
           {review.image && (

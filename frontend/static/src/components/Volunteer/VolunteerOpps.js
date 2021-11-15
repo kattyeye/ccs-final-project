@@ -6,6 +6,7 @@ import dog from "../App/pics/dog.jpg";
 import homerebuild from "../App/pics/homerebuild.jpg";
 import fooddrive from "../App/pics/fooddrive.jpg";
 import blooddrive from "../App/pics/blooddrive.jpg";
+import falls from "../App/pics/falls.jpg";
 import women from "../App/pics/women.jpg";
 import { Typography, CardContent, CardActions } from "@mui/material";
 import CardMedia from "@mui/material/CardMedia";
@@ -116,6 +117,35 @@ export default function VolunteerOpportunities() {
                 component="img"
                 alt="turkeyfry"
                 height="240"
+                image={falls}
+              />
+              <Typography gutterBottom variant="h5">
+                Friends of the Reedy River: Reedy River Planting at Cleveland
+                Park
+              </Typography>
+              <Typography variant="body2" gutterBottom>
+                Be part of the change! It's all about community. Come to the
+                next planting and create a positive impact on Greenville's Reedy
+                River.
+              </Typography>
+              <CardActions>
+                <Button
+                  variant="primary"
+                  href="https://www.friendsofthereedyriver.org/events/64/Reedy%20River%20Planting%20at%20Cleveland%20Park"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Learn More
+                </Button>
+              </CardActions>
+            </CardContent>
+          </Card>
+          <Card className="cardvolunteer">
+            <CardContent>
+              <CardMedia
+                component="img"
+                alt="turkeyfry"
+                height="240"
                 image={blooddrive}
               />
               <Typography gutterBottom variant="h5">
@@ -180,7 +210,11 @@ export default function VolunteerOpportunities() {
               <Typography gutterBottom variant="h5">
                 The Shops at Greenridge: <br></br>Food Drive
               </Typography>
-              <Typography variant="body2"></Typography>
+              <Typography variant="body2">
+                One of Greenville's most popular shopping centers is now
+                accepting donations for their food drive! Next time you're on
+                Woodruff Road, stop by and donate. Anything helps!
+              </Typography>
               <CardActions>
                 <Button
                   variant="primary"

@@ -39,19 +39,22 @@ function Header(props) {
                   <NavLink to="/volunteer">Get Involved</NavLink>
                 </li>
               </div>
-              {!props.isAuth && (
+              {!props.isAuth ? (
                 <li className="nav-item p-3 ">
-                  <NavLink to="/">
+                  <NavLink to="/" className="login">
                     <FaSignInAlt /> Login
                   </NavLink>
                 </li>
-              )}
-
-              {props.isAuth && (
+              ) : (
                 <div className="authnavitems">
                   <li className="dashboard">
-                    <button type="button" style={{border:"none", background:"none"}}>
-                      <NavLink to="/dashboard" className="btn dashboardbutton">My Dashboard</NavLink>
+                    <button
+                      type="button"
+                      style={{ border: "none", background: "none" }}
+                    >
+                      <NavLink to="/dashboard" className="btn dashboardbutton">
+                        My Dashboard
+                      </NavLink>
                     </button>
                   </li>
 

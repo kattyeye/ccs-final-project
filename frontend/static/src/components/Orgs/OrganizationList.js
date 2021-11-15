@@ -10,7 +10,7 @@ import { useLocation, withRouter } from "react-router";
 // import ReviewForm from "../Reviews/ReviewForm";
 // import ReviewList from "../Reviews/ReviewList";
 import { FaHandHoldingHeart, FaHandsHelping } from "react-icons/fa";
-import logo from '../App/pics/86hate_logo-removebg-preview.png'
+import logo from "../App/pics/86hate_logo-removebg-preview.png";
 
 const BASE_URL = "https://api.data.charitynavigator.org/v2";
 const APP_ID = "0523b096";
@@ -34,6 +34,15 @@ function OrganizationList(props) {
     fetchCharities();
   }, []);
 
+  const topics = {
+    42: "Homelessness",
+    44: "Homelessness",
+    29: "Homelessness",
+    12: "Bad Health",
+    2: "Animal Abuse",
+    17: "Child Neglect",
+  };
+
   return (
     <>
       <div className="container-fluid  mt-5 p-5">
@@ -48,61 +57,48 @@ function OrganizationList(props) {
         <div className="charitycolumns">
           {charities?.map((charity) => (
             <div className="d-flex-col">
-            <Card key={charity.ein} className="charitycard d-flex">
-               <CardContent className="d-flex" >
-            {charity.cause.causeID === 42 | charity.cause.causeID === 44 | charity.cause.causeID === 29 && <div
-                className="circlehate"
-              >
-               <img src={logo}/> Homelessness
-              </div>}
-            {charity.cause.causeID === 12 && <div
-                className="circlehate"
-              >
-               <img src={logo}/>Bad Health
-              </div>}
-            {charity.cause.causeID === 2 && <div
-                className="circlehate"
-              >
-              <img src={logo}/>Animal Abuse
-              </div>}
-            {charity.cause.causeID === 17 && <div
-                className="circlehate"
-              >
-              <img src={logo}/>Child Neglect
-              </div>}
-              </CardContent>
-              <CardContent className="d-flex-col">
-                <Typography variant="h5">
-                  <a href={charity.websiteURL}>{charity.charityName}</a>
-                </Typography>
-                <Typography variant="body1">
-                  {charity.mailingAddress.streetAddress1}
-                </Typography>
-                <Typography variant="body1">
-                  Current Rating: {charity.currentRating.score}
-                </Typography>
-              </CardContent>
-              {/* <CardActions
+              <Card key={charity.ein} className="charitycard d-flex">
+                <CardContent className="d-flex">
+                  <div className="circlehate">
+                    <img src={logo} />
+                    <span>{topics[charity.cause.causeID]}</span>
+                  </div>
+                </CardContent>
+                <CardContent className="d-flex-col">
+                  <Typography variant="h5">
+                    <a href={charity.websiteURL}>{charity.charityName}</a>
+                  </Typography>
+                  <Typography variant="body1">
+                    {charity.mailingAddress.streetAddress1}
+                  </Typography>
+                  <Typography variant="body1">
+                    Current Rating: {charity.currentRating.score}
+                  </Typography>
+                </CardContent>
+                {/* <CardActions
                 style={{ paddingLeft: "100px", paddingBottom: "20px" }}
               >
                 <a href={charity.websiteURL} target="_blank" className="btn">
                   Learn More
                 </a>
               </CardActions> */}
-            </Card>
+              </Card>
             </div>
           ))}
         </div>
-<div className="d-flex justify-content-center mt-5 py-5" style={{height:"500px"}}>
-        <iframe
-          width="60%"
-          height="100%"
-          src="https://www.youtube.com/embed/WetuL6Jo0gM"
-          title="YouTube video Miracle Hill Ministries promo"
-          frameborder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowfullscreen
-        ></iframe>
+        <div
+          className="d-flex justify-content-center mt-5 py-5"
+          style={{ height: "500px" }}
+        >
+          <iframe
+            width="60%"
+            height="100%"
+            src="https://www.youtube.com/embed/WetuL6Jo0gM"
+            title="YouTube video Miracle Hill Ministries promo"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+          ></iframe>
         </div>
       </div>
     </>

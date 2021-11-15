@@ -8,16 +8,15 @@ const APP_KEY = "ed9cb1c120b866a6232e01a7affb00c5";
 function CharitySearch(props) {
   const [charitySearch, setCharitySearch] = useState("");
   const [charities, setCharities] = useState([]);
+  const [timer, setTimer] = useState();
 
   function handleSearchChange(e) {
     const { name, value } = e.target;
-    console.log(name, value);
     setCharitySearch(value);
   }
 
   useEffect(() => {
-    console.log("firing");
-    const searchCharities = async () => {
+    const fetchData = async () => {
       const response = await fetch(
         `${BASE_URL}/Organizations?app_id=${APP_ID}&app_key=${APP_KEY}&search=${charitySearch}&rated=true`
       );
@@ -29,8 +28,16 @@ function CharitySearch(props) {
         setCharities(data.slice(0, 5));
       }
     };
-    searchCharities();
+
+    setTimer(setTimeout(fetchData, 500));
+
+    if (timer) {
+      clearTimeout(timer);
+    }
+
+    return () => clearTimeout(timer);
   }, [charitySearch]);
+
   return (
     <div className="form-search">
       <input
@@ -44,7 +51,7 @@ function CharitySearch(props) {
 
       <ul>
         {charities?.map((charity) => (
-          <li className="charitysearchlist" key={charity.ein}>
+          <li className="charitysearchlist " key={charity.ein}>
             <button
               type="button"
               className="select-button"

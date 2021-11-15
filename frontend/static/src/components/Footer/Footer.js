@@ -11,7 +11,7 @@ export default function Footer(props) {
     >
       <footer>
         <p style={{ color: "white" }}>
-          ©2021 made by
+          ©2021 | 86 Hate | made by
           <span> </span>
           <strong>
             <a

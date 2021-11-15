@@ -1,6 +1,6 @@
 import "./App.css";
 import { useState, useEffect } from "react";
-import { Route, Switch, useHistory } from "react-router-dom";
+import { Route, Switch, useHistory, useLocation } from "react-router-dom";
 import RegistrationForm from "../Registration/RegistrationForm";
 import LoginForm from "../Login/LoginForm";
 import LandingPage from "../LandingPage/LandingPage";
@@ -9,22 +9,20 @@ import Cookies from "js-cookie";
 import ContributionList from "../Contributions/ContributionList";
 import OrganizationList from "../Orgs/OrganizationList";
 import ContributionsPageTitle from "../Contributions/PageTitle";
-import ReviewForm from "../Reviews/ReviewForm";
 import ReviewList from "../Reviews/ReviewList";
-import ReviewListAuth from "../Reviews/ReviewListAuth";
-import SecondaryHeader from "../Header/SecondaryHeader";
 import UserReviews from "../Contributions/UserReviews";
 import OrgPageTitle from "../Orgs/PageTitle";
 import Footer from "../Footer/Footer";
 import FooterTop from "../Footer/FooterTop";
 import VolunteerOpportunities from "../Volunteer/VolunteerOpps";
 import BlogPosts from "../Blog/BlogPosts";
-import UserReviewForm from "../Contributions/UserReviewForm";
 import AboutUs from "../AboutUs/AboutUs";
-import PrivateRoute from "../privateroute/PrivateRoute";
+// import PrivateRoute from "../privateroute/PrivateRoute";
+
 function App(props) {
   const [user, setUser] = useState(null);
   const history = useHistory();
+  const location = useLocation();
   useEffect(() => {
     const checkAuth = async () => {
       const response = await fetch("/rest-auth/user");
@@ -36,7 +34,7 @@ function App(props) {
       }
     };
     checkAuth();
-  }, [history]);
+  }, [location]);
 
   async function handleLogoutSubmit(event) {
     // event.preventDefault();
@@ -64,10 +62,6 @@ function App(props) {
   // const isAdmin = user?.isAdmin;
   return (
     <>
-      {/* <SecondaryHeader
-        isAuth={isAuth}
-        handleLogoutSubmit={handleLogoutSubmit}
-      /> */}
       <Header isAuth={isAuth} handleLogoutSubmit={handleLogoutSubmit} />
       <Switch>
         <Route path="/registration">
@@ -82,10 +76,12 @@ function App(props) {
           <UserReviews isAuth={isAuth} />
         </Route>
         <Route path="/organizations-and-reviews">
-          <OrgPageTitle />
-          <OrganizationList />
-          <ReviewList />
-          {isAuth && <UserReviews isAuth={isAuth} />}
+          <div className="organizationspagebg">
+            <OrgPageTitle />
+            <OrganizationList />
+            <ReviewList />
+            {isAuth && <UserReviews isAuth={isAuth} />}
+          </div>
         </Route>
 
         <Route path="/about-us">

@@ -9,7 +9,9 @@ function FooterTop(props) {
         <div className="container-fluid">
           <div className="row">
             <div className="col-lg-6 col-md-6 col-sm-6 col-xs-6">
-              <img src={logo} style={{ width: "30%" }} />
+              <NavLink to="/">
+                <img src={logo} style={{ width: "30%" }} />
+              </NavLink>
             </div>
             <div className="col-lg-3 col-sm-2 col-xs-3">
               <h3 className="display-6" style={{ fontWeight: "600" }}>

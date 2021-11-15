@@ -43,27 +43,28 @@ function ReviewList(props) {
           Reviews
         </span>
         <h1 className="text-capitalize font-weight-bold mt-2">
-          From <span style={{ color: "#429125" }}>Locals</span> You Can Trust
+          Get in the <span style={{ color: "#429125" }}>Know.</span>
         </h1>
       </div>
-      <div className=" p-5">
+      <div className="p-5">
         <div className="">
           {reviewList?.map((review) => (
             <Card key={review.ein} className="review-container p-3 mb-3">
               <div className="review-imagecontainer">
-                {review.image && (
-                  <img src={review.image} className="reviewimage" />
+                {review.image == "../media/usericon.png" ? (
+                  <img src={review.image} className="iconimage" />
+                ) : (
+                  <img src={review.image} className="bigreviewimage" />
                 )}
               </div>
               <div className="review-textcontainer user-review-text-container">
-
-                  <Typography variant="h5">
-            {review.charity && (
-              <a href={review.charity.url} target="_blank">
-                {review.charity.name}
-              </a>
-            )}
-          </Typography>
+                <Typography variant="h5">
+                  {review.charity && (
+                    <a href={review.charity.url} target="_blank">
+                      {review.charity.name}
+                    </a>
+                  )}
+                </Typography>
                 <p>
                   by <strong>{review.user}</strong> <br></br>
                   Review: {review.review_text}

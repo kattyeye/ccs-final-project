@@ -18,8 +18,8 @@ class Contribution(models.Model):
     ein = models.CharField(max_length=20, null=True,)
     charity = models.ForeignKey(
         Charity, on_delete=models.CASCADE, blank=True, default=None,)
-    in_hours = models.IntegerField(blank=True, default=2)
-    in_dollars = models.IntegerField(blank=True, default=20)
+    in_hours = models.IntegerField(blank=True, default=0)
+    in_dollars = models.IntegerField(blank=True, default=0)
     text = models.CharField(max_length=255, blank=True,)
     image = models.ImageField(
         upload_to='contrib_images', default='usericon.png', blank=True)

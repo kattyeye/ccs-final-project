@@ -159,7 +159,8 @@ nav {
   color: black;
 }
 
-button.logout {
+button.logout,
+a.login {
   border: none;
   background: none;
   font-size: 14px;
@@ -203,19 +204,6 @@ button.logout {
 .landingpageimg {
   box-shadow: rgba(0, 0, 0, 0.452) 10px 10px 40px;
 }
-
-.solutionsection{
-  /* background-image: linear-gradient(
-      180deg,
-      rgba(207, 255, 48, 0.75) 0%,
-      rgba(140, 255, 41, 0.85) 100%
-    ),url(./pics/bg2.jpg);
-     background-size: cover;
-  background-position-y: center; */
-}
-
-
-
 
 .form-data {
   display: flex;
@@ -299,7 +287,8 @@ button.logout {
   display: flex;
 }
 
-.blog-page-bg {
+.blog-page-bg,
+.organizationspagebg {
   background-image: linear-gradient(
     180deg,
     rgba(207, 255, 48, 0.25) 0%,
@@ -327,7 +316,7 @@ button.logout {
   padding: 50px 100px 50px 100px;
 }
 
-div.registrationform{
+div.registrationform {
   box-shadow: rgba(0, 0, 0, 0.852) 0px 10px 40px;
 }
 .registrationform input {
@@ -341,38 +330,36 @@ div.registrationform{
 /* organizations page */
 div.charitycard {
   margin-bottom: 20px;
-
 }
 .charitycard a {
-  text-decoration:none;
-  color: var(--dark-green)
+  text-decoration: none;
+  color: var(--dark-green);
 }
 
-
-div.circlehate{
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  align-items:center;
-  font-weight:900;
-  font-size:18px;
-  font-variant:italic;
+div.circlehate {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-weight: 900;
+  font-size: 18px;
+  font-variant: italic;
 }
-.circlehate img{
-  width:50px
+.circlehate img {
+  width: 50px;
 }
 
 .charitycolumns {
   column-count: 2;
-  break-inside:avoid;
-  page-break-inside:avoid;
+  break-inside: avoid;
+  page-break-inside: avoid;
 }
 
-iframe{
-  filter:brightness(100%)
+iframe {
+  filter: brightness(100%);
 }
-iframe:hover{
-  filter:brightness(40%)
+iframe:hover {
+  filter: brightness(40%);
 }
 .review-container {
   display: flex;
@@ -381,6 +368,10 @@ iframe:hover{
 .review-imagecontainer,
 .user-review-image-container {
   padding-right: 20px;
+}
+.review-imagecontainer:hover,
+.user-review-image-container:hover {
+  width: 100px;
 }
 .review-textcontainer,
 .user-review-text-container {
@@ -411,6 +402,15 @@ iframe:hover{
   display: flex;
   flex-direction: column;
   width: 100%;
+}
+
+.about-us-header-image {
+  background-image: url(./pics/road.jpg);
+  height: 80vh;
+  min-height: 400px;
+  background-position: center;
+  background-size: cover;
+  filter: brightness(40%);
 }
 
 /* on cards */
@@ -457,7 +457,7 @@ iframe:hover{
 }
 @media (min-width: 1051px) and (max-width: 1450px) {
   .charitycolumns {
-    column-count: 3;
+    column-count: 2;
   }
 }
 /* media queries */
