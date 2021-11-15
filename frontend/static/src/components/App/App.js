@@ -81,10 +81,9 @@ function App(props) {
           <ContributionList isAuth={isAuth} user={user} />
           <UserReviews isAuth={isAuth} />
         </Route>
-        <Route path="/organizations-with-reviews">
+        <Route path="/organizations-and-reviews">
           <OrgPageTitle />
           <OrganizationList />
-
           <ReviewList />
           {isAuth && <UserReviews isAuth={isAuth} />}
         </Route>

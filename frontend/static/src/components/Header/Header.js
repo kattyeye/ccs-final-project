@@ -6,7 +6,7 @@ import { FaSignInAlt } from "react-icons/fa";
 
 function Header(props) {
   return (
-    <nav className="container-fluid">
+    <nav className="container-fluid px-5">
       <Navbar.Brand>
         <li>
           <NavLink className="navbar-brand " to="/">
@@ -26,7 +26,7 @@ function Header(props) {
                 </li>
 
                 <li className="nav-item p-3">
-                  <NavLink to="/organizations-with-reviews">
+                  <NavLink to="/organizations-and-reviews">
                     Organizations
                   </NavLink>
                 </li>
@@ -34,33 +34,6 @@ function Header(props) {
                 <li className="nav-item p-3">
                   <NavLink to="/about-us">About Us</NavLink>
                 </li>
-
-                {/* {!!!props.isAuth && (
-
-                <li className="nav-item p-3 ">
-                  <NavLink className="login-btn" to="/login">
-                    Login
-                  </NavLink>
-                </li>
-
-            )} */}
-                {/* {props.isAuth && (
-                <>
-                  <li className="nav-item p-3">
-                    <NavLink to="/my-contributions">My Contributions</NavLink>
-                  </li>
-
-                  <li className="">
-                    <button
-                      className="btn"
-                      type="button"
-                      onClick={() => props.handleLogoutSubmit()}
-                    >
-                      Logout
-                    </button>
-                  </li>
-                </>
-              )} */}
 
                 <li className="nav-item p-3">
                   <NavLink to="/volunteer">Get Involved</NavLink>

@@ -37,7 +37,7 @@ function OrganizationList(props) {
   return (
     <>
       <div className="container-fluid  mt-5 p-5">
-        <div className="text-center mb-5">
+        <div className="text-center   mb-5">
           <span className=" text-uppercase" style={{ color: "#429125" }}>
             Organizations
           </span>
@@ -45,20 +45,18 @@ function OrganizationList(props) {
             <span style={{ color: "#429125" }}>Best</span> in Town.
           </h1>
         </div>
-        <div className="charitycolumns px-5">
+        <div className="charitycolumns">
           {charities?.map((charity) => (
             <div className="d-flex-col">
             <Card key={charity.ein} className="charitycard d-flex">
                <CardContent className="d-flex" >
             {charity.cause.causeID === 42 | charity.cause.causeID === 44 | charity.cause.causeID === 29 && <div
                 className="circlehate"
-
               >
                <img src={logo}/> Homelessness
               </div>}
             {charity.cause.causeID === 12 && <div
                 className="circlehate"
-
               >
                <img src={logo}/>Bad Health
               </div>}
@@ -69,7 +67,6 @@ function OrganizationList(props) {
               </div>}
             {charity.cause.causeID === 17 && <div
                 className="circlehate"
-
               >
               <img src={logo}/>Child Neglect
               </div>}
@@ -78,7 +75,6 @@ function OrganizationList(props) {
                 <Typography variant="h5">
                   <a href={charity.websiteURL}>{charity.charityName}</a>
                 </Typography>
-
                 <Typography variant="body1">
                   {charity.mailingAddress.streetAddress1}
                 </Typography>
@@ -97,17 +93,17 @@ function OrganizationList(props) {
             </div>
           ))}
         </div>
-        {/* <ReviewForm isAuth={props.isAuth} />
-      <ReviewList isAuth={props.isAuth} /> */}
-        {/* <iframe
-          width="560"
-          height="315"
+<div className="d-flex justify-content-center mt-5 py-5" style={{height:"500px"}}>
+        <iframe
+          width="60%"
+          height="100%"
           src="https://www.youtube.com/embed/WetuL6Jo0gM"
-          title="YouTube video player"
+          title="YouTube video Miracle Hill Ministries promo"
           frameborder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
           allowfullscreen
-        ></iframe> */}
+        ></iframe>
+        </div>
       </div>
     </>
   );

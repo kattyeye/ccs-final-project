@@ -1,4 +1,4 @@
-import { Card } from "@mui/material";
+import { Card, Typography } from "@mui/material";
 import { useState, useEffect } from "react";
 import { AiFillDelete, AiFillEdit } from "react-icons/ai";
 import { Redirect, withRouter } from "react-router";
@@ -38,7 +38,7 @@ function ReviewList(props) {
 
   return (
     <div className="container-fluid contrib-list-holder d-flex-col justify-content-center">
-      <div className="text-center mt-5 mb-5 d-flex-col">
+      <div className="text-center mb-5 d-flex-col">
         <span className=" text-uppercase" style={{ color: "#429125" }}>
           Reviews
         </span>
@@ -47,7 +47,7 @@ function ReviewList(props) {
         </h1>
       </div>
       <div className=" p-5">
-        <div className=" p-5">
+        <div className="">
           {reviewList?.map((review) => (
             <Card key={review.ein} className="review-container p-3 mb-3">
               <div className="review-imagecontainer">
@@ -55,8 +55,15 @@ function ReviewList(props) {
                   <img src={review.image} className="reviewimage" />
                 )}
               </div>
-              <div className="review-textcontainer">
-                <h6 style={{ color: "#429125" }}>{review.charity.name}</h6>
+              <div className="review-textcontainer user-review-text-container">
+
+                  <Typography variant="h5">
+            {review.charity && (
+              <a href={review.charity.url} target="_blank">
+                {review.charity.name}
+              </a>
+            )}
+          </Typography>
                 <p>
                   by <strong>{review.user}</strong> <br></br>
                   Review: {review.review_text}
