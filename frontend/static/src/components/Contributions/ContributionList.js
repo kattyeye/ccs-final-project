@@ -138,7 +138,7 @@ function ContributionList(props) {
   return (
     <div className="container-fluid p-5">
       <div className="headerwithicon p-5">
-        <h3>My Contributions</h3>
+        <h3>Add Contribution</h3>
         <Fab
           color="primary"
           aria-label="add"
@@ -152,7 +152,7 @@ function ContributionList(props) {
         <Card key={contrib.ein} sx={{ minWidth: 275 }} className="mb-5">
           {/* {contrib.in_hours.total} */}
           <CardContent>
-            <div className="user-review-image-container d-flex-col py-1">
+            <div className="user-review-image-container py-1">
               {contrib.image && (
                 <img src={contrib.image} className="user-review-image" />
               )}

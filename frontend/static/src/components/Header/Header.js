@@ -42,7 +42,8 @@ function Header(props) {
               {!props.isAuth ? (
                 <li className="nav-item p-3 ">
                   <NavLink to="/" className="login">
-                    <FaSignInAlt /> Login
+                    <FaSignInAlt style={{ paddingRight: "3px" }} />
+                    Login
                   </NavLink>
                 </li>
               ) : (

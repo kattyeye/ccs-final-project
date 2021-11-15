@@ -17,6 +17,8 @@ import FooterTop from "../Footer/FooterTop";
 import VolunteerOpportunities from "../Volunteer/VolunteerOpps";
 import BlogPosts from "../Blog/BlogPosts";
 import AboutUs from "../AboutUs/AboutUs";
+
+// import CustomizedTabs from "../Tabs/Tabs"
 // import PrivateRoute from "../privateroute/PrivateRoute";
 
 function App(props) {
@@ -58,6 +60,9 @@ function App(props) {
     }
   }
 
+  const [dashSelection, setDashSelection] = useState("contributions");
+  let html;
+
   const isAuth = user?.isAuth;
   // const isAdmin = user?.isAdmin;
   return (
@@ -71,9 +76,29 @@ function App(props) {
           <LoginForm isAuth={isAuth} user={user} setUser={setUser} />
         </Route>
         <Route isAuth={isAuth} path="/dashboard">
-          <ContributionsPageTitle user={user} isAuth={isAuth} />
-          <ContributionList isAuth={isAuth} user={user} />
-          <UserReviews isAuth={isAuth} />
+          <div className="organizationspagebg">
+            <ContributionsPageTitle user={user} isAuth={isAuth} />
+            {/* <CustomizedTabs /> */}
+            <div className="d-flex justify-content-center ">
+              <button
+                type="button"
+                className="dashtab mx-5"
+                onClick={() => setDashSelection("contributions")}
+              >
+                Contributions
+              </button>
+              <button
+                type="button"
+                className="dashtab mx-5"
+                onClick={() => setDashSelection("reviews")}
+              >
+                Reviews
+              </button>
+            </div>
+            {dashSelection == "contributions"
+              ? (html = <ContributionList isAuth={isAuth} user={user} />)
+              : (html = <UserReviews isAuth={isAuth} user={user} />)}
+          </div>
         </Route>
         <Route path="/organizations-and-reviews">
           <div className="organizationspagebg">

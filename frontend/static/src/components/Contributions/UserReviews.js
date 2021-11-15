@@ -193,7 +193,7 @@ function UserReviews(props) {
     <div className="p-5">
       <div className="container-fluid review-list-holder">
         <div className="headerwithicon">
-          {reviews.user ? <h3>My Reviews</h3> : <h3>Add Review</h3>}
+          <h3>Add Review</h3>
 
           <Fab
             color="primary"
@@ -215,9 +215,6 @@ function UserReviews(props) {
           handleShow={handleShow}
           handleAdd={handleAdd}
           handleUpdate={handleUpdate}
-          // openSuccess={openSuccess}
-          // setOpenSuccess={setOpenSuccess}
-          // handleClosey={handleClosey}
         />
       </div>
     </div>

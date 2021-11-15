@@ -32,6 +32,20 @@ class ContributionSerializer(serializers.ModelSerializer):
 
         return contribution
 
+    def update(self, instance, validated_data):
+        charity_details = json.loads(
+            self.context.get('request').data['charity'])
+
+        instance.charity = Charity.objects.get_or_create(
+            name=charity_details['name'], ein=charity_details['ein'], url=charity_details['url'])[0]
+
+        for (key, value) in validated_data.items():
+            setattr(instance, key, value)
+
+        instance.save()
+
+        return instance
+
 
 class ReviewSerializer(serializers.ModelSerializer):
     user = serializers.ReadOnlyField(source="user.username")
@@ -53,3 +67,16 @@ class ReviewSerializer(serializers.ModelSerializer):
             **validated_data,)
 
         return review
+
+    def update(self, instance, validated_data):
+        charity_details = json.loads(
+            self.context.get('request').data['charity'])
+
+        instance.charity = Charity.objects.get_or_create(
+            name=charity_details['name'], ein=charity_details['ein'], url=charity_details['url'])[0]
+        for (key, value) in validated_data.items():
+            setattr(instance, key, value)
+
+        instance.save()
+
+        return instance

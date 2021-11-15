@@ -11,6 +11,7 @@ import { withRouter } from "react-router";
 // import { Link } from "react-router-dom";
 import sliderpic from "../App/pics/sliderpic1.jpg";
 import soupkitchen from "../App/pics/soupkitchen.jpg";
+import { Link } from "react-router-dom";
 function LandingPage(props) {
   return (
     <div className="col-lg col-12">
@@ -78,9 +79,11 @@ function LandingPage(props) {
                 non-profits by creating a portal where likeminded people can get
                 involved, give, and serve.
               </p>
-              <button type="button" style={{background:"none", border:"none"}} >
-               <NavLink to="/about-us" className="btn link-button"> Learn More </NavLink>
-              </button>
+              <Link to="/about-us">
+                <button type="button" className="btn link-button">
+                  Learn More
+                </button>
+              </Link>
             </div>
           </div>
 

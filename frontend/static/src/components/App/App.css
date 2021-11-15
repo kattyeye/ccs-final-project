@@ -163,7 +163,6 @@ button.logout,
 a.login {
   border: none;
   background: none;
-  font-size: 14px;
   padding: none;
   margin: none;
   margin-left: 5px;
@@ -238,7 +237,6 @@ a.login {
   border-radius: 5px;
   background-color: var(--light-green);
   padding: 5px;
-  /* margin-bottom: 10px; */
 }
 
 .form-search ul {
@@ -261,6 +259,23 @@ a.login {
   margin-bottom: 20px;
 }
 
+/* dashboard tabs */
+.dashtab {
+  background: none;
+  font-weight: 900;
+  font-size: 22px;
+  border: none;
+  border-bottom: 2px solid transparent;
+  color: var(--dark-green);
+}
+.dashtab:hover {
+  color: black;
+}
+
+.dashtab:focus {
+  color: black;
+  border-bottom: 2px solid var(--dark-green);
+}
 /* page titles */
 .carousel a,
 .carousel a:hover,
