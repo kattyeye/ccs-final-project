@@ -1,4 +1,4 @@
-import { withRouter } from "react-router";
+import { withRouter, NavLink } from "react-router-dom";
 
 function AboutUs() {
   return (
@@ -18,13 +18,9 @@ function AboutUs() {
               Distinctio voluptatibus dolor quaerat quo omnis illo sequi at
               velit, odit quod!
             </p>
-            <button
-              type="button"
-              className="btn"
-              style={{ backgroundColor: "#429125" }}
-            >
-              Contact Us
-            </button>
+            <button type="button" style={{background:"none", border:"none"}} >
+               <a href="#footer" className="btn link-button"> Contact US </a>
+              </button>
           </div>
         </div>
         <div

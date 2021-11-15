@@ -51,24 +51,22 @@ function LoginForm(props) {
     <form className="container-fluid" onSubmit={handleSubmit}>
       <h4 className="d-flex justify-content-center mb-3">Let’s Do This!</h4>
       <div className="form-group d-flex-col">
-        {/* <label htmlFor="username">username</label> */}
+        <label htmlFor="username">Username</label>
         <input
           type="text"
           className="form-control mb-2"
           id="username"
-          placeholder="enter username."
           onChange={handleInput}
           required
           name="username"
           value={user.username}
         />
 
-        {/* <label htmlFor="password">password</label> */}
+        <label htmlFor="password">Password</label>
         <input
           type="password"
           className="form-control"
           id="password"
-          placeholder="enter password."
           onChange={handleInput}
           required
           name="password"

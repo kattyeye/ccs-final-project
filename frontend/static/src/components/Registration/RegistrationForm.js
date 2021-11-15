@@ -57,7 +57,8 @@ function RegistrationForm(props) {
       <div>
         <Card className=" registrationform">
           <img src={logo} style={{ width: "100px" }} />
-          <form className="mt-3 " onSubmit={handleSubmit}>
+          <form className="mt-3" onSubmit={handleSubmit}
+          style={{display:"flex", flexDirection:"column"}} >
             <div className="form-group text-left">
               <label htmlFor="username">Username</label>
               <input

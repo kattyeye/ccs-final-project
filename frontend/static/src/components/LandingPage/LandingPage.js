@@ -78,8 +78,8 @@ function LandingPage(props) {
                 non-profits by creating a portal where likeminded people can get
                 involved, give, and serve.
               </p>
-              <button type="button" className="btn">
-                Learn More
+              <button type="button" style={{background:"none", border:"none"}} >
+               <NavLink to="/about-us" className="btn link-button"> Learn More </NavLink>
               </button>
             </div>
           </div>
@@ -118,9 +118,9 @@ function LandingPage(props) {
         </div>
       </section> */}
 
-      <div className="container mt-5">
-        <section>
-          <div className="text-center mb">
+      <div className=" p-5 solutionsection">
+        <section className="container ">
+          <div className="text-center">
             <small className="text-uppercase" style={{ color: "#429125" }}>
               Eliminate the hate.
             </small>
@@ -131,7 +131,7 @@ function LandingPage(props) {
               Be the <span style={{ color: "#429125" }}>Solution.</span>
             </h2>
           </div>
-          <div className="row">
+          <div className="row ">
             <div className="col-md-4 my-2">
               <div className="px-3 my-5">
                 <div

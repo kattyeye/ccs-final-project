@@ -197,6 +197,14 @@ button.logout {
   display: flex;
 }
 
+.loginformcontainer input {
+  border: 0px;
+  border-bottom: 2px solid black;
+  margin-bottom: 5px;
+  border-radius: 0px;
+  background: rgb(234, 255, 222);
+}
+
 .headersection-landing {
   background: rgb(207, 255, 48);
   background-image: linear-gradient(
@@ -211,9 +219,19 @@ button.logout {
 .landingpageimg {
   box-shadow: rgba(0, 0, 0, 0.452) 10px 10px 40px;
 }
-.stars-img {
-  width: 65px;
+
+.solutionsection{
+  /* background-image: linear-gradient(
+      180deg,
+      rgba(207, 255, 48, 0.75) 0%,
+      rgba(140, 255, 41, 0.85) 100%
+    ),url(./pics/bg2.jpg);
+     background-size: cover;
+  background-position-y: center; */
 }
+
+
+
 
 .form-data {
   display: flex;
@@ -324,6 +342,10 @@ button.logout {
   align-items: center;
   padding: 50px 100px 50px 100px;
 }
+
+div.registrationform{
+  box-shadow: rgba(0, 0, 0, 0.852) 0px 10px 40px;
+}
 .registrationform input {
   border: 0px;
   border-bottom: 2px solid black;
@@ -334,14 +356,33 @@ button.logout {
 
 /* organizations page */
 div.charitycard {
-  position: relative;
-  background-color: #defc61;
   margin-bottom: 20px;
+}
+.charitycard a {
+  text-decoration:none;
+  color: var(--dark-green)
+}
+
+
+div.circlehate{
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  font-weight:900;
+  font-size:18px;
+  font-variant:italic;
+}
+.circlehate img{
+  width:50px
 }
 
 .charitycolumns {
-  column-count: 3;
+  column-count: 2;
+  break-inside:avoid;
+  page-break-inside:avoid;
 }
+
 .review-container {
   display: flex;
   width: 100%;

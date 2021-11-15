@@ -10,6 +10,7 @@ import { useLocation, withRouter } from "react-router";
 // import ReviewForm from "../Reviews/ReviewForm";
 // import ReviewList from "../Reviews/ReviewList";
 import { FaHandHoldingHeart, FaHandsHelping } from "react-icons/fa";
+import logo from '../App/pics/86hate_logo-removebg-preview.png'
 
 const BASE_URL = "https://api.data.charitynavigator.org/v2";
 const APP_ID = "0523b096";
@@ -41,31 +42,45 @@ function OrganizationList(props) {
             Organizations
           </span>
           <h1 className="text-capitalize font-weight-bold mt-2">
-            <span style={{ color: "#429125" }}>Best</span> of the Upstate
+            <span style={{ color: "#429125" }}>Best</span> in Town.
           </h1>
         </div>
         <div className="charitycolumns px-5">
           {charities?.map((charity) => (
-            <Card key={charity.ein} className="charitycard">
-              <div
-                className="circle text-white rounded-circle d-flex align-items-center justify-content-center mx-auto mb-4"
-                style={{
-                  width: "60px",
-                  height: "60px",
-                  backgroundColor: "#429125",
-                }}
+            <div className="d-flex-col">
+            <Card key={charity.ein} className="charitycard d-flex">
+               <CardContent className="d-flex" >
+            {charity.cause.causeID === 42 | charity.cause.causeID === 44 | charity.cause.causeID === 29 && <div
+                className="circlehate"
+
               >
-                <FaHandHoldingHeart
-                  style={{ width: "100%", fontSize: "35px", color: "black" }}
-                />
-              </div>
-              <CardContent style={{}}>
+               <img src={logo}/> Homelessness
+              </div>}
+            {charity.cause.causeID === 12 && <div
+                className="circlehate"
+
+              >
+               <img src={logo}/>Bad Health
+              </div>}
+            {charity.cause.causeID === 2 && <div
+                className="circlehate"
+              >
+              <img src={logo}/>Animal Abuse
+              </div>}
+            {charity.cause.causeID === 17 && <div
+                className="circlehate"
+
+              >
+              <img src={logo}/>Child Neglect
+              </div>}
+              </CardContent>
+              <CardContent className="d-flex-col">
                 <Typography variant="h5">
                   <a href={charity.websiteURL}>{charity.charityName}</a>
                 </Typography>
 
                 <Typography variant="body1">
-                  {charity.cause.causeName}
+                  {charity.mailingAddress.streetAddress1}
                 </Typography>
                 <Typography variant="body1">
                   Current Rating: {charity.currentRating.score}
@@ -79,6 +94,7 @@ function OrganizationList(props) {
                 </a>
               </CardActions> */}
             </Card>
+            </div>
           ))}
         </div>
         {/* <ReviewForm isAuth={props.isAuth} />
