@@ -20,7 +20,7 @@ function BlogPosts() {
         </div> */}
         <div className="p-5 d-flex-col ">
           <div className="d-flex-col mb-5">
-            <Card sx={{ padding: "50px" }}>
+            <Card className="blogcard">
               <h1 className="text-dark" style={{ fontWeight: "600" }}>
                 4 Easy Ways to Get Involved in the Community
               </h1>
@@ -101,7 +101,7 @@ function BlogPosts() {
             </Card>
           </div>
           <div className="d-flex-col mb-5">
-            <Card sx={{ padding: "50px" }}>
+            <Card className="blogcard">
               <h1 className="text-dark" style={{ fontWeight: "600" }}>
                 Creating Safer Schools
               </h1>
@@ -152,7 +152,7 @@ function BlogPosts() {
             </Card>
           </div>
           <div className="d-flex-col mb-5">
-            <Card sx={{ padding: "50px" }}>
+            <Card className="blogcard">
               <h1 className="text-dark" style={{ fontWeight: "600" }}>
                 Hungry for More.
               </h1>

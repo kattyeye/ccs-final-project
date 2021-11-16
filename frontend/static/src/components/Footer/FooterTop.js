@@ -62,7 +62,7 @@ function FooterTop(props) {
                 </li>
                 <li>
                   <h5>
-                    <NavLink to="/organizations-with-reviews">
+                    <NavLink to="/organizations-and-reviews">
                       Organizations
                     </NavLink>
                   </h5>

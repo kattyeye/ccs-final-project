@@ -39,12 +39,7 @@ class ContributionSerializer(serializers.ModelSerializer):
         instance.charity = Charity.objects.get_or_create(
             name=charity_details['name'], ein=charity_details['ein'], url=charity_details['url'])[0]
 
-        for (key, value) in validated_data.items():
-            setattr(instance, key, value)
-
-        instance.save()
-
-        return instance
+        return super().update(instance, validated_data)
 
 
 class ReviewSerializer(serializers.ModelSerializer):
@@ -74,9 +69,5 @@ class ReviewSerializer(serializers.ModelSerializer):
 
         instance.charity = Charity.objects.get_or_create(
             name=charity_details['name'], ein=charity_details['ein'], url=charity_details['url'])[0]
-        for (key, value) in validated_data.items():
-            setattr(instance, key, value)
 
-        instance.save()
-
-        return instance
+        return super().update(instance, validated_data)

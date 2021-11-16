@@ -10,7 +10,7 @@ function AboutUs() {
               Our Story
             </small>
             <h1 className="mb-4 display-4" style={{ fontWeight: "600" }}>
-              How it all <span style={{ color: "#429125" }}>Started</span>
+              How it all <span style={{ color: "#429125" }}>Started</span>.
             </h1>
             <p style={{ lineHeight: "2" }}>
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit

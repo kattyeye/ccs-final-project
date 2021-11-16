@@ -144,7 +144,11 @@ function UserReviews(props) {
   };
 
   const reviewsHTML = reviews.map((review) => (
-    <Card key={review.id} sx={{ minWidth: 275 }} className=" mb-3">
+    <Card
+      key={review.id}
+      sx={{ minWidth: 275 }}
+      className="mb-5 d-flex mx-2 userreviewcontainercard"
+    >
       <CardContent className="d-flex-col col-sm-12 p-3">
         <div className="user-review-image-container d-flex-col py-1">
           {review.image && (
@@ -162,7 +166,7 @@ function UserReviews(props) {
 
           <Typography variant="body2">Review: {review.review_text}</Typography>
           <Typography variant="body2">Status: {review.phase}</Typography>
-          <div className="deleteeditbuttons d-flex">
+          <div className="deleteeditbuttons d-md-flex">
             {review.phase == "SUB" && (
               <>
                 <button
@@ -204,9 +208,7 @@ function UserReviews(props) {
             <AddIcon />
           </Fab>
         </div>
-
-        <section>{reviewsHTML}</section>
-
+        <div className="d-md-flex">{reviewsHTML}</div>
         <UserReviewForm
           show={show}
           setShow={setShow}

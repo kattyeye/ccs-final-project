@@ -136,8 +136,8 @@ function ContributionList(props) {
   const handleShow = () => props.setShow(true);
 
   return (
-    <div className="container-fluid p-5">
-      <div className="headerwithicon p-5">
+    <div className="container-fluid p-5 d-flex-col">
+      <div className="headerwithicon d-flex">
         <h3>Add Contribution</h3>
         <Fab
           color="primary"
@@ -148,46 +148,52 @@ function ContributionList(props) {
           <AddIcon />
         </Fab>
       </div>
-      {contribList?.map((contrib) => (
-        <Card key={contrib.ein} sx={{ minWidth: 275 }} className="mb-5">
-          {/* {contrib.in_hours.total} */}
-          <CardContent>
-            <div className="user-review-image-container py-1">
-              {contrib.image && (
-                <img src={contrib.image} className="user-review-image" />
-              )}
-            </div>
-            <div className="user-review-text-container d-flex-col py-1">
-              <Typography variant="h5">{contrib.charity.name}</Typography>
-              <Typography variant="body2">
-                Donations: ${contrib.in_dollars}
-                <br></br>
-                Volunteer hours: {contrib.in_hours}
-                <br></br>
-                Notes: {contrib.text}
-              </Typography>
-              <div className="deleteeditbuttons d-flex">
-                <Button
-                  type="button"
-                  className="xbutton"
-                  value={contrib.id}
-                  onClick={handleDelete}
-                >
-                  <AiFillDelete className="icondel" />
-                </Button>
-                <Button
-                  type="button"
-                  className="xbutton"
-                  value={contrib.id}
-                  onClick={() => handleSelection(contrib)}
-                >
-                  <AiFillEdit className="icondel" />
-                </Button>
+      <div className="d-md-flex">
+        {contribList?.map((contrib) => (
+          <Card
+            key={contrib.ein}
+            sx={{ minWidth: 275 }}
+            className="mb-5 d-flex mx-2 usercontribcard "
+          >
+            {/* {contrib.in_hours.total} */}
+            <CardContent>
+              <div className="user-review-image-container py-1">
+                {contrib.image && (
+                  <img src={contrib.image} className="user-review-image" />
+                )}
               </div>
-            </div>
-          </CardContent>
-        </Card>
-      ))}
+              <div className="user-review-text-container d-flex-col py-1">
+                <Typography variant="h5">{contrib.charity.name}</Typography>
+                <Typography variant="body2">
+                  Donations: ${contrib.in_dollars}
+                  <br></br>
+                  Volunteer hours: {contrib.in_hours}
+                  <br></br>
+                  Notes: {contrib.text}
+                </Typography>
+                <div className="deleteeditbuttons d-flex">
+                  <Button
+                    type="button"
+                    className="xbutton"
+                    value={contrib.id}
+                    onClick={handleDelete}
+                  >
+                    <AiFillDelete className="icondel" />
+                  </Button>
+                  <Button
+                    type="button"
+                    className="xbutton"
+                    value={contrib.id}
+                    onClick={() => handleSelection(contrib)}
+                  >
+                    <AiFillEdit className="icondel" />
+                  </Button>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+        ))}
+      </div>
       {/* <p>Total Amount Given: {dollarUS.format(subtotal())}</p> */}
       <ContributionForm
         show={show}

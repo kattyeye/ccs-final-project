@@ -140,13 +140,17 @@ function LandingPage(props) {
                 <div
                   className="circle text-white rounded-circle d-flex align-items-center justify-content-center mx-auto mb-4"
                   style={{
-                    width: "60px",
-                    height: "60px",
+                    width: "100px",
+                    height: "100px",
                     backgroundColor: "#429125",
                   }}
                 >
                   <FaHandHoldingHeart
-                    style={{ width: "100%", fontSize: "35px", color: "black" }}
+                    style={{
+                      width: "100%",
+                      fontSize: "55px",
+                      color: "#EAFFDE",
+                    }}
                   />
                 </div>
                 <div className="px-3 text-center pb-3">
@@ -164,13 +168,17 @@ function LandingPage(props) {
                 <div
                   className="circle text-white rounded-circle d-flex align-items-center justify-content-center mx-auto mb-4"
                   style={{
-                    width: "60px",
-                    height: "60px",
+                    width: "100px",
+                    height: "100px",
                     backgroundColor: "#429125",
                   }}
                 >
                   <FaHandsHelping
-                    style={{ width: "100%", fontSize: "35px", color: "black" }}
+                    style={{
+                      width: "100%",
+                      fontSize: "55px",
+                      color: "#EAFFDE",
+                    }}
                   />
                 </div>
                 <div className="px-3 text-center pb-3">
@@ -186,13 +194,17 @@ function LandingPage(props) {
                 <div
                   className="circle text-white rounded-circle d-flex align-items-center justify-content-center mx-auto mb-4"
                   style={{
-                    width: "60px",
-                    height: "60px",
+                    width: "100px",
+                    height: "100px",
                     backgroundColor: "#429125",
                   }}
                 >
                   <MdCelebration
-                    style={{ width: "100%", fontSize: "35px", color: "black" }}
+                    style={{
+                      width: "100%",
+                      fontSize: "55px",
+                      color: "#EAFFDE",
+                    }}
                   />
                 </div>
                 <div className="px-3 text-center pb-3">

@@ -64,6 +64,7 @@ function ContributionForm(props) {
             <form>
               <div className="form-data">
                 <CharitySearch select={selectCharity} />
+
                 <input
                   type="text"
                   placeholder="Charity Name"
@@ -89,7 +90,7 @@ function ContributionForm(props) {
                   onChange={handleChange}
                   required
                 />
-                <input
+                <textarea
                   type="text"
                   placeholder="Description"
                   name="text"

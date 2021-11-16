@@ -84,9 +84,9 @@ function UserReviewForm(props) {
           </Modal.Header>
           <Modal.Body>
             <form>
-              <CharitySearch select={selectCharity} />
-
               <div className="form-data">
+                <CharitySearch select={selectCharity} />
+
                 <input
                   type="text"
                   placeholder="Charity Name"
@@ -94,7 +94,7 @@ function UserReviewForm(props) {
                   value={review.charity?.name ?? ""}
                   onChange={handleChange}
                 />
-                <input
+                <textarea
                   type="text"
                   placeholder="Review"
                   name="review_text"

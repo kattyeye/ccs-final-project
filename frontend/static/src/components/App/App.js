@@ -76,20 +76,20 @@ function App(props) {
           <LoginForm isAuth={isAuth} user={user} setUser={setUser} />
         </Route>
         <Route isAuth={isAuth} path="/dashboard">
-          <div className="organizationspagebg">
+          <div className="contribspagebg">
             <ContributionsPageTitle user={user} isAuth={isAuth} />
             {/* <CustomizedTabs /> */}
             <div className="d-flex justify-content-center ">
               <button
                 type="button"
-                className="dashtab mx-5"
+                className="btn dashtab mx-5"
                 onClick={() => setDashSelection("contributions")}
               >
                 Contributions
               </button>
               <button
                 type="button"
-                className="dashtab mx-5"
+                className="btn dashtab mx-5"
                 onClick={() => setDashSelection("reviews")}
               >
                 Reviews
@@ -101,11 +101,13 @@ function App(props) {
           </div>
         </Route>
         <Route path="/organizations-and-reviews">
-          <div className="organizationspagebg">
+          <div className="">
             <OrgPageTitle />
             <OrganizationList />
-            <ReviewList />
-            {isAuth && <UserReviews isAuth={isAuth} />}
+          </div>
+          <ReviewList />
+          <div className="organizationspagebg">
+            {isAuth && <UserReviews isAuth={isAuth} />}{" "}
           </div>
         </Route>
 

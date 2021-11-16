@@ -35,18 +35,26 @@ function OrganizationList(props) {
   }, []);
 
   const topics = {
-    42: "Homelessness",
-    44: "Homelessness",
-    29: "Homelessness",
-    12: "Bad Health",
+    42: "Poverty",
+    12: "Poverty",
     2: "Animal Abuse",
+    44: "Homelessness",
     17: "Child Neglect",
+    29: "Homelessness",
   };
 
   return (
     <>
-      <div className="container-fluid  mt-5 p-5">
-        <div className="text-center   mb-5">
+      <div
+        className="container-fluid organizationspagebg"
+        style={{
+          paddingBottom: "400px",
+          paddingTop: "50px",
+          paddingLeft: "60px",
+          paddingRight: "60px",
+        }}
+      >
+        <div className="text-center mb-5">
           <span className=" text-uppercase" style={{ color: "#429125" }}>
             Organizations
           </span>
@@ -58,7 +66,7 @@ function OrganizationList(props) {
           {charities?.map((charity) => (
             <div className="d-flex-col">
               <Card key={charity.ein} className="charitycard d-flex">
-                <CardContent className="d-flex">
+                <CardContent className="d-flex w-25 justify-content-center">
                   <div className="circlehate">
                     <img src={logo} />
                     <span>{topics[charity.cause.causeID]}</span>
@@ -75,31 +83,24 @@ function OrganizationList(props) {
                     Current Rating: {charity.currentRating.score}
                   </Typography>
                 </CardContent>
-                {/* <CardActions
-                style={{ paddingLeft: "100px", paddingBottom: "20px" }}
-              >
-                <a href={charity.websiteURL} target="_blank" className="btn">
-                  Learn More
-                </a>
-              </CardActions> */}
               </Card>
             </div>
           ))}
         </div>
-        <div
-          className="d-flex justify-content-center mt-5 py-5"
-          style={{ height: "500px" }}
-        >
-          <iframe
-            width="60%"
-            height="100%"
-            src="https://www.youtube.com/embed/WetuL6Jo0gM"
-            title="YouTube video Miracle Hill Ministries promo"
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen
-          ></iframe>
-        </div>
+      </div>
+      <div
+        className="d-flex justify-content-center "
+        style={{ marginTop: "-250px", paddingBottom: "50px" }}
+      >
+        <iframe
+          width="60%"
+          height="500px"
+          src="https://www.youtube.com/embed/WetuL6Jo0gM"
+          title="YouTube video Miracle Hill Ministries promo"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+        ></iframe>
       </div>
     </>
   );

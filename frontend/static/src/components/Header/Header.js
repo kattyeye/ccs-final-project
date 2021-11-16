@@ -2,11 +2,11 @@ import { NavLink, withRouter } from "react-router-dom";
 import Navbar from "react-bootstrap/Navbar";
 import { Container, Nav, NavDropdown } from "react-bootstrap";
 import logo from "../App/pics/logo.png";
-import { FaSignInAlt } from "react-icons/fa";
+import { FaSignInAlt, FaSignOutAlt } from "react-icons/fa";
 
 function Header(props) {
   return (
-    <nav className="container-fluid px-5">
+    <nav className="container-fluid px-5 ">
       <Navbar.Brand>
         <li>
           <NavLink className="navbar-brand " to="/">
@@ -65,7 +65,7 @@ function Header(props) {
                       type="button"
                       onClick={() => props.handleLogoutSubmit()}
                     >
-                      Logout
+                      <FaSignOutAlt style={{ paddingRight: "3px" }} /> Logout
                     </button>
                   </li>
                 </div>
