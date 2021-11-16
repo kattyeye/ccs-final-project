@@ -65,7 +65,7 @@ function OrganizationList(props) {
         <div className="charitycolumns">
           {charities?.map((charity) => (
             <div className="d-flex-col">
-              <Card key={charity.ein} className="charitycard d-flex">
+              <Card key={charity.id} className="charitycard d-flex">
                 <CardContent className="d-flex w-25 justify-content-center">
                   <div className="circlehate">
                     <img src={logo} />
@@ -97,9 +97,9 @@ function OrganizationList(props) {
           height="500px"
           src="https://www.youtube.com/embed/WetuL6Jo0gM"
           title="YouTube video Miracle Hill Ministries promo"
-          frameborder="0"
+          frameBorder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowfullscreen
+          allowFullScreen
         ></iframe>
       </div>
     </>

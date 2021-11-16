@@ -15,11 +15,6 @@ class ContributionListAPIView(generics.ListCreateAPIView):
         if not self.request.user.is_anonymous:
             return Contribution.objects.filter(user=self.request.user)
 
-    # def total_contribution(self):
-    #     total = Contribution.objects.aggregate(
-    #         TOTAL=Sum('in_hours'))['TOTAL']
-    #     return total
-
     def perform_create(self, serializer):
         serializer.save(user=self.request.user,)
 
@@ -70,7 +65,16 @@ class ContributionDetailAPIView(generics.RetrieveUpdateDestroyAPIView):
 class ReviewDetailAPIView(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = ReviewSerializer
     queryset = Review.objects.all()
-    permission_classes = (IsOwner, )
+    permission_classes = (IsOwner | IsAdminUser,)
+
+    def perform_create(self, serializer):
+        serializer.save(user=self.request.user)
+
+
+class ReviewAdminAPIView(generics.ListAPIView):
+    serializer_class = ReviewSerializer
+    queryset = Review.objects.all()
+    permission_classes = (IsAdminUser,)
 
     def perform_create(self, serializer):
         serializer.save(user=self.request.user)
