@@ -1,6 +1,12 @@
 import "./App.css";
-import { useState, useEffect } from "react";
-import { Route, Switch, useHistory, useLocation } from "react-router-dom";
+import { useState, useEffect, useAuthDataContext } from "react";
+import {
+  Route,
+  Switch,
+  useHistory,
+  useLocation,
+  Redirect,
+} from "react-router-dom";
 import RegistrationForm from "../Registration/RegistrationForm";
 import LoginForm from "../Login/LoginForm";
 import LandingPage from "../LandingPage/LandingPage";
@@ -60,6 +66,13 @@ function App(props) {
     }
   }
 
+  const PrivateRoute = ({ component, ...options }) => {
+    const { user } = useAuthDataContext();
+    const finalComponent = user ? component : <LandingPage />;
+
+    return <Route {...options} component={finalComponent} />;
+  };
+
   const [dashSelection, setDashSelection] = useState("contributions");
   let html;
 
@@ -75,31 +88,34 @@ function App(props) {
         <Route path="/login">
           <LoginForm isAuth={isAuth} user={user} setUser={setUser} />
         </Route>
-        <Route isAuth={isAuth} path="/dashboard">
-          <div className="contribspagebg">
-            <ContributionsPageTitle user={user} isAuth={isAuth} />
-            {/* <CustomizedTabs /> */}
-            <div className="d-flex justify-content-center ">
-              <button
-                type="button"
-                className="btn dashtab mx-5"
-                onClick={() => setDashSelection("contributions")}
-              >
-                Contributions
-              </button>
-              <button
-                type="button"
-                className="btn dashtab mx-5"
-                onClick={() => setDashSelection("reviews")}
-              >
-                Reviews
-              </button>
+        {isAuth && (
+          <Route isAuth={isAuth} path="/dashboard">
+            <div className="contribspagebg">
+              <ContributionsPageTitle user={user} isAuth={isAuth} />
+              {/* <CustomizedTabs /> */}
+              <div className="d-flex justify-content-center ">
+                <button
+                  type="button"
+                  className="btn dashtab mx-5"
+                  onClick={() => setDashSelection("contributions")}
+                >
+                  Contributions
+                </button>
+                <button
+                  type="button"
+                  className="btn dashtab mx-5"
+                  onClick={() => setDashSelection("reviews")}
+                >
+                  Reviews
+                </button>
+              </div>
+              {dashSelection == "contributions"
+                ? (html = <ContributionList isAuth={isAuth} user={user} />)
+                : (html = <UserReviews isAuth={isAuth} user={user} />)}
             </div>
-            {dashSelection == "contributions"
-              ? (html = <ContributionList isAuth={isAuth} user={user} />)
-              : (html = <UserReviews isAuth={isAuth} user={user} />)}
-          </div>
-        </Route>
+          </Route>
+        )}
+
         <Route path="/organizations-and-reviews">
           <OrgPageTitle />
           <OrganizationList />

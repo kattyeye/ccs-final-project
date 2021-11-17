@@ -16,7 +16,7 @@ export default function VolunteerOpportunities() {
   return (
     <>
       <VolPageTitle />
-      <div className="container-fluid mt-5 mb-5 ">
+      <div className="container-fluid mt-5 mb-5 px-5">
         <div className="volcolumns px-5">
           <Card className="cardvolunteer">
             <CardMedia
@@ -38,8 +38,35 @@ export default function VolunteerOpportunities() {
               </Typography>
               <CardActions>
                 <Button
-                  variant="primary"
                   href="https://miraclehill.org/events/turkey-fry/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Learn More
+                </Button>
+              </CardActions>
+            </CardContent>
+          </Card>
+          <Card className="cardvolunteer">
+            <CardMedia
+              component="img"
+              alt="turkeyfry"
+              height="250"
+              image="https://media.istockphoto.com/photos/happy-little-girl-finish-first-picture-id493704459?b=1&k=20&m=493704459&s=170667a&w=0&h=DZHq6DABu7MeH55zxqxB-C-ZRbcEGXrfoPezrUcD65k="
+              gutterBottom
+            />
+            <CardContent>
+              <Typography gutterBottom variant="h5">
+                Girls on the Run{" "}
+              </Typography>
+              <Typography variant="body2" gutterBottom>
+                This lovely organization is always looking for people to be role
+                models/coaches that help create a positive impact in young
+                girls' lives. Check out their site for more opportunities.
+              </Typography>
+              <CardActions>
+                <Button
+                  href="https://www.gotrupstatesc.org/Volunteer"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -70,8 +97,37 @@ export default function VolunteerOpportunities() {
               </Typography>
               <CardActions>
                 <Button
-                  variant="primary"
                   href="https://loavesandfishesgreenville.com/feed-the-thousands/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Learn More
+                </Button>
+              </CardActions>
+            </CardContent>
+          </Card>
+          <Card className="cardvolunteer">
+            <CardMedia
+              component="img"
+              alt="julie"
+              height="240"
+              image="https://www.julievalentinecenter.org/uploads/6/4/9/5/64956971/4551312.jpg?485"
+            />
+            <CardContent>
+              <Typography gutterBottom variant="h5">
+                Julie Valentine Center{" "}
+              </Typography>
+              <Typography variant="body2" gutterBottom>
+                Julie Valentine Center is a nonprofit organization that provides
+                free, confidential services to sexual assault and child abuse
+                survivors and their families. The Julie Valentine Center is
+                always looking for volunteers + donors, plus help completing
+                their wishlist. You can also purchase a piece of jewelry created
+                by Llyn Strong fine art jewelry to support the center.
+              </Typography>
+              <CardActions>
+                <Button
+                  href="https://www.julievalentinecenter.org/"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -102,7 +158,6 @@ export default function VolunteerOpportunities() {
               </Typography>
               <CardActions>
                 <Button
-                  variant="primary"
                   href="https://rebuildupstate.org/get-involved/volunteer/"
                   target="_blank"
                   rel="noopener noreferrer"
@@ -131,8 +186,34 @@ export default function VolunteerOpportunities() {
               </Typography>
               <CardActions>
                 <Button
-                  variant="primary"
                   href="https://www.friendsofthereedyriver.org/events/64/Reedy%20River%20Planting%20at%20Cleveland%20Park"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Learn More
+                </Button>
+              </CardActions>
+            </CardContent>
+          </Card>
+          <Card className="cardvolunteer">
+            <CardMedia
+              component="img"
+              alt="ph"
+              height="240"
+              image="https://greenvillejournal.com/wp-content/uploads/2019/04/0426-GJ-ProjectHost-4-WilliamCrooks-e1556208252754.jpg"
+            />
+            <CardContent>
+              <Typography gutterBottom variant="h5">
+                Project Host
+              </Typography>
+              <Typography variant="body2" gutterBottom>
+                Project Host's HostMobile food truck, Bakery, and Gardening for
+                Good programs allow our students and the wider Greenville
+                community to focus on paying it forward.
+              </Typography>
+              <CardActions>
+                <Button
+                  href="https://www.projecthost.org/get-involved#volunteer"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -161,7 +242,6 @@ export default function VolunteerOpportunities() {
               </Typography>
               <CardActions>
                 <Button
-                  variant="primary"
                   href="https://www.redcrossblood.org/give.html/find-drive"
                   target="_blank"
                   rel="noopener noreferrer"
@@ -190,7 +270,6 @@ export default function VolunteerOpportunities() {
               </Typography>
               <CardActions>
                 <Button
-                  variant="primary"
                   href="https://www.greenvillehumane.com/volunteer/#opportunities"
                   target="_blank"
                   rel="noopener noreferrer"
@@ -218,7 +297,6 @@ export default function VolunteerOpportunities() {
               </Typography>
               <CardActions>
                 <Button
-                  variant="primary"
                   href="https://www.facebook.com/theshopsatgreenridge/"
                   target="_blank"
                   rel="noopener noreferrer"
@@ -247,8 +325,36 @@ export default function VolunteerOpportunities() {
               </Typography>
               <CardActions>
                 <Button
-                  variant="primary"
                   href="https://www.facebook.com/GVLanimalcare/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Learn More
+                </Button>
+              </CardActions>
+            </CardContent>
+          </Card>
+          <Card className="cardvolunteer">
+            <CardMedia
+              component="img"
+              alt=""
+              height="240"
+              image="https://media.istockphoto.com/photos/africanamerican-woman-in-cafeteria-kitchen-with-mask-picture-id1300419857?b=1&k=20&m=1300419857&s=170667a&w=0&h=WOnJmQQYgBDXd0yD2PWd5WAxSUM-gjM-1j8rLo391ng="
+            />
+            <CardContent>
+              <Typography gutterBottom variant="h5">
+                Salvation Army Food Server
+              </Typography>
+              <Typography variant="body2">
+                Volunteers will help with serving meals in the dining hall to
+                our residents and individuals from the community. Individuals
+                and small groups work best in the situation. Group organizers
+                need to inform us the number of members in their party.
+                Volunteers must be at least 15 years old.
+              </Typography>
+              <CardActions>
+                <Button
+                  href="https://timecounts.org/the-salvation-army/events/36386"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -277,7 +383,6 @@ export default function VolunteerOpportunities() {
               </Typography>
               <CardActions>
                 <Button
-                  variant="primary"
                   href="https://loavesandfishesgreenville.com/volunteer-3/"
                   target="_blank"
                   rel="noopener noreferrer"
@@ -302,7 +407,6 @@ export default function VolunteerOpportunities() {
               </Typography>
               <CardActions>
                 <Button
-                  variant="primary"
                   href="https://www.safeharborsc.org/volunteer"
                   target="_blank"
                   rel="noopener noreferrer"
@@ -330,7 +434,6 @@ export default function VolunteerOpportunities() {
               </Typography>
               <CardActions>
                 <Button
-                  variant="primary"
                   href="http://www.mhagc.org/index.php"
                   target="_blank"
                   rel="noopener noreferrer"
@@ -359,8 +462,65 @@ export default function VolunteerOpportunities() {
               </Typography>
               <CardActions>
                 <Button
-                  variant="primary"
                   href="http://greatergreenvilleparksfoundation.org/Volunteer.aspx"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Learn More
+                </Button>
+              </CardActions>
+            </CardContent>
+          </Card>
+          <Card className="cardvolunteer">
+            <CardMedia
+              component="img"
+              alt="image"
+              height="240"
+              image="https://scontent.fcae1-1.fna.fbcdn.net/v/t39.30808-6/246018011_4968298069860744_7281816667123603270_n.jpg?_nc_cat=103&ccb=1-5&_nc_sid=340051&_nc_ohc=q8YWIZmM2ggAX_DjudS&_nc_ht=scontent.fcae1-1.fna&oh=7a0194c9bac794fdefff521068abbce3&oe=619A6601"
+            />
+            <CardContent>
+              <Typography gutterBottom variant="h5">
+                Sharing the Warmth Drive{" "}
+              </Typography>
+              <Typography variant="body2">
+                Atlantic Institute Greenville office is focusing on raising
+                donations for the items above for Triune Mercy Center. These
+                items above are desperately needed during the upcoming winter
+                months. To help them, we are asking you to consider adding a few
+                of these items to your shopping list when you are out.
+              </Typography>
+              <CardActions>
+                <Button
+                  href="https://www.facebook.com/events/671702933809261"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Learn More
+                </Button>
+              </CardActions>
+            </CardContent>
+          </Card>
+          <Card className="cardvolunteer">
+            <CardMedia
+              component="img"
+              alt="image"
+              height="240"
+              image="https://united-ministries.org/wp-content/uploads/2016/09/logo.png"
+            />
+            <CardContent>
+              <Typography gutterBottom variant="h5">
+                United Ministries: Several Opportunities{" "}
+              </Typography>
+              <Typography variant="body2">
+                United Ministries is currently seeking assistance with: Staffing
+                reception area/answering phones. Sorting, organizing, and
+                collecting nonperishable food items (Food Pantry). Interviewing
+                participants in Emergency Assistance (training provided), etc.
+                They also have volunteer opportunities for youth.
+              </Typography>
+              <CardActions>
+                <Button
+                  href="https://united-ministries.org/how-you-can-help/volunteer/"
                   target="_blank"
                   rel="noopener noreferrer"
                 >

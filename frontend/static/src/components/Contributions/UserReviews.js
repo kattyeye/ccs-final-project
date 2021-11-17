@@ -195,7 +195,7 @@ function UserReviews(props) {
 
   return (
     <div className="p-5">
-      <div className="container-fluid review-list-holder">
+      <div className="container-fluid review-list-holder ">
         <div className="headerwithicon">
           <h3>Add Review</h3>
 
@@ -208,7 +208,7 @@ function UserReviews(props) {
             <AddIcon />
           </Fab>
         </div>
-        <div className="d-md-flex">{reviewsHTML}</div>
+        <div className="d-md-flex ">{reviewsHTML}</div>
         <UserReviewForm
           show={show}
           setShow={setShow}

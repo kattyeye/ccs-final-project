@@ -15,29 +15,8 @@ function ReviewList(props) {
     fetchReviews();
   }, []);
 
-  // async function handleDelete(event) {
-  //   const id = event.currentTarget.value;
-  //   fetch(`api_v1/reviews/${id}/`, {
-  //     method: "DELETE",
-  //     headers: {
-  //       "X-CSRFToken": Cookies.get("csrftoken"),
-  //     },
-  //   }).then((response) => {
-  //     if (!response.ok) {
-  //       throw new Error("Oops, something went wrong!", response.status);
-  //     }
-  //     const updatedReviews = [...reviewList];
-  //     const index = updatedReviews.findIndex((review) => {
-  //       return review.id == id;
-  //     });
-
-  //     updatedReviews.splice(index, 1);
-  //     setReviewList(updatedReviews);
-  //   });
-  // }
-
   return (
-    <div className="container-fluid contrib-list-holder d-flex-col justify-content-center mt-5 py-3">
+    <div className="container-fluid contrib-list-holder d-flex-col justify-content-center mt-5 py-3 px-5">
       <div className="text-center mb-5 d-flex-col">
         <span className=" text-uppercase" style={{ color: "#429125" }}>
           Charity Reviews
@@ -68,7 +47,6 @@ function ReviewList(props) {
               </div>
             </Card>
           ))}
-          {/* {props.isAuth && <UserReviews />} */}
         </div>
       </div>
     </div>

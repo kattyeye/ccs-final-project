@@ -9,7 +9,7 @@ function AboutUs() {
       <section className="container-fluid how-it-started-section">
         <div className="row d-sm-flex align-items-center justify-content-between">
           <div className="col-md-6 order-1 order-sm-1 p-3 p-sm-5">
-            <div className="p-0 p-sm-5 textwithbutton">
+            <div className="p-0 p-sm-5 ">
               <small className="text-uppercase" style={{ color: "#429125" }}>
                 Our Story
               </small>
@@ -42,7 +42,7 @@ function AboutUs() {
         </div>
       </section>
 
-      <div className="py-5 about-how-section container-fluid">
+      <div className="p-5 mb-5 about-how-section container-fluid">
         <div className="text-center mb-5">
           <span>JOIN THE FIGHT</span>
           <h1 className="text-capitalize font-weight-bold">
@@ -122,27 +122,24 @@ function AboutUs() {
             </Card>
           </div>
         </div>
-        <div className="container my-5 text-white calltoaction">
-          <div className="p-5 d-flex flex-column align-items-center justify-content-between">
-            <span className="text-uppercase text-light">
-              Get even more involved
-            </span>
-            <h1 className="mb-4 mt-2 font-weight-bold d-flex-sm text-center">
-              Tell us about your favorite places to do, give, and serve.
-            </h1>
+      </div>
+      <div className="container text-white calltoaction">
+        <div className="p-5 d-flex flex-column align-items-center justify-content-between">
+          <span className="text-uppercase text-light">
+            Get even more involved
+          </span>
+          <h1 className="mb-4 mt-2 font-weight-bold d-flex-sm text-center">
+            Tell us about your favorite places to do, give, and serve.
+          </h1>
 
-            <button
-              type="button"
-              style={{ background: "none", border: "none" }}
+          <button type="button" style={{ background: "none", border: "none" }}>
+            <a
+              href="mailto:katherineingram5@icloud.com"
+              className="btn link-button"
             >
-              <a
-                href="mailto:katherineingram5@icloud.com"
-                className="btn link-button"
-              >
-                Get in touch
-              </a>
-            </button>
-          </div>
+              Get in touch
+            </a>
+          </button>
         </div>
       </div>
     </div>

@@ -9,15 +9,7 @@ function BlogPosts() {
     <>
       <BlogPageTitle />
 
-      <div className="container-fluid blog-page-bg ">
-        {/* <div className="text-center py-5">
-          <span className=" text-uppercase" style={{ color: "#60993d" }}>
-            What's The News?
-          </span>
-          <h1 className="text-capitalize font-weight-bold mt-2">
-            Our Latest <span style={{ color: "#60993d" }}>Blogs</span>
-          </h1>
-        </div> */}
+      <div className="container-fluid blog-page-bg px-5">
         <div className="p-5 d-flex-col ">
           <div className="d-flex-col mb-5">
             <Card className="blogcard">

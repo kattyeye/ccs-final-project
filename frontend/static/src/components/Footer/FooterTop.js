@@ -15,8 +15,7 @@ function FooterTop(props) {
             </div>
             <div className="col-lg-3 col-sm-2 col-xs-3">
               <h3 className="display-6" style={{ fontWeight: "600" }}>
-                {" "}
-                Contact Us{" "}
+                Contact Us
               </h3>
               <ul>
                 <br />

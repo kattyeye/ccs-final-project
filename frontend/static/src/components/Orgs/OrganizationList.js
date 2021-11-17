@@ -46,12 +46,12 @@ function OrganizationList(props) {
   return (
     <>
       <div
-        className="container-fluid organizationspagebg"
+        className="container-fluid organizationspagebg "
         style={{
           paddingBottom: "400px",
           paddingTop: "50px",
-          paddingLeft: "60px",
-          paddingRight: "60px",
+          paddingLeft: "85px",
+          paddingRight: "85px",
         }}
       >
         <div className="text-center mb-5">
@@ -65,12 +65,10 @@ function OrganizationList(props) {
         <div className="charitycolumns">
           {charities?.map((charity) => (
             <div className="d-flex-col">
-              <Card key={charity.id} className="charitycard d-flex">
-                <CardContent className="d-flex w-25 justify-content-center">
-                  <div className="circlehate">
-                    <img src={logo} />
-                    <span>{topics[charity.cause.causeID]}</span>
-                  </div>
+              <Card key={charity.id} className="charitycard d-flex p-2">
+                <CardContent className="d-flex-sm circlehate justify-content-center align-items-center">
+                  <img src={logo} />
+                  <span>{topics[charity.cause.causeID]}</span>
                 </CardContent>
                 <CardContent className="d-flex-col">
                   <Typography variant="h5">
@@ -90,11 +88,11 @@ function OrganizationList(props) {
       </div>
       <div
         className="d-flex justify-content-center "
-        style={{ marginTop: "-250px", paddingBottom: "50px" }}
+        style={{ marginTop: "-300px", paddingBottom: "50px" }}
       >
         <iframe
           width="60%"
-          height="500px"
+          height="550px"
           src="https://www.youtube.com/embed/WetuL6Jo0gM"
           title="YouTube video Miracle Hill Ministries promo"
           frameBorder="0"

@@ -99,7 +99,8 @@ li {
   list-style: none;
 }
 li a:hover,
-li a:focus {
+li a:focus,
+li a:active {
   color: #60993d;
 }
 
@@ -221,7 +222,7 @@ a.login {
 }
 .landingpageimg,
 iframe {
-  box-shadow: rgba(0, 0, 0, 0.452) 10px 10px 40px;
+  box-shadow: rgba(0, 0, 0, 0.652) 10px 10px 40px;
   border: none;
   border-radius: 5px;
 }
@@ -329,6 +330,9 @@ div.blogcard {
   background-size: contain;
   background-position-x: center;
   background-repeat: no-repeat;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 /* registration page */
@@ -369,6 +373,10 @@ div.about-cards {
   margin-bottom: 20px;
   box-shadow: rgba(0, 0, 0, 0.252) 0px 8px 8px;
 }
+div.charitycard:hover,
+div.review-container:hover {
+  box-shadow: rgba(0, 0, 0, 0.552) 0px 8px 8px;
+}
 .charitycard a {
   text-decoration: none;
   color: var(--dark-green);
@@ -377,8 +385,6 @@ div.about-cards {
 div.circlehate {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
   font-weight: 900;
   font-size: 18px;
   font-variant: italic;
@@ -491,6 +497,8 @@ div.usercontribcard {
   box-shadow: rgba(0, 0, 0, 0.852) 0px 10px 40px;
   border: none;
   border-radius: 5px;
+  margin-top: 85px;
+  margin-bottom: 85px;
 }
 
 .about-how-section {
@@ -547,8 +555,18 @@ div.about-cards {
     display: flex;
     flex-direction: column-reverse;
   }
+
+  div.review-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
   .charitycolumns {
     column-count: 1;
+  }
+  .charitycard {
+    display: flex;
+    flex-direction: column;
   }
   .contribandreviewcontainer {
     display: flex;
