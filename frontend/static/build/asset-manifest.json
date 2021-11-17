@@ -1,0 +1,43 @@
+{
+  "files": {
+    "main.css": "/static/css/main.23de60af.chunk.css",
+    "main.js": "/static/js/main.b9789a6d.chunk.js",
+    "main.js.map": "/static/js/main.b9789a6d.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.0bdb8e9d.js",
+    "runtime-main.js.map": "/static/js/runtime-main.0bdb8e9d.js.map",
+    "static/css/2.0a9ec390.chunk.css": "/static/css/2.0a9ec390.chunk.css",
+    "static/js/2.2824ac7a.chunk.js": "/static/js/2.2824ac7a.chunk.js",
+    "static/js/2.2824ac7a.chunk.js.map": "/static/js/2.2824ac7a.chunk.js.map",
+    "static/js/3.12252088.chunk.js": "/static/js/3.12252088.chunk.js",
+    "static/js/3.12252088.chunk.js.map": "/static/js/3.12252088.chunk.js.map",
+    "index.html": "/index.html",
+    "static/css/2.0a9ec390.chunk.css.map": "/static/css/2.0a9ec390.chunk.css.map",
+    "static/css/main.23de60af.chunk.css.map": "/static/css/main.23de60af.chunk.css.map",
+    "static/js/2.2824ac7a.chunk.js.LICENSE.txt": "/static/js/2.2824ac7a.chunk.js.LICENSE.txt",
+    "static/media/86hate_logo-removebg-preview.7d8d2366.png": "/static/media/86hate_logo-removebg-preview.7d8d2366.png",
+    "static/media/bags.30407795.jpg": "/static/media/bags.30407795.jpg",
+    "static/media/bg1.4be32296.jpg": "/static/media/bg1.4be32296.jpg",
+    "static/media/App.css": "/static/media/tomato.cf5b50ec.jpg",
+    "static/media/blooddrive.8b378cfa.jpg": "/static/media/blooddrive.8b378cfa.jpg",
+    "static/media/bully.fd111ee8.jpg": "/static/media/bully.fd111ee8.jpg",
+    "static/media/dog.df757b62.jpg": "/static/media/dog.df757b62.jpg",
+    "static/media/falls.6fd8cc4e.jpg": "/static/media/falls.6fd8cc4e.jpg",
+    "static/media/fooddrive.adf5ef01.jpg": "/static/media/fooddrive.adf5ef01.jpg",
+    "static/media/homerebuild.bcf3533a.jpg": "/static/media/homerebuild.bcf3533a.jpg",
+    "static/media/hungerplate.75d5d26a.jpg": "/static/media/hungerplate.75d5d26a.jpg",
+    "static/media/mentalhealth.6d457c1b.jpg": "/static/media/mentalhealth.6d457c1b.jpg",
+    "static/media/neonsign.514f1715.jpg": "/static/media/neonsign.514f1715.jpg",
+    "static/media/plants.0074bd4c.jpg": "/static/media/plants.0074bd4c.jpg",
+    "static/media/sliderpic1.c0b414fa.jpg": "/static/media/sliderpic1.c0b414fa.jpg",
+    "static/media/turkeyfry.3830a6f2.jpeg": "/static/media/turkeyfry.3830a6f2.jpeg",
+    "static/media/volunteers.04ee5a5f.jpeg": "/static/media/volunteers.04ee5a5f.jpeg",
+    "static/media/women.48259240.jpg": "/static/media/women.48259240.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.0bdb8e9d.js",
+    "static/css/2.0a9ec390.chunk.css",
+    "static/js/2.2824ac7a.chunk.js",
+    "static/css/main.23de60af.chunk.css",
+    "static/js/main.b9789a6d.chunk.js"
+  ]
+}
