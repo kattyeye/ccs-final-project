@@ -329,7 +329,6 @@ div.blogcard {
   background-size: contain;
   background-position-x: center;
   background-repeat: no-repeat;
-  height: 110vh;
 }
 
 /* registration page */
@@ -503,7 +502,8 @@ div.usercontribcard {
 }
 
 div.about-cards {
-  margin-left: 10px;
+  margin-left: 20px;
+  width: 100%;
 }
 
 @media (min-width: 502px) and (max-width: 1050px) {
@@ -565,11 +565,15 @@ div.about-cards {
     padding-top: 60px;
     text-align: center;
   }
+  .textwithbutton {
+    text-align: center;
+  }
+
   .volcolumns {
     column-count: 1;
     column-gap: 10px;
   }
-  div.carousel {
+  div.carousel-inner {
     height: 300px;
     display: flex;
   }

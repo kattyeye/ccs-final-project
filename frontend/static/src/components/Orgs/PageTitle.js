@@ -6,7 +6,7 @@ function OrgPageTitle() {
       <Carousel.Item>
         <img src={bg3} />
         <Carousel.Caption>
-          <h2>Organizations</h2>
+          <h2>Organizations and Reviews</h2>
           <h6>Our favorites.</h6>
         </Carousel.Caption>
       </Carousel.Item>

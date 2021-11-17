@@ -1,4 +1,4 @@
-import { withRouter, NavLink } from "react-router-dom";
+import { withRouter, Link } from "react-router-dom";
 import bg1 from "../App/pics/bg1.jpg";
 import neon from "../App/pics/neonsign.jpg";
 import { FaEnvelope, FaInstagram, FaFacebook, FaTwitter } from "react-icons/fa";
@@ -8,13 +8,13 @@ function AboutUs() {
     <div className="d-flex-md">
       <section className="container-fluid how-it-started-section">
         <div className="row d-sm-flex align-items-center justify-content-between">
-          <div className="col-md-6 order-2 order-sm-1 p-3 p-sm-5">
-            <div className="p-0 p-sm-5">
+          <div className="col-md-6 order-1 order-sm-1 p-3 p-sm-5">
+            <div className="p-0 p-sm-5 textwithbutton">
               <small className="text-uppercase" style={{ color: "#429125" }}>
                 Our Story
               </small>
               <h3 className="mb-4 display-6" style={{ fontWeight: "600" }}>
-                How it all <span style={{ color: "#429125" }}>Started</span>.
+                What <span style={{ color: "#429125" }}> We</span> Do.
               </h3>
               <p className="" style={{ lineHeight: "2" }}>
                 Our mission is providing everyday citizens with ways they can
@@ -34,44 +34,13 @@ function AboutUs() {
             </div>
           </div>
 
-          <div className="col col-md-6 mx-auto order-1 order-sm-2 p-sm-5">
+          <div className="col col-md-6 mx-auto order-2 order-sm-2 p-sm-5">
             <div className="p-5 w-100 ">
               <img src={bg1} className="landingpageimg" />
             </div>
           </div>
         </div>
       </section>
-
-      {
-        /* <div className="container my-5 text-white calltoaction">
-        <div className="p-5 d-flex flex-column align-items-center justify-content-between">
-          <span className="text-uppercase text-light">Sub Headline</span>
-          <h1 className="mb-4 mt-2 font-weight-bold">Your Headline Here</h1>
-          {/* <div className="d-flex socialicons">
-            <li>
-              <a href="mailto:katherineingram5@icloud.com">
-                <FaEnvelope />
-              </a>
-            </li>
-            <li>
-              <a href="https://www.instagram.com/86hate">
-                <FaInstagram />
-              </a>
-            </li>
-            <li>
-              <a href="https://www.facebook.com/86hate/">
-                <FaFacebook />
-              </a>
-            </li>
-            <li>
-              <a href="https://www.twitter.com/86hate/">
-                <FaTwitter />
-              </a>
-            </li>
-          </div> */
-        // </div>
-        // </div>
-      }
 
       <div className="py-5 about-how-section container-fluid">
         <div className="text-center mb-5">
@@ -97,12 +66,11 @@ function AboutUs() {
             </div>
             <Card className="rounded about-cards p-4">
               <h5 className="mb-3" style={{ fontWeight: "600" }}>
-                Your Headline Here!
+                Create an Account.
               </h5>
               <p className=" font-weight-light">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Voluptatem aperiam temporibus sequi reprehenderit, maxime at
-                cupiditate officia ipsam ipsum.
+                Fill in the required fields to join the movement. The first step
+                to 86 Hate.
               </p>
             </Card>
           </div>
@@ -122,12 +90,10 @@ function AboutUs() {
             </div>
             <Card className="rounded about-cards p-4">
               <h5 className="mb-3" style={{ fontWeight: "600" }}>
-                Your Headline Here!
+                Volunteer or Donate.
               </h5>
               <p className=" font-weight-light">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Voluptatem aperiam temporibus sequi reprehenderit, maxime at
-                cupiditate officia ipsam ipsum.
+                Find a cause that's near and dear to your heart. And serve.
               </p>
             </Card>
           </div>
@@ -147,14 +113,35 @@ function AboutUs() {
             </div>
             <Card className="rounded about-cards p-4">
               <h5 className="mb-3" style={{ fontWeight: "600" }}>
-                Your Headline Here!
+                Log your Contributions.
               </h5>
               <p className=" font-weight-light">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Voluptatem aperiam temporibus sequi reprehenderit, maxime at
-                cupiditate officia ipsam ipsum.
+                Visit your dashboard to log your volunteer hours and/or
+                donations.
               </p>
             </Card>
+          </div>
+        </div>
+        <div className="container my-5 text-white calltoaction">
+          <div className="p-5 d-flex flex-column align-items-center justify-content-between">
+            <span className="text-uppercase text-light">
+              Get even more involved
+            </span>
+            <h1 className="mb-4 mt-2 font-weight-bold d-flex-sm text-center">
+              Tell us about your favorite places to do, give, and serve.
+            </h1>
+
+            <button
+              type="button"
+              style={{ background: "none", border: "none" }}
+            >
+              <a
+                href="mailto:katherineingram5@icloud.com"
+                className="btn link-button"
+              >
+                Get in touch
+              </a>
+            </button>
           </div>
         </div>
       </div>

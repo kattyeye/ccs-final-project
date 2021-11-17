@@ -101,10 +101,9 @@ function App(props) {
           </div>
         </Route>
         <Route path="/organizations-and-reviews">
-          <div className="">
-            <OrgPageTitle />
-            <OrganizationList />
-          </div>
+          <OrgPageTitle />
+          <OrganizationList />
+
           <ReviewList />
           <div className="organizationspagebg">
             {isAuth && <UserReviews isAuth={isAuth} />}{" "}

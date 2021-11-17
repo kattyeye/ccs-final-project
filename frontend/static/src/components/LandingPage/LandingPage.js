@@ -9,8 +9,7 @@ import { Card, NavLink } from "react-bootstrap";
 import { withRouter } from "react-router";
 // import { CardContent, CardHeader } from "@mui/material";
 // import { Link } from "react-router-dom";
-import sliderpic from "../App/pics/sliderpic1.jpg";
-import soupkitchen from "../App/pics/soupkitchen.jpg";
+import volunteers from "../App/pics/volunteers.jpeg";
 import { Link } from "react-router-dom";
 function LandingPage(props) {
   return (
@@ -66,7 +65,7 @@ function LandingPage(props) {
       <section className="container-fluid mt-3 ">
         <div className="row d-sm-flex align-items-center justify-content-between">
           <div className="col-md-6 order-2 order-sm-1 p-3 p-sm-5">
-            <div className="p-0 p-sm-5">
+            <div className="p-0 p-sm-5 textwithbutton">
               <h3 className="mb-4 display-6" style={{ fontWeight: "600" }}>
                 The <span style={{ color: "#429125" }}>86 Hate</span> Big
                 Picture.
@@ -89,7 +88,7 @@ function LandingPage(props) {
 
           <div className="col col-md-6 mx-auto order-1 order-sm-2 p-sm-5">
             <div className="p-5 w-100">
-              <img src={sliderpic} className="landingpageimg" />
+              <img src={volunteers} className="landingpageimg" />
             </div>
           </div>
         </div>
@@ -149,7 +148,7 @@ function LandingPage(props) {
                     style={{
                       width: "100%",
                       fontSize: "55px",
-                      color: "#EAFFDE",
+                      color: "#fff",
                     }}
                   />
                 </div>
@@ -177,7 +176,7 @@ function LandingPage(props) {
                     style={{
                       width: "100%",
                       fontSize: "55px",
-                      color: "#EAFFDE",
+                      color: "#fff",
                     }}
                   />
                 </div>
@@ -203,7 +202,7 @@ function LandingPage(props) {
                     style={{
                       width: "100%",
                       fontSize: "55px",
-                      color: "#EAFFDE",
+                      color: "#fff",
                     }}
                   />
                 </div>
