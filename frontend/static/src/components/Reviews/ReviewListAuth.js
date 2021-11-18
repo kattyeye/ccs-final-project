@@ -19,7 +19,6 @@ function ReviewListAuth(props) {
     async function fetchReviews() {
       const response = await fetch(url);
       const data = await response.json();
-      console.log("reviews", data);
       setReviewList(data);
     }
     fetchReviews();

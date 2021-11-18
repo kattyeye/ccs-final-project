@@ -40,9 +40,6 @@ function UserReviews(props) {
   }, []);
 
   async function handleAdd(review) {
-    // console.log("firing");
-    // e.preventDefault();
-
     const formData = new FormData();
     formData.append("charity", JSON.stringify(review.charity));
     formData.append("ein", review.ein);
@@ -51,14 +48,6 @@ function UserReviews(props) {
     if (review.image) {
       formData.append("image", review.image);
     }
-
-    // console.log("charity", charity);
-
-    // const data = {
-    //   charity: review.charity,
-    //   ein: review.ein,
-    //   review_text: review.review_text,
-    // };
 
     const options = {
       method: "POST",

@@ -22,7 +22,6 @@ function UserReviewForm(props) {
 
   function handleChange(e) {
     const { name, value } = e.target;
-    console.log(name, value);
     setReview((prevState) => ({
       ...prevState,
       [name]: value,
@@ -44,7 +43,6 @@ function UserReviewForm(props) {
   };
 
   function selectCharity(charity) {
-    console.log("firing two");
     setReview((prev) => ({
       ...prev,
       ein: charity.ein,

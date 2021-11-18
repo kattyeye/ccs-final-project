@@ -23,7 +23,6 @@ function ReviewForm(props) {
         `${BASE_URL}/Organizations?app_id=${APP_ID}&app_key=${APP_KEY}&search=${review.charity}&rated=true`
       );
       const data = await response.json();
-      console.log("data", data);
       setCharities(data.slice(0, 5));
     };
     searchCharities();
@@ -47,9 +46,7 @@ function ReviewForm(props) {
     };
     const response = await fetch("/api_v1/reviews/", options);
     if (!response) {
-      console.log(response);
     } else {
-      console.log(response);
       const data = await response.json();
       setReview(data);
 
@@ -59,7 +56,6 @@ function ReviewForm(props) {
 
   function handleChange(e) {
     const { name, value } = e.target;
-    console.log(name, value);
     setReview((prevState) => ({
       ...prevState,
       [name]: value,
@@ -67,7 +63,6 @@ function ReviewForm(props) {
   }
 
   function selectCharity(charity) {
-    console.log({ name: charity.charityName, ein: charity.ein });
     setReview({
       ein: charity.ein,
       charity: charity.charityName,

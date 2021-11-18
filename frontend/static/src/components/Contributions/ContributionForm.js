@@ -36,7 +36,6 @@ function ContributionForm(props) {
   };
 
   function selectCharity(charity) {
-    console.log("firing two");
     setContrib((prev) => ({
       ...prev,
       ein: charity.ein,

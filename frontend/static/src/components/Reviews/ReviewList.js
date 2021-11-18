@@ -9,7 +9,6 @@ function ReviewList(props) {
     async function fetchReviews() {
       const response = await fetch(`/api_v1/public/reviews/`);
       const data = await response.json();
-      console.log("reviews", data);
       setReviewList(data);
     }
     fetchReviews();

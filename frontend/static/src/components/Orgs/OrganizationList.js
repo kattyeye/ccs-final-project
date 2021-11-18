@@ -28,7 +28,7 @@ function OrganizationList(props) {
         `${BASE_URL}/Organizations?app_id=${APP_ID}&app_key=${APP_KEY}&search=&rated=true&minRating=4&rated=true&state=SC&city=Greenville`
       );
       const data = await response.json();
-      console.log("charities", data);
+
       setCharities(data);
     }
     fetchCharities();

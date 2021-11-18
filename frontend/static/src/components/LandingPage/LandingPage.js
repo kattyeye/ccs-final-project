@@ -46,7 +46,7 @@ function LandingPage(props) {
               <div className="p-5" style={{ display: "flex" }}>
                 {!props.isAuth ? (
                   <div className="loginformcontainer">
-                    <LoginForm />{" "}
+                    <LoginForm isAuth={props.isAuth} setUser={props.setUser} />{" "}
                   </div>
                 ) : (
                   <img

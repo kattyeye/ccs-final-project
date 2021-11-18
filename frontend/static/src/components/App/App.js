@@ -23,6 +23,8 @@ import FooterTop from "../Footer/FooterTop";
 import VolunteerOpportunities from "../Volunteer/VolunteerOpps";
 import BlogPosts from "../Blog/BlogPosts";
 import AboutUs from "../AboutUs/AboutUs";
+import PrivateRoute from "../PrivateRoute/PrivateRoute";
+import NotFound from "../NotFoundPage/NotFound";
 
 // import CustomizedTabs from "../Tabs/Tabs"
 // import PrivateRoute from "../privateroute/PrivateRoute";
@@ -66,13 +68,6 @@ function App(props) {
     }
   }
 
-  const PrivateRoute = ({ component, ...options }) => {
-    const { user } = useAuthDataContext();
-    const finalComponent = user ? component : <LandingPage />;
-
-    return <Route {...options} component={finalComponent} />;
-  };
-
   const [dashSelection, setDashSelection] = useState("contributions");
   let html;
 
@@ -83,38 +78,37 @@ function App(props) {
       <Header isAuth={isAuth} handleLogoutSubmit={handleLogoutSubmit} />
       <Switch>
         <Route path="/registration">
-          <RegistrationForm />
+          <RegistrationForm isAuth={isAuth} />
         </Route>
-        <Route path="/login">
+        <PrivateRoute path="/login">
           <LoginForm isAuth={isAuth} user={user} setUser={setUser} />
-        </Route>
-        {isAuth && (
-          <Route isAuth={isAuth} path="/dashboard">
-            <div className="contribspagebg">
-              <ContributionsPageTitle user={user} isAuth={isAuth} />
-              {/* <CustomizedTabs /> */}
-              <div className="d-flex justify-content-center ">
-                <button
-                  type="button"
-                  className="btn dashtab mx-5"
-                  onClick={() => setDashSelection("contributions")}
-                >
-                  Contributions
-                </button>
-                <button
-                  type="button"
-                  className="btn dashtab mx-5"
-                  onClick={() => setDashSelection("reviews")}
-                >
-                  Reviews
-                </button>
-              </div>
-              {dashSelection == "contributions"
-                ? (html = <ContributionList isAuth={isAuth} user={user} />)
-                : (html = <UserReviews isAuth={isAuth} user={user} />)}
+        </PrivateRoute>
+
+        <PrivateRoute isAuth={isAuth} path="/dashboard">
+          <div className="contribspagebg">
+            <ContributionsPageTitle user={user} isAuth={isAuth} />
+            {/* <CustomizedTabs /> */}
+            <div className="d-flex justify-content-center ">
+              <button
+                type="button"
+                className="btn dashtab mx-5"
+                onClick={() => setDashSelection("contributions")}
+              >
+                Contributions
+              </button>
+              <button
+                type="button"
+                className="btn dashtab mx-5"
+                onClick={() => setDashSelection("reviews")}
+              >
+                Reviews
+              </button>
             </div>
-          </Route>
-        )}
+            {dashSelection == "contributions"
+              ? (html = <ContributionList isAuth={isAuth} user={user} />)
+              : (html = <UserReviews isAuth={isAuth} user={user} />)}
+          </div>
+        </PrivateRoute>
 
         <Route path="/organizations-and-reviews">
           <OrgPageTitle />
@@ -136,8 +130,11 @@ function App(props) {
         <Route path="/blog">
           <BlogPosts />
         </Route>
-        <Route path="/">
-          <LandingPage isAuth={isAuth} />
+        <Route exact path="/">
+          <LandingPage isAuth={isAuth} setUser={setUser} />
+        </Route>
+        <Route path="*">
+          <NotFound />
         </Route>
       </Switch>
       <FooterTop />

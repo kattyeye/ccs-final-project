@@ -52,6 +52,11 @@ function RegistrationForm(props) {
       }
     }
   }
+
+  if (props.isAuth) {
+    return <Redirect to="/" />;
+  }
+
   return (
     <div className="registrationbg">
       <div>

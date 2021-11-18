@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { withRouter, Redirect } from "react-router-dom";
 import Cookies from "js-cookie";
+import { useEffect } from "react";
 function LoginForm(props) {
   const [user, setUser] = useState({
     username: "",
@@ -39,11 +40,11 @@ function LoginForm(props) {
     } else {
       const data = await response.json();
       Cookies.set("Authorization", `Token${data.key}`);
-      setUser((prevState) => ({
+      props.setUser((prevState) => ({
         ...prevState,
         isAuth: true,
       }));
-      props.history.push("/dashboard");
+      setTimeout(() => props.history.push("/dashboard"), 0);
     }
   }
 

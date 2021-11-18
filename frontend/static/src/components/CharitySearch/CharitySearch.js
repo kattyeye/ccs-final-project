@@ -24,7 +24,6 @@ function CharitySearch(props) {
         alert("No organizations match your input.");
       } else {
         const data = await response.json();
-        console.log("data", data);
         setCharities(data.slice(0, 5));
       }
     };

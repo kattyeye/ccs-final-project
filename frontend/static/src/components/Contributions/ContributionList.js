@@ -26,15 +26,12 @@ function ContributionList(props) {
     async function fetchContribs() {
       const response = await fetch(`/api_v1/contributions/`);
       const data = await response.json();
-      console.log("contribs", data);
       setContribList(data);
     }
     fetchContribs();
   }, []);
 
   async function handleAdd(contrib) {
-    console.log("firing");
-
     const formData = new FormData();
     formData.append("charity", JSON.stringify(contrib.charity));
     formData.append("ein", contrib.ein);
@@ -67,7 +64,6 @@ function ContributionList(props) {
   async function handleDelete(event) {
     event.preventDefault();
     const id = event.currentTarget.value;
-    // console.log({ id });
     fetch(`api_v1/contributions/${id}/`, {
       method: "DELETE",
       headers: {
@@ -117,7 +113,6 @@ function ContributionList(props) {
       const index = updatedContribs.findIndex((contrib) => contrib.id == id);
       updatedContribs[index] = data;
       setContribList(updatedContribs);
-      console.log(contribList);
       setSelectedContrib(defaultContrib);
       setShow(false);
     }
