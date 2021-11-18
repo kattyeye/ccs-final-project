@@ -25,9 +25,7 @@ import BlogPosts from "../Blog/BlogPosts";
 import AboutUs from "../AboutUs/AboutUs";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
 import NotFound from "../NotFoundPage/NotFound";
-
-// import CustomizedTabs from "../Tabs/Tabs"
-// import PrivateRoute from "../privateroute/PrivateRoute";
+import { Spinner } from "react-bootstrap";
 
 function App(props) {
   const [user, setUser] = useState(null);
@@ -73,6 +71,12 @@ function App(props) {
 
   const isAuth = user?.isAuth;
   // const isAdmin = user?.isAdmin;
+
+  if (!user) {
+    <Spinner animation="border" role="status">
+      <span className="visually-hidden">Loading...</span>
+    </Spinner>;
+  }
   return (
     <>
       <Header isAuth={isAuth} handleLogoutSubmit={handleLogoutSubmit} />

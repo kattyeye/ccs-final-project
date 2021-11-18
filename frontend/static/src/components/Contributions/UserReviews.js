@@ -136,7 +136,7 @@ function UserReviews(props) {
     <Card
       key={review.id}
       sx={{ minWidth: 275 }}
-      className="mb-5 d-flex mx-2 userreviewcontainercard"
+      className=" mb-3 d-flex mx-2 userreviewcontainercard"
     >
       <CardContent className="d-flex-col col-sm-12 p-3">
         <div className="user-review-image-container d-flex-col py-1">
@@ -183,7 +183,7 @@ function UserReviews(props) {
   ));
 
   return (
-    <div className="p-5">
+    <div className="p-5 d-flex">
       <div className="container-fluid review-list-holder ">
         <div className="headerwithicon">
           <h3>Add Review</h3>
@@ -197,7 +197,7 @@ function UserReviews(props) {
             <AddIcon />
           </Fab>
         </div>
-        <div className="d-md-flex ">{reviewsHTML}</div>
+        <div className="contribcontainer">{reviewsHTML}</div>
         <UserReviewForm
           show={show}
           setShow={setShow}

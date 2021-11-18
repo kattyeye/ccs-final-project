@@ -44,7 +44,7 @@ function LoginForm(props) {
         ...prevState,
         isAuth: true,
       }));
-      setTimeout(() => props.history.push("/dashboard"), 0);
+      setTimeout(() => props.history.push("/dashboard"), 1000);
     }
   }
 

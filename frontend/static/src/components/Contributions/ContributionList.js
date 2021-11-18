@@ -143,12 +143,12 @@ function ContributionList(props) {
           <AddIcon />
         </Fab>
       </div>
-      <div className="d-md-flex">
+      <div className="d-flex flex-wrap flex-wrap-sm ">
         {contribList?.map((contrib) => (
           <Card
             key={contrib.ein}
             sx={{ minWidth: 275 }}
-            className="mb-5 d-flex mx-2 usercontribcard "
+            className="mb-3 d-flex mx-2 usercontribcard "
           >
             {/* {contrib.in_hours.total} */}
             <CardContent>

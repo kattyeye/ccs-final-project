@@ -340,6 +340,10 @@ div.blogcard {
   flex-direction: column;
 }
 
+.contribcontainer {
+  display: flex;
+  flex-wrap: wrap;
+}
 /* registration page */
 .registrationbg {
   background: linear-gradient(
@@ -438,12 +442,6 @@ div.usercontribcard {
 }
 .cardvolunteer img {
   margin-bottom: 10px;
-}
-
-.review-list-holder section {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
 }
 
 .about-us-header-image {
@@ -660,8 +658,12 @@ div.about-cards {
   .links-nav {
     display: flex;
     flex-direction: column;
+    text-align: left;
+    margin-left: -10px;
   }
   nav.container-fluid.navbar.navbar-expand-lg.navbar-light {
     justify-content: flex-end;
+    padding-left: 0px !important;
+    padding-right: 0px !important;
   }
 }
