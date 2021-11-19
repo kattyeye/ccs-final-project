@@ -448,7 +448,7 @@ export default function VolunteerOpportunities() {
               component="img"
               alt="ggpf"
               height="240"
-              image="http://greatergreenvilleparksfoundation.org/img/funny%20park%20heroes%20crop.jpg"
+              image="https://media.istockphoto.com/photos/volunteers-cleaning-park-picture-id986900214?b=1&k=20&m=986900214&s=170667a&w=0&h=0D7pdC4eKVf4G4O_WmOidWP-CIJOeXHO_D0bpfqv0FQ="
             />
             <CardContent>
               <Typography gutterBottom variant="h5">
